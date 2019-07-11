@@ -1,11 +1,5 @@
 import React, { ReactElement } from 'react';
 
-const App = (): ReactElement => {
-  return (
-    <div className="app">
-      123
-    </div>
-  );
-}
+const App = (): ReactElement => <div className="app">123</div>;
 
 export default App;
