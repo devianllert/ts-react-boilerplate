@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from '../Home';
-import NotFound from '../NotFound';
+import NotFound from '../NotFound/Loadable';
 
 const App = (): ReactElement => (
   <div className="app">
