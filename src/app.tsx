@@ -8,6 +8,8 @@ import App from './containers/App';
 
 import * as serviceWorker from './serviceWorker';
 
+import './design/global.scss';
+
 ReactDOM.render(
   <BrowserRouter history={history}>
     <App />
