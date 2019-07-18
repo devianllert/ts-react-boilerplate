@@ -1,7 +1,17 @@
 {
   "name": "ts-react-boilerplate",
   "version": "0.0.0",
-  "private": true,
+  "description": "Boilerplate for React projects with TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devianllert/ts-react-boilerplate.git"
+  },
+  "author": "Ruslan Povolockii <devianllert@gmail.com>",
+  "homepage": "https://github.com/devianllert/ts-react-boilerplate",
+  "bugs": {
+    "url": "https://github.com/devianllert/ts-react-boilerplate/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
