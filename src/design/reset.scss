@@ -1,6 +1,8 @@
 /* Document
 * ========================================================================== */
 
+$font-family-monospace: monospace, monospace;
+
 /**
 * Add border box sizing in all browsers (opinionated).
 */
@@ -124,7 +126,7 @@ nav ul {
 */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
+  font-family: $font-family-monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -165,7 +167,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
+  font-family: $font-family-monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 

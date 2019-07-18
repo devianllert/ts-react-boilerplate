@@ -6,8 +6,12 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lint": "eslint --ext .tsx,.ts .",
-    "lint:fix": "eslint --fix --ext .tsx,.ts ."
+    "lint": "npm run lint:eslint && npm run lint:css",
+    "lint:fix": "npm run lint:eslint:fix && npm run lint:css:fix",
+    "lint:eslint": "eslint --ext .tsx,.ts .",
+    "lint:eslint:fix": "eslint --fix --ext .tsx,.ts .",
+    "lint:css": "stylelint --fix **/*.scss",
+    "lint:css:fix": "stylelint **/*.scss"
   },
   "dependencies": {
     "dotenv": "6.2.0",
@@ -79,6 +83,9 @@
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
     "style-loader": "0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended-scss": "^3.3.0",
+    "stylelint-scss": "^3.9.2",
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
     "typescript": "3.5.3",
@@ -96,7 +103,11 @@
   },
   "lint-staged": {
     "*.(ts|tsx)": [
-      "npm run lint:fix",
+      "npm run lint:eslint:fix",
+      "git add ."
+    ],
+    "*.scss": [
+      "npm run lint:css:fix",
       "git add ."
     ]
   },
