@@ -1,34 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Typescript Boilerplate
 
-## Available Scripts
+![React](https://cdn-images-1.medium.com/max/2000/1*wHF1g-nla64YMTAkCGc0Mg.jpeg "React")
 
-In the project directory, you can run:
+[![dependencies Status](https://david-dm.org/devianllert/ts-react-boilerplate/status.svg)](https://david-dm.org/devianllert/ts-react-boilerplate) [![devDependencies Status](https://david-dm.org/devianllert/ts-react-boilerplate/dev-status.svg)](https://david-dm.org/devianllert/ts-react-boilerplate?type=dev) [![issue Status](https://img.shields.io/github/issues/devianllert/ts-react-boilerplate.svg)](https://github.com/devianllert/ts-react-boilerplate/issues) [![stars Status](https://img.shields.io/github/stars/devianllert/ts-react-boilerplate.svg)](https://github.com/devianllert/ts-react-boilerplate/stargazers)
 
-### `npm start`
+## Quick start
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone this repo using ```git clone https://github.com/devianllert/ts-react-boilerplate.git```
+2. Move to the appropriate directory: ```cd ts-react-boilerplate```.
+3. Run ```npm install``` to install dependencies.
+4. Run npm start to see the example app at ```http://localhost:3000```.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Documentation
 
-### `npm test`
+### CLI Commands
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Development
 
-### `npm run build`
+```bash
+npm run start
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Starts the development server running on ```http://localhost:3000```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Building
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build
+```
 
-## Learn More
+Preps your app for deployment (does not run tests). Optimizes and minifies all files, piping them to the dist folder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can upload the contents of dist to your web server to see your work live.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Testing
+
+```bash
+npm run test
+```
+
+Tests your application in watch mode with the unit tests specified in the ```**/__tests__/**/*.{js,jsx,ts,tsx}``` or ```**/*.{spec,test}.{js,jsx,ts,tsx}``` files throughout the application.
+
+#### Linting
+
+```bash
+npm run lint
+```
+
+Lints your JavaScript and your CSS.
+
+```bash
+npm run lint:fix
+```
+
+Lints your code and tries to fix any errors it finds.
+
+# Reference resources
+
+- [Angular](https://github.com/angular/angular)
+- [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+- [Vuesion](https://github.com/vuesion/vuesion)
+
+## License
+
+This project is licensed under the MIT license, Copyright (c) 2019 Ruslan Povolockii.
+For more information see `LICENSE.md`.
