@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import Home from '../Home';
-import Counter from '../Counter';
+import Counter from '../Counter/Loadable';
 import NotFound from '../NotFound/Loadable';
 
 const App = (): ReactElement => (

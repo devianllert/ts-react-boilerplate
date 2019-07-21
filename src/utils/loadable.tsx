@@ -5,9 +5,9 @@ import React, {
   ComponentType,
 } from 'react';
 
-export type importComponent = Promise<{ default: ComponentType }>;
+export type ImportComponent = Promise<{ default: any }>;
 
-const loadable = (importFunc: () => importComponent, { fallback = null }): ComponentType => {
+const loadable = (importFunc: () => ImportComponent, { fallback = null }): ComponentType => {
   const LazyComponent: ComponentType = lazy(importFunc);
 
   return (props: object): ReactElement => (

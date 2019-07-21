@@ -1,6 +1,6 @@
-import loadable, { importComponent } from '../../utils/loadable';
+import loadable, { ImportComponent } from '../../utils/loadable';
 
-const LoadableNotFound = loadable((): importComponent => import(/* webpackChunkName: "notFound" */ './NotFound'), {
+const LoadableNotFound = loadable((): ImportComponent => import(/* webpackChunkName: "notFound" */ './NotFound'), {
   fallback: null,
 });
 
