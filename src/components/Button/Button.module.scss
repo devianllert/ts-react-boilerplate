@@ -1,0 +1,44 @@
+@import '../../design/variables';
+
+.button {
+  position: relative;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+
+  margin: 0;
+  padding: 0 8px;
+
+  vertical-align: middle;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  border: 0;
+  border-radius: 4px;
+
+  color: $text-light;
+  background-color: $primary;
+
+  text-decoration: none;
+  
+  -webkit-tap-highlight-color: transparent;
+
+  outline: 0;
+  appearance: none;
+  user-select: none;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+}
+
+.disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
