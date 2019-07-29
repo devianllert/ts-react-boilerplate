@@ -13,6 +13,44 @@
 
 ## Documentation
 
+### Folder Structure
+
+```
+├── config                    // webpack config
+├── scripts                   // npm scripts
+├── public                    // static files
+│   ├── index.html            // template, needed for webpack
+└── src                       // main app code
+    ├── @types                // folder for global types
+    ├── components            // shared components
+    │   ├── Button
+    │   │   ├── __tests__     // tests for button component
+    ├── containers            // An encapsulated pieces of domain logic in your application
+    │   ├── ...               // new modules will be added on this directory level
+    ├── design                // design system
+    ├── utils                 // shared code, utility functions
+    ├── app.tsx               // entry point for application
+    ├── configureStore.ts     // configuration for store
+    ├── reducers.ts           // global reducers
+    └── serviceWorker.ts      // service worker
+```
+
+#### What is a module?
+
+A module/container is an encapsulated piece of domain logic in your application, this could be for example:
+
+##### Use-cases for a module
+
+**Dynamic page**: consists of a lot of view logic, at least one route and state-management
+
+**Static page**: has no state-management but a route.
+
+**Domain logic with shared view components**: e.g. authentication state, actions, reducers plus login/signup forms but no routes
+
+**Domain logic**: just plain logic with state-management but no routes and no components
+
+A module usually has routing information, state management or both.
+
 ### CLI Commands
 
 #### Development
