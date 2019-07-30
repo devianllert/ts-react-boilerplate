@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render and match the snapshot 1`] = `
+<button
+  className="button"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`<Button /> should render and match the snapshot 2`] = `
+<button
+  className="button disabled"
+  disabled={true}
+  type="button"
+>
+  Button
+</button>
+`;

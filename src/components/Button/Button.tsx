@@ -5,7 +5,7 @@ import styles from './Button.module.scss';
 
 interface Props {
   disabled?: boolean;
-  children: ReactChild;
+  children: ReactChild | ReactChild[];
 }
 
 const Button = (props: Props): ReactElement => {
