@@ -1,6 +1,5 @@
 import React, { ReactChild } from 'react';
-import { cleanup, render } from '@testing-library/react';
-import { create } from 'react-test-renderer';
+import { cleanup, render, fireEvent } from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
 
@@ -23,6 +22,24 @@ describe('<Button />', (): void => {
     expect(getByRole('button')).toHaveAttribute('disabled');
   });
 
+  it('should call onClick event', (): void => {
+    const onClick = jest.fn();
+    const { getByRole } = render(<Button onClick={onClick}>{children}</Button>);
+
+    fireEvent.click(getByRole('button'));
+
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should not call events if disabled prop is true', (): void => {
+    const onClick = jest.fn();
+    const { getByRole } = render(<Button onClick={onClick} disabled>{children}</Button>);
+
+    fireEvent.click(getByRole('button'));
+
+    expect(onClick).toHaveBeenCalledTimes(0);
+  });
+
   it('should rerender correctly', (): void => {
     const loading = 'Loading...';
     const { rerender, getByRole } = render(<Button>{children}</Button>);
@@ -36,10 +53,10 @@ describe('<Button />', (): void => {
   });
 
   it('should render and match the snapshot', (): void => {
-    const defaultButton = create(<Button>{children}</Button>);
-    const disabledButton = create(<Button disabled>{children}</Button>);
+    const defaultButton = render(<Button>{children}</Button>);
+    const disabledButton = render(<Button disabled>{children}</Button>);
 
-    expect(defaultButton.toJSON()).toMatchSnapshot();
-    expect(disabledButton.toJSON()).toMatchSnapshot();
+    expect(defaultButton.container.firstChild).toMatchSnapshot();
+    expect(disabledButton.container.firstChild).toMatchSnapshot();
   });
 });

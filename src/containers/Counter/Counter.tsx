@@ -3,17 +3,19 @@ import { connect } from 'react-redux';
 
 import { counterIncrement, counterDecrement } from './actions';
 
+import Button from '../../components/Button';
+
 interface Props {
   count: number;
-  increment: () => void;
-  decrement: () => void;
+  increment: () => import('./types').CounterIncrement;
+  decrement: () => import('./types').CounterDecrement;
 }
 
 const Counter = ({ count, increment, decrement }: Props): ReactElement => (
   <div>
-    <button type="button" onClick={increment}>+</button>
-    {count}
-    <button type="button" onClick={decrement}>-</button>
+    <Button onClick={increment}>+</Button>
+    <span>{count}</span>
+    <Button onClick={decrement}>-</Button>
   </div>
 );
 
@@ -26,4 +28,4 @@ const mapDispatchToProps = {
   decrement: counterDecrement,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect<Props, typeof mapDispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(Counter);

@@ -2,7 +2,7 @@
 
 exports[`<Button /> should render and match the snapshot 1`] = `
 <button
-  className="button"
+  class="button"
   type="button"
 >
   Button
@@ -11,8 +11,8 @@ exports[`<Button /> should render and match the snapshot 1`] = `
 
 exports[`<Button /> should render and match the snapshot 2`] = `
 <button
-  className="button disabled"
-  disabled={true}
+  class="button disabled"
+  disabled=""
   type="button"
 >
   Button
