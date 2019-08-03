@@ -1,13 +1,14 @@
 import {
   createStore,
   compose,
+  applyMiddleware,
   Store,
-  StoreEnhancer,
 } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
 
 import createReducer from './reducers';
 
-const configureStore = (initialState = {}): Store => {
+const configureStore = (initialState = {}, history: import('history').History): Store => {
   let composeEnhancers = compose;
 
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
@@ -27,7 +28,11 @@ const configureStore = (initialState = {}): Store => {
     /* eslint-enable */
   }
 
-  const enhancers: StoreEnhancer[] = [];
+  const middlwares = [
+    routerMiddleware(history),
+  ];
+
+  const enhancers = [applyMiddleware(...middlwares)];
 
   const store = createStore(
     createReducer(),

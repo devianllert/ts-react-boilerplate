@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router as BrowserRouter } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
 
 import configureStore from './configureStore';
 import history from './utils/history';
@@ -12,14 +12,15 @@ import * as serviceWorker from './serviceWorker';
 
 import './design/global.scss';
 
-const store = configureStore();
+const initialState = {};
+const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter history={history}>
+    <ConnectedRouter history={history}>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   MOUNT_NODE,
 );

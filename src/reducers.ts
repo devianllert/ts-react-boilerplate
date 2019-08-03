@@ -1,8 +1,12 @@
 import { combineReducers, Reducer } from 'redux';
+import { connectRouter } from 'connected-react-router';
+
+import history from './utils/history';
 
 import counterReducer from './containers/Counter/reducer';
 
 const staticReducers = {
+  router: connectRouter(history),
   counter: counterReducer,
 };
 
