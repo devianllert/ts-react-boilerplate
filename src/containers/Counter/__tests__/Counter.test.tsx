@@ -5,13 +5,14 @@ import { cleanup, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import configureStore from '../../../configureStore';
+import history from '../../../utils/history';
 
 import Counter from '../Counter';
 
 describe('<Counter />', (): void => {
   afterEach(cleanup);
 
-  const store = configureStore();
+  const store = configureStore({}, history);
 
   it('should render and match the snapshot', (): void => {
     const { container } = render(
