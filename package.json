@@ -12,9 +12,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "start": "node internals/scripts/start.js",
+    "build": "node internals/scripts/build.js",
+    "test": "node internals/scripts/test.js",
     "lint": "npm run lint:eslint && npm run lint:css",
     "lint:fix": "npm run lint:eslint:fix && npm run lint:css:fix",
     "lint:eslint": "eslint --ext .tsx,.ts .",
