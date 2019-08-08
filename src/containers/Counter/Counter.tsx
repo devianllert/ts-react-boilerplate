@@ -1,6 +1,9 @@
 import React, { Fragment, ReactElement } from 'react';
-import { connect, MapStateToProps } from 'react-redux';
+import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { createStructuredSelector } from 'reselect';
+
+import { makeSelectCount } from './selectors';
 
 import { counterIncrement, counterDecrement } from './actions';
 
@@ -31,8 +34,8 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => (
   </Fragment>
 );
 
-const mapStateToProps: MapStateToProps<StateToProps, {}, AppState> = (state: AppState): StateToProps => ({
-  count: state.counter.count,
+const mapStateToProps = createStructuredSelector<AppState, StateToProps>({
+  count: makeSelectCount(),
 });
 
 const mapDispatchToProps: DispatchToProps = {
