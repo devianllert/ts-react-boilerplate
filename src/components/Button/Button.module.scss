@@ -1,44 +1,53 @@
-@import '../../design/variables';
+@import '../../design/design-system';
 
 .button {
   position: relative;
-  
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  height: 32px;
+  height: $button-height;
+  min-width: $button-min-width;
 
-  margin: 0;
-  padding: 0 8px;
+  margin: $button-margin;
+  padding: $button-padding;
 
+  text-align: center;
   vertical-align: middle;
 
-  font-size: 16px;
-  font-weight: bold;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
 
   border: 0;
-  border-radius: 4px;
+  border-radius: $button-border-radius;
 
-  color: $text-light;
-  background-color: $primary;
+  color: var(--button-color);
+  background-color: var(--brand-primary);
 
-  text-decoration: none;
-  
+  text-decoration: $button-text-decoration;
+  text-transform: $button-text-transform;
+
   -webkit-tap-highlight-color: transparent;
 
   outline: 0;
+
   appearance: none;
+
+  touch-action: manipulation;
   user-select: none;
   cursor: pointer;
 
-  &:disabled {
-    opacity: 0.75;
+  &:disabled,
+  &.disabled {
+    opacity: $button-disabled-opacity;
     cursor: not-allowed;
   }
 }
 
-.disabled {
-  opacity: 0.75;
-  cursor: not-allowed;
+@each $variation, $values in $button-variations {
+  .#{$variation} {
+    background: map-get($values, 'bg');
+  }
 }

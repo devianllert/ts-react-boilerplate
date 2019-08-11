@@ -7,7 +7,7 @@ import Counter from '../Counter/Loadable';
 import NotFound from '../NotFound/Loadable';
 
 const App = (): ReactElement => (
-  <div className="app">
+  <div className="app theme--light">
     <Helmet
       titleTemplate="%s - React TypeScript Boilerplate"
       defaultTitle="React TypeScript Boilerplate"

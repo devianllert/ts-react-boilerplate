@@ -1,2 +1,8 @@
-@import 'variables/colors';
+/* Branding */
+@import 'variables/color-palette';
+@import 'variables/spacings';
+@import 'variables/grid';
 @import 'variables/typo';
+
+/* Components */
+@import 'variables/components/button/button';

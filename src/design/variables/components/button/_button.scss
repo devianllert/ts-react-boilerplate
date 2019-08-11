@@ -1,0 +1,60 @@
+$button-font-family: $font-family;
+$button-padding: 0 $space-16;
+$button-margin: $space-8;
+$button-min-width: $space-88;
+$button-height: $space-36;
+$button-font-size: $font-size;
+$button-font-weight: 500;
+$button-border-radius: 4px;
+$button-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+$button-text-decoration: none;
+$button-hover-text-decoration: none;
+$button-text-transform: uppercase;
+$button-disabled-opacity: 0.7;
+
+$button-outlined-border-width: 0.2rem;
+
+$button-variations: (
+  'default': (
+    'bg': var(--brand-default),
+    'color': var(--brand-text-color-inverse),
+    'hover-bg': var(--brand-default-hover),
+    'hover-color': var(--brand-text-color-inverse),
+    'border': $button-outlined-border-width solid var(--brand-default),
+  ),
+  'primary': (
+    'bg': var(--brand-primary),
+    'color': var(--button-color),
+    'hover-bg': var(--brand-primary-hover),
+    'hover-color': var(--button-color),
+    'border': $button-outlined-border-width solid var(--brand-primary),
+  ),
+  'secondary': (
+    'bg': var(--brand-secondary),
+    'color': var(--button-color),
+    'hover-bg': var(--brand-secondary-hover),
+    'hover-color': var(--button-color),
+    'border': $button-outlined-border-width solid var(--brand-secondary),
+  ),
+  'success': (
+    'bg': var(--brand-success),
+    'color': var(--button-color),
+    'hover-bg': var(--brand-success-hover),
+    'hover-color': var(--button-color),
+    'border': $button-outlined-border-width solid var(--brand-success),
+  ),
+  'warning': (
+    'bg': var(--brand-warning),
+    'color': var(--button-color),
+    'hover-bg': var(--brand-warning-hover),
+    'hover-color': var(--button-color),
+    'border': $button-outlined-border-width solid var(--brand-warning),
+  ),
+  'danger': (
+    'bg': var(--brand-danger),
+    'color': var(--button-color),
+    'hover-bg': var(--brand-danger-hover),
+    'hover-color': var(--button-color),
+    'border': $button-outlined-border-width solid var(--brand-danger),
+  ),
+);

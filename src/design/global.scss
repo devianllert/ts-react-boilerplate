@@ -1,2 +1,23 @@
+@import 'mixins';
+@import 'variables';
+
+@import 'theme/light';
+@import 'theme/dark';
+
+/* Themes for components */
+@import 'variables/components/button/button-theme';
+
 @import 'reset';
 @import 'typo';
+
+.app {
+  min-height: 100vh;
+
+  color: var(--brand-text-color);
+  background-color: var(--brand-bg-color);
+}
+
+/* Make sure images have an alt attribute */
+img:not([alt]) {
+  border: 5px dashed var(--brand-danger);
+}
