@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should render and match the snapshot 1`] = `
+<div
+  class="container"
+>
+  <h1>
+    React Typescript Boilerplate
+  </h1>
+</div>
+`;
