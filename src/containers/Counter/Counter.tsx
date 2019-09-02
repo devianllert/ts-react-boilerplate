@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
@@ -6,6 +6,8 @@ import { createStructuredSelector } from 'reselect';
 import { makeSelectCount } from './selectors';
 
 import { counterIncrement, counterDecrement } from './actions';
+
+import MainLayout from '../../layout/MainLayout';
 
 import Button from '../../components/Button';
 
@@ -21,7 +23,7 @@ interface DispatchToProps {
 type Props = StateToProps & DispatchToProps & {};
 
 const Counter = ({ count, increment, decrement }: Props): ReactElement => (
-  <Fragment>
+  <MainLayout>
     <Helmet>
       <title>Counter</title>
     </Helmet>
@@ -31,7 +33,7 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => (
       <span>{count}</span>
       <Button onClick={decrement}>-</Button>
     </div>
-  </Fragment>
+  </MainLayout>
 );
 
 const mapStateToProps = createStructuredSelector<AppState, StateToProps>({
