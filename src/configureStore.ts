@@ -18,13 +18,6 @@ const configureStore = (initialState = {}, history: import('history').History): 
     if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
       // @ts-ignore
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
-
-    // NOTE: Uncomment the code below to restore support for Redux Saga
-    // Dev Tools once it supports redux-saga version 1.x.x
-    // if (window.__SAGA_MONITOR_EXTENSION__)
-    //   reduxSagaMonitorOptions = {
-    //     sagaMonitor: window.__SAGA_MONITOR_EXTENSION__,
-    //   };
     /* eslint-enable */
   }
 
