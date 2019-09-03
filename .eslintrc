@@ -16,11 +16,14 @@
     "plugin:jest/recommended",
     "plugin:jest/style"
   ],
+  "plugins": ["react-hooks"],
   "rules": {
     "max-len": ["error", 120],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "@typescript-eslint/indent": ["error", 2],
-    "jest/no-empty-title": ["error"]
+    "jest/no-empty-title": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "import/resolver": {
