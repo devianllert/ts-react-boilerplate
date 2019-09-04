@@ -16,8 +16,9 @@
 ### Folder Structure
 
 ```
-├── config                    // webpack config
-├── scripts                   // npm scripts
+├── internals
+│   ├── config                // webpack config
+│   └── scripts               // npm scripts
 ├── public                    // static files
 │   ├── index.html            // template, needed for webpack
 └── src                       // main app code
@@ -28,6 +29,8 @@
     ├── containers            // An encapsulated pieces of domain logic in your application
     │   ├── ...               // new modules will be added on this directory level
     ├── design                // design system
+    ├── hooks                 // react hooks
+    ├── layout                // layout components
     ├── utils                 // shared code, utility functions
     ├── app.tsx               // entry point for application
     ├── configureStore.ts     // configuration for store
