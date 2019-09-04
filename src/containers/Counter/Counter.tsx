@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 
+import useKey from '../../hooks/useKey';
+
 import { makeSelectCount } from './selectors';
 
 import { counterIncrement, counterDecrement } from './actions';
@@ -22,19 +24,24 @@ interface DispatchToProps {
 
 type Props = StateToProps & DispatchToProps & {};
 
-const Counter = ({ count, increment, decrement }: Props): ReactElement => (
-  <MainLayout>
-    <Helmet>
-      <title>Counter</title>
-    </Helmet>
+const Counter = ({ count, increment, decrement }: Props): ReactElement => {
+  useKey('ArrowUp', increment);
+  useKey('ArrowDown', decrement);
 
-    <div>
-      <Button onClick={increment}>+</Button>
-      <span>{count}</span>
-      <Button onClick={decrement}>-</Button>
-    </div>
-  </MainLayout>
-);
+  return (
+    <MainLayout>
+      <Helmet>
+        <title>Counter</title>
+      </Helmet>
+
+      <div>
+        <Button onClick={increment}>+</Button>
+        <span>{count}</span>
+        <Button onClick={decrement}>-</Button>
+      </div>
+    </MainLayout>
+  );
+};
 
 const mapStateToProps = createStructuredSelector<AppState, StateToProps>({
   count: makeSelectCount(),
