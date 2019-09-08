@@ -2,20 +2,36 @@
 
 exports[`<Counter /> should render and match the snapshot 1`] = `
 <div>
-  <button
-    class="button"
-    type="button"
+  <header
+    class="header"
   >
-    +
-  </button>
-  <span>
-    0
-  </span>
-  <button
-    class="button"
-    type="button"
+    header
+  </header>
+  <main
+    class="content"
   >
-    -
-  </button>
+    <div>
+      <button
+        class="button"
+        type="button"
+      >
+        +
+      </button>
+      <span>
+        0
+      </span>
+      <button
+        class="button"
+        type="button"
+      >
+        -
+      </button>
+    </div>
+  </main>
+  <footer
+    class="footer"
+  >
+    footer
+  </footer>
 </div>
 `;

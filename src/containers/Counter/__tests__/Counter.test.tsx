@@ -13,7 +13,7 @@ describe('<Counter />', (): void => {
   it('should render and match the snapshot', (): void => {
     const { container } = renderWithRedux(<Counter />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('should render with initial state', (): void => {
