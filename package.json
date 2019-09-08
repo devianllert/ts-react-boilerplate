@@ -23,6 +23,7 @@
     "lint:css:fix": "stylelint **/*.scss"
   },
   "dependencies": {
+    "@testing-library/react-hooks": "^2.0.1",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.5.2",
     "dotenv": "8.1.0",
@@ -95,6 +96,7 @@
     "postcss-safe-parser": "4.0.1",
     "react-app-polyfill": "^1.0.2",
     "react-dev-utils": "^9.0.3",
+    "react-test-renderer": "^16.9.0",
     "resolve": "1.11.0",
     "sass-loader": "7.1.0",
     "semver": "6.2.0",
