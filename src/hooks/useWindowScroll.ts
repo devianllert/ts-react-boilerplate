@@ -41,11 +41,13 @@ const useWindowScroll = (): WindowScrollPosition => {
 
 const useWindowXScroll = (): number => {
   const { x } = useWindowScroll();
+
   return x;
 };
 
 const useWindowYScroll = (): number => {
   const { y } = useWindowScroll();
+
   return y;
 };
 
