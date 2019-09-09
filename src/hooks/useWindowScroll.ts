@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
+import { on, off } from '../utils/listeners';
+
 interface WindowScrollPosition {
   x: number;
   y: number;
@@ -9,6 +11,10 @@ const getWindowScrollPosition = (): WindowScrollPosition => ({ x: window.pageXOf
 
 /**
  * Hook that re-renders on window scroll.
+ *
+ * @example
+ *
+ * const { x, y } = useWindowScroll(ref);
  */
 
 const useWindowScroll = (): WindowScrollPosition => {
@@ -19,12 +25,12 @@ const useWindowScroll = (): WindowScrollPosition => {
     const handleScroll = (): void => {
       cancelAnimationFrame(frame.current);
 
-      frame.current = window.requestAnimationFrame((): void => {
+      frame.current = requestAnimationFrame((): void => {
         setScrollPosition(getWindowScrollPosition());
       });
     };
 
-    window.addEventListener('scroll', handleScroll, {
+    on(window, 'scroll', handleScroll, {
       capture: false,
       passive: true,
     });
@@ -32,18 +38,34 @@ const useWindowScroll = (): WindowScrollPosition => {
     return (): void => {
       cancelAnimationFrame(frame.current);
 
-      window.removeEventListener('scroll', handleScroll);
+      off(window, 'scroll', handleScroll);
     };
   }, []);
 
   return position;
 };
 
+/**
+ * Hook that re-renders on window scroll.
+ *
+ * @example
+ *
+ * const x = useWindowXScroll(ref);
+ */
+
 const useWindowXScroll = (): number => {
   const { x } = useWindowScroll();
 
   return x;
 };
+
+/**
+ * Hook that re-renders on window scroll.
+ *
+ * @example
+ *
+ * const y = useWindowYScroll(ref);
+ */
 
 const useWindowYScroll = (): number => {
   const { y } = useWindowScroll();
