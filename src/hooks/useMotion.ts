@@ -30,6 +30,10 @@ const defaultState: MotionState = {
 
 /**
  * Hook that uses device's acceleration sensor to track its motions.
+ *
+ * @example
+ *
+ * const motions = useMotion();
  */
 
 const useMotion = (initialState: MotionState = defaultState): MotionState => {
