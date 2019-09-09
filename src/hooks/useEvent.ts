@@ -1,20 +1,6 @@
 import { useEffect } from 'react';
 
-export interface AddListenerType {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  addEventListener: (name: string, handler: (event: Event) => void, ...args: any[]) => void;
-
-  removeEventListener: (name: string, handler: (event: Event) => void) => void;
-}
-
-export interface OnListenerType {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  on: (name: string, handler: (event: Event) => void, ...args: any[]) => void;
-
-  off: (name: string, handler: (event: Event) => void) => void;
-}
-
-export type EventTargetType = AddListenerType | OnListenerType;
+import { on, off } from '../utils/listeners';
 
 /**
  * Hook that subscribes a handler to events.
@@ -26,22 +12,18 @@ export type EventTargetType = AddListenerType | OnListenerType;
  */
 
 const useEvent = (
-  name: string,
-  handler: (event?: any) => void, // eslint-disable-line @typescript-eslint/no-explicit-any
-  target: null | EventTargetType = window,
+  type: string,
+  handler: (event: any) => void, // eslint-disable-line @typescript-eslint/no-explicit-any
+  target: any | null = window, // eslint-disable-line @typescript-eslint/no-explicit-any
   options?: AddEventListenerOptions,
 ): void => {
   useEffect((): (() => void) => {
-    const fn: Function = (target as AddListenerType).addEventListener || (target as OnListenerType).on;
-
-    fn.call(target, name, handler, options);
+    on(target, type, handler, options);
 
     return (): void => {
-      const cleanFn: Function = (target as AddListenerType).removeEventListener || (target as OnListenerType).off;
-
-      cleanFn.call(target, name, handler, options);
+      off(target, type, handler, options);
     };
-  }, [name, handler, target, options]);
+  }, [type, handler, target, options]);
 };
 
 export default useEvent;

@@ -1,26 +1,37 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { useState, useEffect } from 'react';
 
-export interface NetworkState {
-  online?: boolean;
-  since?: Date;
-  downlink?: number;
-  downlinkMax?: number;
-  effectiveType?: string;
-  rtt?: number;
-  type?: string;
+import { on, off } from '../utils/listeners';
+
+type ConnectionType =
+  | 'bluetooth'
+  | 'cellular'
+  | 'ethernet'
+  | 'mixed'
+  | 'none'
+  | 'other'
+  | 'unknown'
+  | 'wifi'
+  | 'wimax';
+
+type EffectiveConnectionType = '2g' | '3g' | '4g' | 'slow-2g';
+
+interface NetworkState {
+  readonly type?: ConnectionType;
+  readonly effectiveType?: EffectiveConnectionType;
+  readonly downlinkMax?: number;
+  readonly downlink?: number;
+  readonly rtt?: number;
+  readonly saveData?: boolean;
+  onchange?: EventListener;
+
+  readonly online?: boolean;
+  readonly since?: Date;
 }
 
-export const on = (obj: any, ...args: any[]): void => obj.addEventListener(...args);
+type NetworkInformation = EventTarget & NetworkState;
 
-export const off = (obj: any, ...args: any[]): void => obj.removeEventListener(...args);
-
-const getConnection = (): NetworkState | null => {
-  if (typeof navigator !== 'object') {
-    return null;
-  }
-
+const getConnection = (): NetworkInformation | null => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const nav = navigator as any;
 
   return nav.connection || nav.mozConnection || nav.webkitConnection;

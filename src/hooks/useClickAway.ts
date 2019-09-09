@@ -1,5 +1,7 @@
 import { useEffect, RefObject } from 'react';
 
+import { on, off } from '../utils/listeners';
+
 /**
  * Hook that triggers a callback when user clicks outside the target element.
  *
@@ -18,12 +20,13 @@ const useClickAway = (ref: RefObject<HTMLElement>, handler: Function): void => {
         handler(event);
       };
 
-      document.addEventListener('mousedown', listener);
-      document.addEventListener('touchstart', listener);
+
+      on(document, 'mousedown', listener);
+      on(document, 'touchstart', listener);
 
       return (): void => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
+        off(document, 'mousedown', listener);
+        off(document, 'touchstart', listener);
       };
     },
     // Add ref and handler to effect dependencies
