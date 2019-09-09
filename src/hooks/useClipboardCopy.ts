@@ -5,6 +5,14 @@ export interface CopyToClipboardState {
   error?: Error;
 }
 
+/**
+ * Hook that copy text to a user's clipboard.
+ *
+ * @example
+ *
+ * const [state, copyToClipboard] = useCopyToClipboard();
+ */
+
 const useClipboardCopy = (): [CopyToClipboardState, (value: string) => void] => {
   const [state, setState] = useState<CopyToClipboardState>({
     value: undefined,
