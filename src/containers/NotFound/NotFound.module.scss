@@ -1,0 +1,42 @@
+@import '../../design/design-system';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+
+  padding: $space-24;
+}
+
+.logo {
+  margin: 0;
+
+  font-size: $font-size-h1 * 2;
+  font-weight: 200;
+
+  line-height: $line-height-h1 * 2;
+}
+
+.title {
+  margin: 0;
+
+  font-size: $font-size-h2;
+
+  line-height: $line-height-h2;
+}
+
+.subtitle {
+  margin: $space-16 0;
+
+  font-size: $font-size-h4;
+  font-weight: 200;
+
+  text-align: center;
+
+  line-height: $line-height-h4;
+}

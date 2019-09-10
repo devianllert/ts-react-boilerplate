@@ -11,6 +11,33 @@
   padding: 0 $space-24;
 }
 
+.logo {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-h3;
+}
+
+.menu {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.menuItem {
+  font-size: $font-size;
+  font-weight: $font-weight-regular;
+
+  margin: 0 $space-8;
+
+  a {
+    color: palette-color('onix');
+
+    text-decoration: none;
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;

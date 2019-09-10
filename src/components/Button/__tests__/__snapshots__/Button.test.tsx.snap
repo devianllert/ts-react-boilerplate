@@ -18,3 +18,12 @@ exports[`<Button /> should render and match the snapshot 2`] = `
   Button
 </button>
 `;
+
+exports[`<Button /> should render and match the snapshot 3`] = `
+<a
+  class="button"
+  href="/"
+>
+  Button
+</a>
+`;

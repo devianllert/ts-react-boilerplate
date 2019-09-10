@@ -1,16 +1,24 @@
 import React, { ReactChild, ReactElement, MouseEvent } from 'react';
 import classnames from 'classnames';
 
+import { Link } from 'react-router-dom';
+
 import styles from './Button.module.scss';
 
 interface Props {
+  to?: string;
   onClick?: Function;
   disabled?: boolean;
   children: ReactChild | ReactChild[];
 }
 
 const Button = (props: Props): ReactElement => {
-  const { onClick, disabled, children } = props;
+  const {
+    to,
+    onClick,
+    disabled,
+    children,
+  } = props;
 
   const classes = classnames(
     styles.button,
@@ -22,6 +30,18 @@ const Button = (props: Props): ReactElement => {
 
     onClick(event);
   };
+
+  if (to && !disabled) {
+    return (
+      <Link
+        to={to}
+        onClick={handleClick}
+        className={classes}
+      >
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <button

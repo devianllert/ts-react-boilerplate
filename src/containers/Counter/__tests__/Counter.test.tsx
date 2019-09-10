@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, fireEvent } from '@testing-library/react';
 
-import renderWithRedux from '../../../utils/testUtils';
+import { renderWithRouterAndRedux } from '../../../utils/testUtils';
 
 import Counter from '../Counter';
 
@@ -11,7 +11,7 @@ describe('<Counter />', (): void => {
   afterEach(cleanup);
 
   it('should render and match the snapshot', (): void => {
-    const { container } = renderWithRedux(<Counter />);
+    const { container } = renderWithRouterAndRedux(<Counter />);
 
     expect(container).toMatchSnapshot();
   });
@@ -23,13 +23,13 @@ describe('<Counter />', (): void => {
       },
     };
 
-    const { getByText } = renderWithRedux(<Counter />, { initialState });
+    const { getByText } = renderWithRouterAndRedux(<Counter />, { initialState });
 
     expect(getByText(/1000/)).toBeDefined();
   });
 
   it('should increment count', (): void => {
-    const { getByText } = renderWithRedux(<Counter />);
+    const { getByText } = renderWithRouterAndRedux(<Counter />);
 
     expect(getByText(/0/)).toBeDefined();
 
@@ -39,7 +39,7 @@ describe('<Counter />', (): void => {
   });
 
   it('should decrement count', (): void => {
-    const { getByText } = renderWithRedux(<Counter />);
+    const { getByText } = renderWithRouterAndRedux(<Counter />);
 
     expect(getByText(/0/)).toBeDefined();
 

@@ -4,8 +4,26 @@ exports[`<NotFound /> should render and match the snapshot 1`] = `
 <div
   class="container"
 >
-  <h1>
-    Page Not Found!
+  <h1
+    class="logo"
+  >
+    404
   </h1>
+  <h2
+    class="title"
+  >
+    Page Not Found!
+  </h2>
+  <span
+    class="subtitle"
+  >
+    Hmm, looks like that page doesn\`t exists
+  </span>
+  <a
+    class="button"
+    href="/"
+  >
+    Go Home
+  </a>
 </div>
 `;
