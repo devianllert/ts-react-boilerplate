@@ -9,8 +9,6 @@ import { makeSelectCount } from './selectors';
 
 import { counterIncrement, counterDecrement } from './actions';
 
-import MainLayout from '../../layout/MainLayout';
-
 import Button from '../../components/Button';
 
 interface StateToProps {
@@ -29,7 +27,7 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => {
   useKey('ArrowDown', decrement);
 
   return (
-    <MainLayout>
+    <>
       <Helmet>
         <title>Counter</title>
       </Helmet>
@@ -39,7 +37,7 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => {
         <span>{count}</span>
         <Button onClick={decrement}>-</Button>
       </div>
-    </MainLayout>
+    </>
   );
 };
 
