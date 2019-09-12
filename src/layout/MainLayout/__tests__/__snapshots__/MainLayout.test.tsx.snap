@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainLayout /> should render and match the snapshot 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <a
+      class="logo"
+      href="/"
+    >
+      TS BOILERPLATE
+    </a>
+    <ul
+      class="menu"
+    >
+      <li
+        class="menuItem"
+      >
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        class="menuItem"
+      >
+        <a
+          href="/counter"
+        >
+          Counter
+        </a>
+      </li>
+      <li
+        class="menuItem"
+      >
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </header>
+  <main
+    class="content"
+  >
+    MainLayout
+  </main>
+  <footer
+    class="footer"
+  >
+    <span
+      class="footerLogo"
+    >
+      TS Boilerplate
+    </span>
+  </footer>
+</div>
+`;

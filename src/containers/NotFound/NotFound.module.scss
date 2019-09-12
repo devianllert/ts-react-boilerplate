@@ -1,6 +1,6 @@
 @import '../../design/design-system';
 
-.container {
+.content {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -11,6 +11,10 @@
   min-height: 100vh;
 
   padding: $space-24;
+
+  @include mediaMax('phone') {
+    padding: $space-8;
+  }
 }
 
 .logo {

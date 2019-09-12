@@ -2,57 +2,21 @@
 
 exports[`<Counter /> should render and match the snapshot 1`] = `
 <div>
-  <header
-    class="header"
-  >
-    <span
-      class="logo"
-    >
-      TS BOILERPLATE
-    </span>
-    <ul
-      class="menu"
-    >
-      <li
-        class="menuItem"
-      >
-        <a
-          href="/"
-        >
-          Home
-        </a>
-      </li>
-      <li
-        class="menuItem"
-      >
-        <a
-          href="/counter"
-        >
-          Counter
-        </a>
-      </li>
-      <li
-        class="menuItem"
-      >
-        <a
-          href="/about"
-        >
-          About
-        </a>
-      </li>
-    </ul>
-  </header>
-  <main
+  <div
     class="content"
   >
-    <div>
+    <div
+      class="counter"
+    >
       <button
         class="button"
         type="button"
       >
         +
       </button>
-      <span>
+      <span
+        class="count"
+      >
         0
       </span>
       <button
@@ -62,11 +26,11 @@ exports[`<Counter /> should render and match the snapshot 1`] = `
         -
       </button>
     </div>
-  </main>
-  <footer
-    class="footer"
-  >
-    footer
-  </footer>
+    <div
+      class="info"
+    >
+      You can use Up and Down keyboard arrows for change value.
+    </div>
+  </div>
 </div>
 `;

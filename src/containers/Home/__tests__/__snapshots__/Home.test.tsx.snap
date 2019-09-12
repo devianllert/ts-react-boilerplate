@@ -1,44 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> should render and match the snapshot 1`] = `
-<header
+<div
   class="header"
 >
-  <span
-    class="logo"
+  <h1
+    class="title"
   >
-    TS BOILERPLATE
-  </span>
-  <ul
-    class="menu"
+    React Typescript Boilerplate
+  </h1>
+  <p
+    class="subtitle"
   >
-    <li
-      class="menuItem"
-    >
-      <a
-        href="/"
-      >
-        Home
-      </a>
-    </li>
-    <li
-      class="menuItem"
-    >
-      <a
-        href="/counter"
-      >
-        Counter
-      </a>
-    </li>
-    <li
-      class="menuItem"
-    >
-      <a
-        href="/about"
-      >
-        About
-      </a>
-    </li>
-  </ul>
-</header>
+    A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.
+  </p>
+</div>
 `;

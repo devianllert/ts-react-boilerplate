@@ -10,7 +10,7 @@ interface Props {
 const MainLayout = ({ children }: Props): ReactElement => (
   <>
     <header className={style.header}>
-      <span className={style.logo}>TS BOILERPLATE</span>
+      <Link to="/" className={style.logo}>TS BOILERPLATE</Link>
 
       <ul className={style.menu}>
         <li className={style.menuItem}>
@@ -27,7 +27,9 @@ const MainLayout = ({ children }: Props): ReactElement => (
 
     <main className={style.content}>{children}</main>
 
-    <footer className={style.footer}>footer</footer>
+    <footer className={style.footer}>
+      <span className={style.footerLogo}>TS Boilerplate</span>
+    </footer>
   </>
 );
 

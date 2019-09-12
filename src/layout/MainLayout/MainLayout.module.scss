@@ -9,11 +9,31 @@
   align-items: center;
 
   padding: 0 $space-24;
+
+  @include mediaMax('phone') {
+    padding: 0 $space-8;
+  }
+}
+
+.header {
+  box-shadow: 0 0 6px 0 rgba(#000, 0.5);
+}
+
+.footer {
+  border-top: 1px solid rgba(#000, 0.25);
+}
+
+.footerLogo {
+  font-size: $font-size;
+  font-weight: $font-weight-light;
+
 }
 
 .logo {
   font-size: $font-size-h3;
   font-weight: $font-weight-h3;
+
+  text-decoration: none;
 }
 
 .menu {
@@ -30,12 +50,6 @@
   font-weight: $font-weight-regular;
 
   margin: 0 $space-8;
-
-  a {
-    color: palette-color('onix');
-
-    text-decoration: none;
-  }
 }
 
 .content {
@@ -46,4 +60,8 @@
   min-height: calc(100vh - 120px);
 
   padding: $space-24;
+
+  @include mediaMax('phone') {
+    padding: $space-8;
+  }
 }

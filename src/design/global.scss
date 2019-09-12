@@ -17,6 +17,12 @@
   background-color: var(--brand-bg-color);
 }
 
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
 /* Make sure images have an alt attribute */
 img:not([alt]) {
   border: 5px dashed var(--brand-danger);
