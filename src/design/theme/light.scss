@@ -1,11 +1,36 @@
 .app.theme--light {
   /* Brand Variations */
   --brand-default: #{palette-color-level('grey', 70)};
-  --brand-primary: #{palette-color('primary')};
-  --brand-secondary: #{palette-color('secondary')};
-  --brand-success: #{palette-color('success')};
-  --brand-warning: #{palette-color('warning')};
-  --brand-danger: #{palette-color('danger')};
+  --brand-default-hover: #{palette-color-level('grey', 60)};
+  --brand-default-active: #{palette-color-level('grey', 50)};
+
+  --brand-primary: #{palette-color-level('coral', 50)};
+  --brand-primary-hover: #{palette-color-level('coral', 40)};
+  --brand-primary-active: #{palette-color-level('coral', 60)};
+
+  --brand-secondary: #{palette-color-level('blue', 50)};
+  --brand-secondary-hover: #{palette-color-level('blue', 40)};
+  --brand-secondary-active: #{palette-color-level('blue', 60)};
+
+
+  --brand-secondary: #{palette-color-level('blue', 50)};
+  --brand-secondary-hover: #{palette-color-level('blue', 40)};
+  --brand-secondary-active: #{palette-color-level('blue', 60)};
+
+
+  --brand-success: #{palette-color-level('green', 50)};
+  --brand-success-hover: #{palette-color-level('green', 40)};
+  --brand-success-active: #{palette-color-level('green', 60)};
+
+
+  --brand-warning: #{palette-color-level('yellow', 50)};
+  --brand-warning-hover: #{palette-color-level('yellow', 40)};
+  --brand-warning-active: #{palette-color-level('yellow', 60)};
+
+
+  --brand-danger: #{palette-color-level('red', 50)};
+  --brand-danger-hover: #{palette-color-level('red', 40)};
+  --brand-danger-active: #{palette-color-level('red', 60)};
 
   /* Background Colors */
   --brand-bg-color: #{palette-color-level('grey', 10)};

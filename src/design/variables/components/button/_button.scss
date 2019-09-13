@@ -6,7 +6,7 @@ $button-height: $space-36;
 $button-font-size: $font-size;
 $button-font-weight: 500;
 $button-border-radius: 4px;
-$button-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+$button-transition: 0.25s cubic-bezier(0.25, 0.8, 0.5, 1);
 $button-text-decoration: none;
 $button-hover-text-decoration: none;
 $button-text-transform: uppercase;
@@ -19,6 +19,7 @@ $button-variations: (
     'bg': var(--brand-default),
     'color': var(--brand-text-color-inverse),
     'hover-bg': var(--brand-default-hover),
+    'active-bg': var(--brand-default-active),
     'hover-color': var(--brand-text-color-inverse),
     'border': $button-outlined-border-width solid var(--brand-default),
   ),
@@ -26,6 +27,7 @@ $button-variations: (
     'bg': var(--brand-primary),
     'color': var(--button-color),
     'hover-bg': var(--brand-primary-hover),
+    'active-bg': var(--brand-primary-active),
     'hover-color': var(--button-color),
     'border': $button-outlined-border-width solid var(--brand-primary),
   ),
@@ -33,6 +35,7 @@ $button-variations: (
     'bg': var(--brand-secondary),
     'color': var(--button-color),
     'hover-bg': var(--brand-secondary-hover),
+    'active-bg': var(--brand-secondary-active),
     'hover-color': var(--button-color),
     'border': $button-outlined-border-width solid var(--brand-secondary),
   ),
@@ -40,6 +43,7 @@ $button-variations: (
     'bg': var(--brand-success),
     'color': var(--button-color),
     'hover-bg': var(--brand-success-hover),
+    'active-bg': var(--brand-success-active),
     'hover-color': var(--button-color),
     'border': $button-outlined-border-width solid var(--brand-success),
   ),
@@ -47,6 +51,7 @@ $button-variations: (
     'bg': var(--brand-warning),
     'color': var(--button-color),
     'hover-bg': var(--brand-warning-hover),
+    'active-bg': var(--brand-warning-active),
     'hover-color': var(--button-color),
     'border': $button-outlined-border-width solid var(--brand-warning),
   ),
@@ -54,6 +59,7 @@ $button-variations: (
     'bg': var(--brand-danger),
     'color': var(--button-color),
     'hover-bg': var(--brand-danger-hover),
+    'active-bg': var(--brand-danger-active),
     'hover-color': var(--button-color),
     'border': $button-outlined-border-width solid var(--brand-danger),
   ),

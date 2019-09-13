@@ -18,6 +18,7 @@
   ],
   "plugins": ["react-hooks"],
   "rules": {
+    "linebreak-style": "off",
     "max-len": ["error", 120],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "@typescript-eslint/indent": ["error", 2],

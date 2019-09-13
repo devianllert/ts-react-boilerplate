@@ -39,6 +39,8 @@
   user-select: none;
   cursor: pointer;
 
+  transition: background-color $button-transition;
+
   &:disabled,
   &.disabled {
     opacity: $button-disabled-opacity;
@@ -49,5 +51,17 @@
 @each $variation, $values in $button-variations {
   .#{$variation} {
     background: map-get($values, 'bg');
+
+    &:hover {
+      background: map-get($values, 'hover-bg');
+    }
+
+    &:focus {
+      background: map-get($values, 'hover-bg');
+    }
+
+    &:active {
+      background: map-get($values, 'active-bg');
+    }
   }
 }

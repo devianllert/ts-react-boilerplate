@@ -10,6 +10,7 @@ interface Props {
   onClick?: Function;
   disabled?: boolean;
   children: ReactChild | ReactChild[];
+  appearence?: 'success' | 'danger' | 'warning' | 'primary' | 'secondary' | 'default';
 }
 
 const Button = (props: Props): ReactElement => {
@@ -18,10 +19,12 @@ const Button = (props: Props): ReactElement => {
     onClick,
     disabled,
     children,
+    appearence = 'primary',
   } = props;
 
   const classes = classnames(
     styles.button,
+    styles[appearence],
     disabled && styles.disabled,
   );
 

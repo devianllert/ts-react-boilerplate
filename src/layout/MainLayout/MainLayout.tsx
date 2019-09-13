@@ -1,7 +1,7 @@
 import React, { ReactChild, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-import style from './MainLayout.module.scss';
+import styles from './MainLayout.module.scss';
 
 interface Props {
   children: ReactChild | ReactChild[];
@@ -9,26 +9,26 @@ interface Props {
 
 const MainLayout = ({ children }: Props): ReactElement => (
   <>
-    <header className={style.header}>
-      <Link to="/" className={style.logo}>TS BOILERPLATE</Link>
+    <header className={styles.header}>
+      <Link to="/" className={styles.logo}>TS BOILERPLATE</Link>
 
-      <ul className={style.menu}>
-        <li className={style.menuItem}>
-          <Link to="/">Home</Link>
+      <ul className={styles.menu}>
+        <li className={styles.menuItem}>
+          <NavLink exact activeClassName={styles.active} to="/">Home</NavLink>
         </li>
-        <li className={style.menuItem}>
-          <Link to="/counter">Counter</Link>
+        <li className={styles.menuItem}>
+          <NavLink activeClassName={styles.active} to="/counter">Counter</NavLink>
         </li>
-        <li className={style.menuItem}>
-          <Link to="/about">About</Link>
+        <li className={styles.menuItem}>
+          <NavLink activeClassName={styles.active} to="/about">About</NavLink>
         </li>
       </ul>
     </header>
 
-    <main className={style.content}>{children}</main>
+    <main className={styles.content}>{children}</main>
 
-    <footer className={style.footer}>
-      <span className={style.footerLogo}>TS Boilerplate</span>
+    <footer className={styles.footer}>
+      <span className={styles.footerLogo}>TS Boilerplate</span>
     </footer>
   </>
 );
