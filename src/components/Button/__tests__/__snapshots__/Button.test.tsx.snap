@@ -2,7 +2,7 @@
 
 exports[`<Button /> should render and match the snapshot 1`] = `
 <button
-  class="button"
+  class="button primary medium"
   type="button"
 >
   Button
@@ -11,8 +11,7 @@ exports[`<Button /> should render and match the snapshot 1`] = `
 
 exports[`<Button /> should render and match the snapshot 2`] = `
 <button
-  class="button disabled"
-  disabled=""
+  class="button primary medium flat"
   type="button"
 >
   Button
@@ -20,8 +19,27 @@ exports[`<Button /> should render and match the snapshot 2`] = `
 `;
 
 exports[`<Button /> should render and match the snapshot 3`] = `
+<button
+  class="button primary medium outlined"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`<Button /> should render and match the snapshot 4`] = `
+<button
+  class="button primary medium disabled"
+  disabled=""
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`<Button /> should render and match the snapshot 5`] = `
 <a
-  class="button"
+  class="button primary medium"
   href="/"
 >
   Button
