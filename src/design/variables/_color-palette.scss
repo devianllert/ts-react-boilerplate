@@ -1,4 +1,18 @@
 $palette-colors: (
+  'primary': #4527A0,
+
+  'secondary': #283593,
+
+  'success': #43A047,
+
+  'warning': #FFB300,
+
+  'danger': #D84315,
+
+  'black': #212121,
+
+  'white': #ffffff,
+
   'coral-10': #fff8fc,
   'coral-20': #ffc8e0,
   'coral-30': #ff92bb,
@@ -75,15 +89,6 @@ $palette-colors: (
   'yellow-80': #6c2c00,
   'yellow-90': #561700,
   'yellow-100': #440900,
-
-  'primary': #4527A0,
-  'secondary': #283593,
-  'success': #43A047,
-  'warning': #FFB300,
-  'danger': #D84315,
-
-  'onix': #212121,
-  'white': #ffffff,
 );
 
 @function palette-color($key) {

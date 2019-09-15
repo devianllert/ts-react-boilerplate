@@ -36,11 +36,11 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => {
 
       <div className={styles.content}>
         <div className={styles.counter}>
-          <Button onClick={increment}>+</Button>
+          <Button onClick={decrement}>-</Button>
 
           <span className={styles.count}>{count}</span>
 
-          <Button onClick={decrement}>-</Button>
+          <Button onClick={increment}>+</Button>
         </div>
 
         <div className={styles.info}>
