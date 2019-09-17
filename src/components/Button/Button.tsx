@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
 interface Props {
-  children: ReactChild | ReactChild[];
+  children: ReactChild | ReactChild[] | any; // eslint-disable-line
   onClick?: Function;
   to?: string;
   disabled?: boolean;

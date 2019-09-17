@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -6,9 +6,13 @@ import { ConnectedRouter } from 'connected-react-router';
 import configureStore from './configureStore';
 import history from './utils/history';
 
+import Loader from './components/Loader';
+
 import App from './containers/App';
 
 import * as serviceWorker from './serviceWorker';
+
+import './i18n';
 
 import './design/global.scss';
 
@@ -19,7 +23,9 @@ const MOUNT_NODE = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Suspense fallback={<Loader initial />}>
+        <App />
+      </Suspense>
     </ConnectedRouter>
   </Provider>,
   MOUNT_NODE,

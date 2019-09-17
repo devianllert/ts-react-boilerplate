@@ -1,33 +1,40 @@
 import React, { ReactElement } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 import MainLayout from '../../layout/MainLayout';
 
-import Home from '../Home';
+import Home from '../Home/Loadable';
 import Counter from '../Counter/Loadable';
-import NotFound from '../NotFound/Loadable';
+import NotFound from '../NotFound';
 
-const App = (): ReactElement => (
-  <div className="app theme--light">
-    <Helmet
-      titleTemplate="%s - React TypeScript Boilerplate"
-      defaultTitle="React TypeScript Boilerplate"
-    >
-      <meta name="description" content="A React TypeScript Boilerplate application" />
-    </Helmet>
+const App = (): ReactElement => {
+  const { i18n } = useTranslation();
 
-    <Switch>
-      <Route exact path={['/', '/counter']}>
-        <MainLayout>
-          <Route exact path="/" component={Home} />
-          <Route path="/counter" component={Counter} />
-        </MainLayout>
-      </Route>
+  return (
+    <div className="app theme--light">
+      <Helmet
+        titleTemplate="%s - React TypeScript Boilerplate"
+        defaultTitle="React TypeScript Boilerplate"
+      >
+        <html lang={i18n.language} />
 
-      <Route component={NotFound} />
-    </Switch>
-  </div>
-);
+        <meta name="description" content="A React TypeScript Boilerplate application" />
+      </Helmet>
+
+      <Switch>
+        <Route exact path={['/', '/counter']}>
+          <MainLayout>
+            <Route exact path="/" component={Home} />
+            <Route path="/counter" component={Counter} />
+          </MainLayout>
+        </Route>
+
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

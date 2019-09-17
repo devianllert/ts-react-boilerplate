@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
+import { useTranslation } from 'react-i18next';
 
 import useKey from '../../hooks/useKey';
 
@@ -25,13 +26,15 @@ interface DispatchToProps {
 type Props = StateToProps & DispatchToProps & {};
 
 const Counter = ({ count, increment, decrement }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   useKey('ArrowUp', increment);
   useKey('ArrowDown', decrement);
 
   return (
     <>
       <Helmet>
-        <title>Counter</title>
+        <title>{t('counter.headTitle')}</title>
       </Helmet>
 
       <div className={styles.content}>
@@ -43,9 +46,7 @@ const Counter = ({ count, increment, decrement }: Props): ReactElement => {
           <Button onClick={increment}>+</Button>
         </div>
 
-        <div className={styles.info}>
-          You can use Up and Down keyboard arrows for change value.
-        </div>
+        <div className={styles.info}>{t('counter.info')}</div>
       </div>
     </>
   );

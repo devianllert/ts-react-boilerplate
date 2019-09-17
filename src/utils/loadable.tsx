@@ -8,13 +8,24 @@ import React, {
   ComponentType,
 } from 'react';
 
+import Loader from '../components/Loader';
+
+export interface LoadableOptions {
+  fallback: ReactElement | null;
+}
+
+export type Loadable = (importFunc: () => ImportComponent, opt?: LoadableOptions) => ComponentType;
+
 export type ImportComponent = Promise<{ default: any }>;
 
-const loadable = (importFunc: () => ImportComponent, { fallback = null }): ComponentType => {
+const loadable: Loadable = (
+  importFunc,
+  opts = { fallback: <Loader /> },
+): ComponentType => {
   const LazyComponent: ComponentType = lazy(importFunc);
 
   return (props: object): ReactElement => (
-    <Suspense fallback={fallback}>
+    <Suspense fallback={opts.fallback}>
       <LazyComponent {...props} />
     </Suspense>
   );

@@ -1,22 +1,24 @@
 import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Home.module.scss';
 
-const Home = (): ReactElement => (
-  <>
-    <Helmet>
-      <title>Home</title>
-    </Helmet>
+const Home = (): ReactElement => {
+  const { t } = useTranslation();
 
-    <div className={styles.header}>
-      <h1 className={styles.title}>React Typescript Boilerplate</h1>
-      <p className={styles.subtitle}>
-        A highly scalable, offline-first foundation with the best
-        developer experience and a focus on performance and best practices.
-      </p>
-    </div>
-  </>
-);
+  return (
+    <>
+      <Helmet>
+        <title>{t('home.headTitle')}</title>
+      </Helmet>
+
+      <div className={styles.header}>
+        <h1 className={styles.title}>{t('home.title')}</h1>
+        <p className={styles.subtitle}>{t('home.subtitle')}</p>
+      </div>
+    </>
+  );
+};
 
 export default Home;

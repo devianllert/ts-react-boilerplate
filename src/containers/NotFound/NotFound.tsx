@@ -1,22 +1,27 @@
 import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../../components/Button';
 
 import styles from './NotFound.module.scss';
 
-const NotFound = (): ReactElement => (
-  <div className={styles.content}>
-    <Helmet>
-      <title>Page Not Found</title>
-    </Helmet>
+const NotFound = (): ReactElement => {
+  const { t } = useTranslation();
 
-    <h1 className={styles.logo}>404</h1>
-    <h2 className={styles.title}>Page Not Found!</h2>
-    <span className={styles.subtitle}>Oops, looks like that page doesn`t exists</span>
+  return (
+    <div className={styles.content}>
+      <Helmet>
+        <title>{t('notFound.headTitle')}</title>
+      </Helmet>
 
-    <Button to="/">Go Home</Button>
-  </div>
-);
+      <h1 className={styles.logo}>404</h1>
+      <h2 className={styles.title}>{t('notFound.title')}</h2>
+      <span className={styles.subtitle}>{t('notFound.subtitle')}</span>
+
+      <Button to="/">{t('notFound.button')}</Button>
+    </div>
+  );
+};
 
 export default NotFound;

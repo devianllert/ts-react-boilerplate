@@ -1,5 +1,8 @@
 import React, { ReactChild, ReactElement } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+import LocaleToggler from '../../components/LocaleToggler';
 
 import styles from './MainLayout.module.scss';
 
@@ -7,30 +10,38 @@ interface Props {
   children: ReactChild | ReactChild[];
 }
 
-const MainLayout = ({ children }: Props): ReactElement => (
-  <>
-    <header className={styles.header}>
-      <Link to="/" className={styles.logo}>TS BOILERPLATE</Link>
+const MainLayout = ({ children }: Props): ReactElement => {
+  const { t } = useTranslation();
 
-      <ul className={styles.menu}>
-        <li className={styles.menuItem}>
-          <NavLink exact activeClassName={styles.active} to="/">Home</NavLink>
-        </li>
-        <li className={styles.menuItem}>
-          <NavLink activeClassName={styles.active} to="/counter">Counter</NavLink>
-        </li>
-        <li className={styles.menuItem}>
-          <NavLink activeClassName={styles.active} to="/about">About</NavLink>
-        </li>
-      </ul>
-    </header>
+  return (
+    <>
+      <header className={styles.header}>
+        <Link to="/" className={styles.logo}>TS BOILERPLATE</Link>
 
-    <main className={styles.content}>{children}</main>
+        <ul className={styles.menu}>
+          <li className={styles.menuItem}>
+            <NavLink exact activeClassName={styles.active} to="/">{t('layout.main.menu.home')}</NavLink>
+          </li>
+          <li className={styles.menuItem}>
+            <NavLink activeClassName={styles.active} to="/counter">{t('layout.main.menu.counter')}</NavLink>
+          </li>
+          <li className={styles.menuItem}>
+            <NavLink activeClassName={styles.active} to="/about">{t('layout.main.menu.about')}</NavLink>
+          </li>
+          <li className={styles.menuItem}>
+            <LocaleToggler />
+          </li>
+        </ul>
 
-    <footer className={styles.footer}>
-      <span className={styles.footerLogo}>TS Boilerplate</span>
-    </footer>
-  </>
-);
+      </header>
+
+      <main className={styles.content}>{children}</main>
+
+      <footer className={styles.footer}>
+        <span className={styles.footerLogo}>TS Boilerplate</span>
+      </footer>
+    </>
+  );
+};
 
 export default MainLayout;
