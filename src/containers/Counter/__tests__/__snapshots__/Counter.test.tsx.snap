@@ -9,10 +9,10 @@ exports[`<Counter /> should render and match the snapshot 1`] = `
       class="counter"
     >
       <button
-        class="button"
+        class="button primary medium"
         type="button"
       >
-        +
+        -
       </button>
       <span
         class="count"
@@ -20,16 +20,16 @@ exports[`<Counter /> should render and match the snapshot 1`] = `
         0
       </span>
       <button
-        class="button"
+        class="button primary medium"
         type="button"
       >
-        -
+        +
       </button>
     </div>
     <div
       class="info"
     >
-      You can use Up and Down keyboard arrows for change value.
+      counter.info
     </div>
   </div>
 </div>

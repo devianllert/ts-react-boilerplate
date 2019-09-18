@@ -12,18 +12,18 @@ exports[`<NotFound /> should render and match the snapshot 1`] = `
   <h2
     class="title"
   >
-    Page Not Found!
+    notFound.title
   </h2>
   <span
     class="subtitle"
   >
-    Oops, looks like that page doesn\`t exists
+    notFound.subtitle
   </span>
   <a
-    class="button"
+    class="button primary medium"
     href="/"
   >
-    Go Home
+    notFound.button
   </a>
 </div>
 `;

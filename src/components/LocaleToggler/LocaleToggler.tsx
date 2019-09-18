@@ -13,7 +13,7 @@ const LocaleToggler = (): ReactElement => {
 
   return (
     <div className={styles.toggler} role="menu" tabIndex={0}>
-      <span className={styles.title}>{currentLang.toUpperCase()}</span>
+      <span className={styles.title}>{currentLang}</span>
 
       <ul className={styles.menu}>
         {availableLangs.map((lang): ReactElement => (
@@ -25,7 +25,7 @@ const LocaleToggler = (): ReactElement => {
             onKeyPress={(): Promise<TFunction> => i18n.changeLanguage(lang)}
             key={lang}
           >
-            {lang.toUpperCase()}
+            {lang}
           </li>
         ))}
       </ul>

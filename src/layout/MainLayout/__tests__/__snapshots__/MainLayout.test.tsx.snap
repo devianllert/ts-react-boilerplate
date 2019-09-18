@@ -18,9 +18,11 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
         class="menuItem"
       >
         <a
+          aria-current="page"
+          class="active"
           href="/"
         >
-          Home
+          layout.main.menu.home
         </a>
       </li>
       <li
@@ -29,7 +31,7 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
         <a
           href="/counter"
         >
-          Counter
+          layout.main.menu.counter
         </a>
       </li>
       <li
@@ -38,8 +40,39 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
         <a
           href="/about"
         >
-          About
+          layout.main.menu.about
         </a>
+      </li>
+      <li
+        class="menuItem"
+      >
+        <div
+          class="toggler"
+          role="menu"
+          tabindex="0"
+        >
+          <span
+            class="title"
+          />
+          <ul
+            class="menu"
+          >
+            <li
+              class="menuItem"
+              role="menuitem"
+              tabindex="0"
+            >
+              en
+            </li>
+            <li
+              class="menuItem"
+              role="menuitem"
+              tabindex="0"
+            >
+              ru
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </header>

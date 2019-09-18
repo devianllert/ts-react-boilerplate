@@ -19,6 +19,6 @@ describe('<NotFound />', (): void => {
   it('should render with initial state', (): void => {
     const { getByText } = renderWithRouter(<NotFound />);
 
-    expect(getByText(/Page Not Found!/)).toBeDefined();
+    expect(getByText(/404/)).toBeDefined();
   });
 });

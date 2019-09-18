@@ -19,6 +19,6 @@ describe('<Home />', (): void => {
   it('should render with initial state', (): void => {
     const { getByText } = renderWithRouter(<Home />);
 
-    expect(getByText(/React Typescript Boilerplate/)).toBeDefined();
+    expect(getByText(/home.title/)).toBeDefined();
   });
 });

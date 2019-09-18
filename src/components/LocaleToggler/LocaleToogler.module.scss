@@ -34,6 +34,8 @@
   height: 30px;
   width: 100%;
 
+  text-transform: uppercase;
+
   cursor: pointer;
 }
 
@@ -62,4 +64,6 @@
 
 .title {
   font-size: $font-size;
+
+  text-transform: uppercase;
 }

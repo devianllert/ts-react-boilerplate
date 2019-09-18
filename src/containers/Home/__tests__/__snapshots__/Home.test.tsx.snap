@@ -7,12 +7,12 @@ exports[`<Home /> should render and match the snapshot 1`] = `
   <h1
     class="title"
   >
-    React Typescript Boilerplate
+    home.title
   </h1>
   <p
     class="subtitle"
   >
-    A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.
+    home.subtitle
   </p>
 </div>
 `;
