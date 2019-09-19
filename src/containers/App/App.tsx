@@ -9,6 +9,8 @@ import Home from '../Home/Loadable';
 import Counter from '../Counter/Loadable';
 import NotFound from '../NotFound';
 
+import NetworkNotifier from '../../components/NetworkNotifier';
+
 const App = (): ReactElement => {
   const { i18n } = useTranslation();
 
@@ -33,6 +35,8 @@ const App = (): ReactElement => {
 
         <Route component={NotFound} />
       </Switch>
+
+      <NetworkNotifier />
     </div>
   );
 };

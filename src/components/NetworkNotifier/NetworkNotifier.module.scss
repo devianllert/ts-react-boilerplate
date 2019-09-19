@@ -1,0 +1,70 @@
+@import '../../design/design-system';
+
+$notifier-height: 30px;
+
+.notifier {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: $notifier-height;
+
+  transition: all 0.5s ease
+}
+
+.notifierMessage {
+  color: var(--brand-text-color-inverse);
+
+  font-size: $font-size;
+}
+
+.notifierError {
+  background-color: var(--brand-danger);
+}
+
+.notifierSuccess {
+  background-color: var(--brand-success);
+}
+
+.notifierClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 100%;
+}
+
+.slideAppear {
+  transform: translateY($notifier-height);
+}
+
+.slideEnter {
+  transform: translateY($notifier-height);
+}
+
+.slideEnterActive {
+  transform: translateY(0);
+
+  transition: transform 250ms;
+}
+
+.slideExit {
+  transform: translateY(0);
+}
+
+.slideExitActive {
+  transform: translateY($notifier-height);
+
+  transition: transform 250ms;
+}

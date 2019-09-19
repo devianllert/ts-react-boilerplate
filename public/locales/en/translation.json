@@ -1,4 +1,11 @@
 {
+  "common": {
+    "networkNotifier": {
+      "disconnected": "Connection lost",
+      "connected": "Reconnected",
+      "close": "Close"
+    }
+  },
   "layout": {
     "main": {
       "menu": {

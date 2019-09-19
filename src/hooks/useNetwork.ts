@@ -69,8 +69,8 @@ const getConnectionState = (): NetworkState => {
  * const network = useNetwork();
  */
 
-const useNetwork = (initialState: NetworkState = {}): NetworkState => {
-  const [state, setState] = useState<NetworkState>(initialState);
+const useNetwork = (onChange?: (state: NetworkState) => void): NetworkState => {
+  const [state, setState] = useState<NetworkState>({});
 
   useEffect((): (() => void) => {
     let localState = state;
@@ -82,26 +82,36 @@ const useNetwork = (initialState: NetworkState = {}): NetworkState => {
 
     const connection = getConnection();
 
-    const onOnline = (): void => {
+    const handleOnline = (): void => {
       localSetState({
         online: true,
         since: new Date(),
       });
+
+      if (onChange) {
+        onChange(localState);
+      }
     };
 
-    const onOffline = (): void => {
+    const handleOffline = (): void => {
       localSetState({
         online: false,
         since: new Date(),
       });
+
+      if (onChange) {
+        onChange(localState);
+      }
     };
 
     const onConnectionChange = (): void => {
-      localSetState(getConnectionState());
+      const currentState = getConnectionState();
+
+      localSetState(currentState);
     };
 
-    on(window, 'online', onOnline);
-    on(window, 'offline', onOffline);
+    on(window, 'online', handleOnline);
+    on(window, 'offline', handleOffline);
 
     if (connection) {
       on(connection, 'change', onConnectionChange);
@@ -115,8 +125,8 @@ const useNetwork = (initialState: NetworkState = {}): NetworkState => {
     }
 
     return (): void => {
-      off(window, 'online', onOnline);
-      off(window, 'offline', onOffline);
+      off(window, 'online', handleOnline);
+      off(window, 'offline', handleOffline);
 
       if (connection) {
         off(connection, 'change', onConnectionChange);
