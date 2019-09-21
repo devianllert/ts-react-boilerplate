@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import styles from './Loader.module.scss';
 
 interface Props {
-  initial?: boolean;
+  fullscreen?: boolean;
 }
 
-const Loader = ({ initial }: Props): ReactElement => (
-  <div className={classnames(styles.overlay, initial && styles.overlayFullHeight)}>
+const Loader = ({ fullscreen }: Props): ReactElement => (
+  <div className={classnames(styles.overlay, fullscreen && styles.overlayFullHeight)}>
     <progress className={styles.loader} />
   </div>
 );

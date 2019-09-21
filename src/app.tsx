@@ -23,7 +23,7 @@ const MOUNT_NODE = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Suspense fallback={<Loader initial />}>
+      <Suspense fallback={<Loader fullscreen />}>
         <App />
       </Suspense>
     </ConnectedRouter>
