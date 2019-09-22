@@ -3,22 +3,22 @@ import { cleanup } from '@testing-library/react';
 
 import { renderWithRouter } from '../../../utils/testUtils';
 
-import NotFound from '../NotFound';
+import HomePage from '../HomePage';
 
 import '@testing-library/jest-dom/extend-expect';
 
-describe('<NotFound />', (): void => {
+describe('<HomePage />', (): void => {
   afterEach(cleanup);
 
   it('should render and match the snapshot', (): void => {
-    const { container } = renderWithRouter(<NotFound />);
+    const { container } = renderWithRouter(<HomePage />);
 
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render with initial state', (): void => {
-    const { getByText } = renderWithRouter(<NotFound />);
+    const { getByText } = renderWithRouter(<HomePage />);
 
-    expect(getByText(/404/)).toBeDefined();
+    expect(getByText(/home.title/)).toBeDefined();
   });
 });

@@ -14,7 +14,7 @@ import Button from '../Button';
 
 import styles from './NetworkNotifier.module.scss';
 
-const NetworkNotifier = (): ReactElement | null => {
+const NetworkNotifier = (): ReactElement => {
   const [show, setShow] = useState(false);
   const timer = useRef<number>();
   const { t } = useTranslation();

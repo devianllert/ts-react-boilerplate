@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
-import styles from './Home.module.scss';
+import styles from './HomePage.module.scss';
 
-const Home = (): ReactElement => {
+const HomePage = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
@@ -21,4 +21,4 @@ const Home = (): ReactElement => {
   );
 };
 
-export default Home;
+export default HomePage;

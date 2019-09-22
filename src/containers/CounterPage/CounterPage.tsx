@@ -12,7 +12,7 @@ import { counterIncrement, counterDecrement } from './actions';
 
 import Button from '../../components/Button';
 
-import styles from './Counter.module.scss';
+import styles from './CounterPage.module.scss';
 
 interface StateToProps {
   count: number;
@@ -25,7 +25,7 @@ interface DispatchToProps {
 
 type Props = StateToProps & DispatchToProps & {};
 
-const Counter = ({ count, increment, decrement }: Props): ReactElement => {
+const CounterPage = ({ count, increment, decrement }: Props): ReactElement => {
   const { t } = useTranslation();
 
   useKey('ArrowUp', increment);
@@ -64,4 +64,4 @@ const mapDispatchToProps: DispatchToProps = {
 export default connect<StateToProps, DispatchToProps, {}, AppState>(
   mapStateToProps,
   mapDispatchToProps,
-)(Counter);
+)(CounterPage);

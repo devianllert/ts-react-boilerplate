@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import Button from '../../components/Button';
 
-import styles from './NotFound.module.scss';
+import styles from './NotFoundPage.module.scss';
 
-const NotFound = (): ReactElement => {
+const NotFoundPage = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
@@ -24,4 +24,4 @@ const NotFound = (): ReactElement => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

@@ -26,6 +26,9 @@ const MainLayout = ({ children }: Props): ReactElement => {
             <NavLink activeClassName={styles.active} to="/counter">{t('layout.main.menu.counter')}</NavLink>
           </li>
           <li className={styles.menuItem}>
+            <NavLink activeClassName={styles.active} to="/advice">{t('layout.main.menu.advice')}</NavLink>
+          </li>
+          <li className={styles.menuItem}>
             <NavLink activeClassName={styles.active} to="/about">{t('layout.main.menu.about')}</NavLink>
           </li>
           <li className={styles.menuItem}>

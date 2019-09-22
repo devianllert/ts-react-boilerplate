@@ -3,7 +3,7 @@ import { connectRouter } from 'connected-react-router';
 
 import history from './utils/history';
 
-import counterReducer from './containers/Counter/reducer';
+import counterReducer from './containers/CounterPage/reducer';
 
 const staticReducers = {
   router: connectRouter(history),

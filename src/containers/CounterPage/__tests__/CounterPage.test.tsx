@@ -3,7 +3,7 @@ import { cleanup, fireEvent } from '@testing-library/react';
 
 import { renderWithRouterAndRedux } from '../../../utils/testUtils';
 
-import Counter from '../Counter';
+import CounterPage from '../CounterPage';
 
 import '@testing-library/jest-dom/extend-expect';
 
@@ -11,7 +11,7 @@ describe('<Counter />', (): void => {
   afterEach(cleanup);
 
   it('should render and match the snapshot', (): void => {
-    const { container } = renderWithRouterAndRedux(<Counter />);
+    const { container } = renderWithRouterAndRedux(<CounterPage />);
 
     expect(container).toMatchSnapshot();
   });
@@ -23,13 +23,13 @@ describe('<Counter />', (): void => {
       },
     };
 
-    const { getByText } = renderWithRouterAndRedux(<Counter />, { initialState });
+    const { getByText } = renderWithRouterAndRedux(<CounterPage />, { initialState });
 
     expect(getByText(/1000/)).toBeDefined();
   });
 
   it('should increment count', (): void => {
-    const { getByText } = renderWithRouterAndRedux(<Counter />);
+    const { getByText } = renderWithRouterAndRedux(<CounterPage />);
 
     expect(getByText(/0/)).toBeDefined();
 
@@ -39,7 +39,7 @@ describe('<Counter />', (): void => {
   });
 
   it('should decrement count', (): void => {
-    const { getByText } = renderWithRouterAndRedux(<Counter />);
+    const { getByText } = renderWithRouterAndRedux(<CounterPage />);
 
     expect(getByText(/0/)).toBeDefined();
 

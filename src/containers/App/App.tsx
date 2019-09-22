@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import MainLayout from '../../layout/MainLayout';
 
-import Home from '../Home/Loadable';
-import Counter from '../Counter/Loadable';
-import NotFound from '../NotFound';
+import HomePage from '../HomePage/Loadable';
+import CounterPage from '../CounterPage/Loadable';
+import AdvicePage from '../AdvicePage/Loadable';
+import NotFoundPage from '../NotFoundPage';
 
 import NetworkNotifier from '../../components/NetworkNotifier';
 
@@ -26,14 +27,15 @@ const App = (): ReactElement => {
       </Helmet>
 
       <Switch>
-        <Route exact path={['/', '/counter']}>
+        <Route exact path={['/', '/counter', '/advice']}>
           <MainLayout>
-            <Route exact path="/" component={Home} />
-            <Route path="/counter" component={Counter} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/counter" component={CounterPage} />
+            <Route path="/advice" component={AdvicePage} />
           </MainLayout>
         </Route>
 
-        <Route component={NotFound} />
+        <Route component={NotFoundPage} />
       </Switch>
 
       <NetworkNotifier />

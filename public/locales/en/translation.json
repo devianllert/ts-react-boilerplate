@@ -11,6 +11,7 @@
       "menu": {
         "home": "Home",
         "counter": "Counter",
+        "advice": "Advice",
         "about": "About"
       }
     }
