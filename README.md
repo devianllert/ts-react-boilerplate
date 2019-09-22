@@ -31,6 +31,7 @@
     ├── design                // design system
     ├── hooks                 // react hooks
     ├── layout                // layout components
+    ├── services              // services 
     ├── utils                 // shared code, utility functions
     ├── app.tsx               // entry point for application
     ├── configureStore.ts     // configuration for store
@@ -53,6 +54,14 @@ A module/container is an encapsulated piece of domain logic in your application,
 **Domain logic**: just plain logic with state-management but no routes and no components
 
 A module usually has routing information, state management or both.
+
+#### What is a services?
+
+A service is typically a class with a narrow, well-defined purpose. It should do something specific and do it well.
+
+A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console.
+
+Services can depend on other services.
 
 ### CLI Commands
 
