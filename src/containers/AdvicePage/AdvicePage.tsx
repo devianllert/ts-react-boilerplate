@@ -1,32 +1,45 @@
-import React, { useState, useEffect, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 import { fetchAdvice, Advice } from '../../services/advice.service';
+
+import useAsync from '../../hooks/useAsync';
 
 import Button from '../../components/Button';
 
 import styles from './AdvicePage.module.scss';
 
 const AdvicePage = (): ReactElement => {
-  const [advice, setAdvice] = useState<Advice>();
+  const { t } = useTranslation();
 
-  const getNewAdvice = async (): Promise<void> => {
+  const [advice, fetch] = useAsync(async (): Promise<Advice> => {
     const newAdvice = await fetchAdvice();
 
-    setAdvice(newAdvice);
-  };
-
-  useEffect((): void => {
-    getNewAdvice();
-  }, []);
+    return newAdvice;
+  });
 
   return (
-    <div className={styles.content}>
-      {advice && (
-        <div>{advice.slip.advice}</div>
-      )}
+    <>
+      <Helmet>
+        <title>{t('advice.headTitle')}</title>
+      </Helmet>
 
-      <Button onClick={getNewAdvice}>New Advice</Button>
-    </div>
+      <div className={styles.content}>
+        {advice.loading && <div>Loading...</div>}
+
+        {advice.error && (
+          <div>
+            Error:
+            {advice.error.message}
+          </div>
+        )}
+
+        {advice.value && <div>{advice.value.slip.advice}</div>}
+
+        <Button onClick={fetch}>{t('advice.button')}</Button>
+      </div>
+    </>
   );
 };
 
