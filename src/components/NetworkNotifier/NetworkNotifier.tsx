@@ -1,5 +1,4 @@
 import React, {
-  useState,
   useRef,
   ReactElement,
   useEffect,
@@ -9,20 +8,21 @@ import { CSSTransition } from 'react-transition-group';
 import classnames from 'classnames';
 
 import useNetwork from '../../hooks/useNetwork';
+import useBoolean from '../../hooks/useBoolean';
 
 import Button from '../Button';
 
 import styles from './NetworkNotifier.module.scss';
 
 const NetworkNotifier = (): ReactElement => {
-  const [show, setShow] = useState(false);
+  const [show, toggleShow] = useBoolean(false);
   const timer = useRef<number>();
   const { t } = useTranslation();
   const network = useNetwork((state): void => {
-    setShow(true);
+    toggleShow(true);
 
     if (state.online) {
-      timer.current = window.setTimeout((): void => setShow(false), 5000);
+      timer.current = window.setTimeout((): void => toggleShow(false), 5000);
     }
   });
 
@@ -37,7 +37,7 @@ const NetworkNotifier = (): ReactElement => {
       clearTimeout(timer.current);
     }
 
-    setShow(false);
+    toggleShow(false);
   };
 
   const message = network.online
