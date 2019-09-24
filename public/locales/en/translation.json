@@ -33,5 +33,10 @@
     "headTitle": "Counter",
 
     "info": "You can use Up and Down keyboard arrows for change value."
+  },
+  "advice": {
+    "headTitle": "Advice",
+
+    "button": "New Advice"
   }
 }
