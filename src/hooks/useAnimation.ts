@@ -61,8 +61,8 @@ const useAnimationTimer = (duration: number, delay: number): number => {
 
 const useAnimation = (
   easingName: keyof typeof easing = 'linear',
-  duration: number = 1000,
-  delay: number = 0,
+  duration = 1000,
+  delay = 0,
 ): number => {
   const elapsed = useAnimationTimer(duration, delay);
 
