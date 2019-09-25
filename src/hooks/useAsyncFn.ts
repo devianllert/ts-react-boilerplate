@@ -1,5 +1,7 @@
 import { useState, useCallback, DependencyList } from 'react';
 
+import useMountedState from './useMountedState';
+
 export interface AsyncState<T> {
   loading: boolean;
   error?: Error;
@@ -26,17 +28,19 @@ const useAsyncFn = <T>(
 ): AsyncFn<T> => {
   const [state, setState] = useState<AsyncState<T>>(initialState);
 
+  const isMounted = useMountedState();
+
   const callback = useCallback(async (...args: any[]): Promise<T | Error> => { // eslint-disable-line
     setState({ loading: true });
 
     try {
       const value = await fn(...args);
 
-      setState({ value, loading: false });
+      if (isMounted()) setState({ value, loading: false });
 
       return value;
     } catch (error) {
-      setState({ error, loading: false });
+      if (isMounted()) setState({ error, loading: false });
 
       return error;
     }
