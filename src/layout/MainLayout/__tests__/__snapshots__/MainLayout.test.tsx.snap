@@ -38,6 +38,15 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
         class="menuItem"
       >
         <a
+          href="/advice"
+        >
+          layout.main.menu.advice
+        </a>
+      </li>
+      <li
+        class="menuItem"
+      >
+        <a
           href="/about"
         >
           layout.main.menu.about
