@@ -26,16 +26,16 @@ const AdvicePage = (): ReactElement => {
       </Helmet>
 
       <div className={styles.content}>
-        {advice.loading && <div>Loading...</div>}
+        {advice.pending && <div>Loading...</div>}
 
-        {advice.error && (
+        {(advice.error && !advice.pending) && (
           <div>
             Error:
             {advice.error.message}
           </div>
         )}
 
-        {advice.value && <div>{advice.value.slip.advice}</div>}
+        {(advice.result && !advice.pending) && <div>{advice.result.slip.advice}</div>}
 
         <Button onClick={fetch}>{t('advice.button')}</Button>
       </div>

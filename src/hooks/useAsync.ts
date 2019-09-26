@@ -2,9 +2,9 @@ import { useEffect, DependencyList } from 'react';
 import useAsyncFn from './useAsyncFn';
 
 export interface AsyncState<T> {
-  loading: boolean;
+  pending: boolean;
   error?: Error;
-  value?: T;
+  result?: T;
 }
 
 export type AsyncFn<T, Args extends any[] = any[]> = [ // eslint-disable-line
@@ -21,7 +21,7 @@ export type AsyncFn<T, Args extends any[] = any[]> = [ // eslint-disable-line
 
 const useAsync = <T>(fn: (...args: any[]) => Promise<T>, deps: DependencyList = []): AsyncFn<T> => {  // eslint-disable-line
   const [state, callback] = useAsyncFn<T>(fn, deps, {
-    loading: true,
+    pending: true,
   });
 
   useEffect((): void => {

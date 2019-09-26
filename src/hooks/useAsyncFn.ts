@@ -1,11 +1,12 @@
-import { useState, useCallback, DependencyList } from 'react';
+import { useCallback, DependencyList } from 'react';
 
 import useMountedState from './useMountedState';
+import useSetState from './useSetState';
 
 export interface AsyncState<T> {
-  loading: boolean;
+  pending: boolean;
   error?: Error;
-  value?: T;
+  result?: T;
 }
 
 export type AsyncFn<T> = [
@@ -24,23 +25,28 @@ export type AsyncFn<T> = [
 const useAsyncFn = <T>(
   fn: (...args: any[]) => Promise<T>, // eslint-disable-line
   deps: DependencyList = [],
-  initialState: AsyncState<T> = { loading: false },
+  initialState: AsyncState<T> = { pending: false },
 ): AsyncFn<T> => {
-  const [state, setState] = useState<AsyncState<T>>(initialState);
+  const [state, setState] = useSetState<AsyncState<T>>({
+    pending: false,
+    error: undefined,
+    result: undefined,
+    ...initialState,
+  });
 
   const isMounted = useMountedState();
 
   const callback = useCallback(async (...args: any[]): Promise<T | Error> => { // eslint-disable-line
-    setState({ loading: true });
+    setState({ error: undefined, pending: true });
 
     try {
-      const value = await fn(...args);
+      const result = await fn(...args);
 
-      if (isMounted()) setState({ value, loading: false });
+      if (isMounted()) setState({ result, error: undefined, pending: false });
 
-      return value;
+      return result;
     } catch (error) {
-      if (isMounted()) setState({ error, loading: false });
+      if (isMounted()) setState({ error, pending: false });
 
       return error;
     }
