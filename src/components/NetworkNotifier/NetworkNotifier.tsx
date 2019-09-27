@@ -1,14 +1,11 @@
-import React, {
-  useRef,
-  ReactElement,
-  useEffect,
-} from 'react';
+import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition } from 'react-transition-group';
 import classnames from 'classnames';
 
 import useNetwork from '../../hooks/useNetwork';
 import useBoolean from '../../hooks/useBoolean';
+import useTimeoutFn from '../../hooks/useTimeoutFn';
 
 import Button from '../Button';
 
@@ -16,38 +13,23 @@ import styles from './NetworkNotifier.module.scss';
 
 const NetworkNotifier = (): ReactElement => {
   const [show, toggleShow] = useBoolean(false);
-  const timer = useRef<number>();
   const { t } = useTranslation();
+  const { clear, set } = useTimeoutFn(() => toggleShow(false), 5000);
   const network = useNetwork((state): void => {
     toggleShow(true);
 
-    if (state.online) {
-      timer.current = window.setTimeout((): void => toggleShow(false), 5000);
-    }
+    if (state.online) set();
   });
 
-  useEffect((): (() => void) => (): void => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-  }, []);
-
   const closeNotifier = (): void => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
+    clear();
 
     toggleShow(false);
   };
 
-  const message = network.online
-    ? t('common.networkNotifier.connected')
-    : t('common.networkNotifier.disconnected');
+  const message = network.online ? t('common.networkNotifier.connected') : t('common.networkNotifier.disconnected');
 
-  const classes = classnames(
-    styles.notifier,
-    network.online ? styles.notifierSuccess : styles.notifierError,
-  );
+  const classes = classnames(styles.notifier, network.online ? styles.notifierSuccess : styles.notifierError);
 
   return (
     <CSSTransition
@@ -64,12 +46,7 @@ const NetworkNotifier = (): ReactElement => {
     >
       <div className={classes}>
         <div className={styles.notifierClose}>
-          <Button
-            size="small"
-            appearence="default"
-            flat
-            onClick={closeNotifier}
-          >
+          <Button size="small" appearence="default" flat onClick={closeNotifier}>
             {t('common.networkNotifier.close')}
           </Button>
         </div>
