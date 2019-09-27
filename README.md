@@ -20,7 +20,8 @@
 │   ├── config                // webpack config
 │   └── scripts               // npm scripts
 ├── public                    // static files
-│   ├── index.html            // template, needed for webpack
+│   ├── locales               // translations
+│   └── index.html            // template, needed for webpack
 └── src                       // main app code
     ├── @types                // folder for global types
     ├── components            // shared components
