@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import LocaleToggler from '../../components/LocaleToggler';
+import ThemeToggler from '../../components/ThemeToggler';
 
 import styles from './MainLayout.module.scss';
 
@@ -33,6 +34,9 @@ const MainLayout = ({ children }: Props): ReactElement => {
           </li>
           <li className={styles.menuItem}>
             <LocaleToggler />
+          </li>
+          <li className={styles.menuItem}>
+            <ThemeToggler />
           </li>
         </ul>
 

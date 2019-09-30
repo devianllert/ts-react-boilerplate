@@ -10,11 +10,15 @@
 @import 'reset';
 @import 'typo';
 
-.app {
-  min-height: 100vh;
-
+body {
   color: var(--brand-text-color);
   background-color: var(--brand-bg-color);
+
+  transition: background-color 0.25s ease
+}
+
+.app {
+  min-height: 100vh;
 }
 
 a {

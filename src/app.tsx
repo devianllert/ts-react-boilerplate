@@ -6,9 +6,9 @@ import { ConnectedRouter } from 'connected-react-router';
 import configureStore from './configureStore';
 import history from './utils/history';
 
-import Loader from './components/Loader';
-
 import App from './containers/App';
+
+import Loader from './components/Loader';
 
 import * as serviceWorker from './serviceWorker';
 

@@ -83,6 +83,21 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
           </ul>
         </div>
       </li>
+      <li
+        class="menuItem"
+      >
+        <div
+          class="toggler"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="title"
+          >
+            dark
+          </span>
+        </div>
+      </li>
     </ul>
   </header>
   <main

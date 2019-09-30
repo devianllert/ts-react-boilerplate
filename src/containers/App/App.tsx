@@ -16,7 +16,7 @@ const App = (): ReactElement => {
   const { i18n } = useTranslation();
 
   return (
-    <div className="app theme--light">
+    <div className="app">
       <Helmet
         titleTemplate="%s - React TypeScript Boilerplate"
         defaultTitle="React TypeScript Boilerplate"
