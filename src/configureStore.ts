@@ -15,9 +15,10 @@ const configureStore = (initialState = {}, history: import('history').History): 
   if (process.env.NODE_ENV !== 'production' && typeof window === 'object') {
     /* eslint-disable */
     // @ts-ignore
-    if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+    if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
       // @ts-ignore
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
+    }
     /* eslint-enable */
   }
 
