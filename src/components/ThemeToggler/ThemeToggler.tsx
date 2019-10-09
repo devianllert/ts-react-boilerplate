@@ -5,7 +5,7 @@ import useTheme from '../../hooks/useTheme';
 import styles from './ThemeToggler.module.scss';
 
 const ThemeToggler = (): ReactElement => {
-  const [theme, toggleTheme] = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div

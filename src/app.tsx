@@ -7,6 +7,8 @@ import { I18nextProvider } from 'react-i18next';
 import configureStore from './configureStore';
 import history from './utils/history';
 
+import ThemeProvider from './components/ThemeProvider';
+
 import App from './containers/App';
 
 import Loader from './components/Loader';
@@ -25,9 +27,11 @@ ReactDOM.render(
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
       <ConnectedRouter history={history}>
-        <Suspense fallback={<Loader fullscreen />}>
-          <App />
-        </Suspense>
+        <ThemeProvider>
+          <Suspense fallback={<Loader fullscreen />}>
+            <App />
+          </Suspense>
+        </ThemeProvider>
       </ConnectedRouter>
     </I18nextProvider>
   </Provider>,

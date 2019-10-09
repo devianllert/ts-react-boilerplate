@@ -50,7 +50,7 @@ $grid-breakpoints-max: (
 
 @mixin add-theme-variable($variable-name, $value-map) {
   @each $theme, $value in $value-map {
-    body.theme--#{$theme} {
+    .theme.theme--#{$theme} {
       --#{$variable-name}: #{$value};
     }
   }
