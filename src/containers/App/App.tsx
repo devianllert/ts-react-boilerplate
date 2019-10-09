@@ -16,7 +16,7 @@ const App = (): ReactElement => {
   const { i18n } = useTranslation();
 
   return (
-    <div className="app">
+    <>
       <Helmet
         titleTemplate="%s - React TypeScript Boilerplate"
         defaultTitle="React TypeScript Boilerplate"
@@ -39,7 +39,7 @@ const App = (): ReactElement => {
       </Switch>
 
       <NetworkNotifier />
-    </div>
+    </>
   );
 };
 

@@ -21,7 +21,7 @@ import './design/global.scss';
 
 const initialState = {};
 const store = configureStore(initialState, history);
-const MOUNT_NODE = document.getElementById('root');
+const MOUNT_NODE = document.getElementById('app');
 
 ReactDOM.render(
   <Provider store={store}>
