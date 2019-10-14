@@ -94,7 +94,7 @@ exports[`<MainLayout /> should render and match the snapshot 1`] = `
           <span
             class="title"
           >
-            dark
+            light
           </span>
         </div>
       </li>
