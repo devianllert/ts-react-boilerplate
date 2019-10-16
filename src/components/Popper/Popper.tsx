@@ -6,7 +6,8 @@ import React, {
   ReactElement,
   ReactNode,
   Ref,
-  ChangeEvent,
+  MouseEvent,
+  FocusEvent,
 } from 'react';
 import PopperJS, {
   ReferenceObject,
@@ -36,10 +37,10 @@ export interface Props {
   transition?: boolean;
   className?: string;
   id?: string;
-  onMouseOver?: (event: ChangeEvent) => void;
-  onMouseLeave?: (event: ChangeEvent) => void;
-  onFocus?: (event: ChangeEvent) => void;
-  onBlur?: (event: ChangeEvent) => void;
+  onMouseOver?: (event: MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: MouseEvent<HTMLDivElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLDivElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLDivElement>) => void;
 }
 
 function getAnchorEl(anchorEl: null | ReferenceObject | (() => ReferenceObject)): null | ReferenceObject {
@@ -57,7 +58,6 @@ const Popper = (props: Props): ReactElement | null => {
     open,
     placement: initialPlacement = 'bottom',
     popperOptions = {},
-    popperRef: popperRefProp,
     transition = false,
     ...other
   } = props;
