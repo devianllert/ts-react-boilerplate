@@ -1,13 +1,20 @@
-import React, { ReactChild, ReactElement, MouseEvent } from 'react';
+import React, {
+  ReactChild,
+  ReactElement,
+  MouseEvent,
+  HTMLAttributes,
+  forwardRef,
+  Ref,
+} from 'react';
 import classnames from 'classnames';
 
 import { Link } from 'react-router-dom';
 
 import styles from './Button.module.scss';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children: ReactChild | ReactChild[] | any; // eslint-disable-line
-  onClick?: Function;
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   to?: string;
   disabled?: boolean;
   outlined?: boolean;
@@ -17,7 +24,7 @@ interface Props {
   size?: 'small' | 'medium' | 'large';
 }
 
-const Button = (props: Props): ReactElement => {
+const Button = forwardRef((props: Props, ref: Ref<any>): ReactElement => {
   const {
     children,
     onClick,
@@ -28,6 +35,7 @@ const Button = (props: Props): ReactElement => {
     type = 'button',
     appearence = 'primary',
     size = 'medium',
+    ...otherProps
   } = props;
 
   const classes = classnames(
@@ -39,7 +47,7 @@ const Button = (props: Props): ReactElement => {
     flat && styles.flat,
   );
 
-  const handleClick = (event: MouseEvent): void => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     if (!onClick) return;
 
     onClick(event);
@@ -51,6 +59,8 @@ const Button = (props: Props): ReactElement => {
         to={to}
         onClick={handleClick}
         className={classes}
+        ref={ref}
+        {...otherProps} // eslint-disable-line
       >
         {children}
       </Link>
@@ -63,10 +73,12 @@ const Button = (props: Props): ReactElement => {
       className={classes}
       type={type}
       disabled={disabled}
+      ref={ref}
+      {...otherProps} // eslint-disable-line
     >
       {children}
     </button>
   );
-};
+});
 
 export default Button;
