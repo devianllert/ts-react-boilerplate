@@ -10,6 +10,7 @@ exports[`<Counter /> should render and match the snapshot 1`] = `
     >
       <button
         class="button primary medium"
+        title="Decrement"
         type="button"
       >
         -
@@ -21,6 +22,7 @@ exports[`<Counter /> should render and match the snapshot 1`] = `
       </span>
       <button
         class="button primary medium"
+        title="Increment"
         type="button"
       >
         +

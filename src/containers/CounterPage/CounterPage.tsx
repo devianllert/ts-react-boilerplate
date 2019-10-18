@@ -11,6 +11,7 @@ import { makeSelectCount } from './selectors';
 import { counterIncrement, counterDecrement } from './actions';
 
 import Button from '../../components/Button';
+import Tooltip from '../../components/Tooltip';
 
 import styles from './CounterPage.module.scss';
 
@@ -39,11 +40,15 @@ const CounterPage = ({ count, increment, decrement }: Props): ReactElement => {
 
       <div className={styles.content}>
         <div className={styles.counter}>
-          <Button onClick={decrement}>-</Button>
+          <Tooltip title="Decrement" placement="top">
+            <Button onClick={decrement}>-</Button>
+          </Tooltip>
 
           <span className={styles.count}>{count}</span>
 
-          <Button onClick={increment}>+</Button>
+          <Tooltip title="Increment" placement="top">
+            <Button onClick={increment}>+</Button>
+          </Tooltip>
         </div>
 
         <div className={styles.info}>{t('counter.info')}</div>
