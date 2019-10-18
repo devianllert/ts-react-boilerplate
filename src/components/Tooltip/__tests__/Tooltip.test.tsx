@@ -126,4 +126,40 @@ describe('<Tooltip />', () => {
       expect(getByRole('button').getAttribute('title')).toEqual('Hello World');
     });
   });
+
+  describe('snapshots', () => {
+    it('should render and match the snapshot', () => {
+      const { container } = render(
+        <Tooltip title="Hello World" id="tooltip">
+          <button type="submit">Hello World</button>
+        </Tooltip>,
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render and match the snapshot when hovered', () => {
+      const { container, getByRole } = render(
+        <Tooltip title="Hello World" id="tooltip">
+          <button type="submit">Hello World</button>
+        </Tooltip>,
+      );
+
+      fireEvent.mouseEnter(getByRole('button'));
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it('should render and match the tooltip snapshot', () => {
+      const { getByRole } = render(
+        <Tooltip title="Hello World" id="tooltip">
+          <button type="submit">Hello World</button>
+        </Tooltip>,
+      );
+
+      fireEvent.mouseEnter(getByRole('button'));
+
+      expect(document.querySelector('[role="tooltip"]')).toMatchSnapshot();
+    });
+  });
 });

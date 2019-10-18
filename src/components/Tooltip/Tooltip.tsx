@@ -75,7 +75,6 @@ const Tooltip = (props: Props): ReactElement => {
   const [, forceUpdate] = useState(0);
   const [childNode, setChildNode] = useState<Element>();
 
-
   const ignoreNonTouchEvents = useRef(false);
   const { current: isControlled } = useRef(openProp != null);
 
@@ -270,7 +269,6 @@ const Tooltip = (props: Props): ReactElement => {
     title: shouldShowNativeTitle && typeof title === 'string' ? title : null,
     ...other,
     ...children.props,
-    className: children.props.className,
   };
 
   if (!disableTouchListener) {
