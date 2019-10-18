@@ -116,6 +116,8 @@ const Popper = (props: Props): ReactElement | null => {
       },
     });
 
+    popper.scheduleUpdate();
+
     popperRef.current = popper;
   }, [anchorEl, disablePortal, modifiers, open, placement, popperOptions]);
 
