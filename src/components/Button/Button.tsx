@@ -24,7 +24,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const Button = forwardRef((props: Props, ref: Ref<any>): ReactElement => {
+const Button = (props: Props, ref: Ref<any>): ReactElement => {
   const {
     children,
     onClick,
@@ -79,6 +79,6 @@ const Button = forwardRef((props: Props, ref: Ref<any>): ReactElement => {
       {children}
     </button>
   );
-});
+};
 
-export default Button;
+export default forwardRef(Button);

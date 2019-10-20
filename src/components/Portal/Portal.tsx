@@ -17,7 +17,7 @@ interface Props {
   disablePortal?: boolean;
 }
 
-const Portal = forwardRef((props: Props, ref: Ref<ReactInstance>): ReactPortal | ReactElement | null => {
+const Portal = (props: Props, ref: Ref<ReactInstance>): ReactPortal | ReactElement | null => {
   const {
     children,
     container,
@@ -39,6 +39,6 @@ const Portal = forwardRef((props: Props, ref: Ref<ReactInstance>): ReactPortal |
   }
 
   return mountNode ? createPortal(children, mountNode as Element) : mountNode;
-});
+};
 
-export default Portal;
+export default forwardRef(Portal);
