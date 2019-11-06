@@ -1,34 +1,32 @@
 import { renderHook } from '@testing-library/react-hooks';
 import useUnmount from '../useUnmount';
 
-const mockCallback = jest.fn();
-
 describe('useUnmount', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
+  const mockMount = jest.fn();
+  const mockUnmount = jest.fn();
+  const mockRerender = jest.fn();
 
   it('should not call provided callback on mount', () => {
-    renderHook(() => useUnmount(mockCallback));
+    renderHook(() => useUnmount(mockMount));
 
-    expect(mockCallback).not.toHaveBeenCalled();
+    expect(mockMount).not.toHaveBeenCalled();
   });
 
   it('should call provided callback on unmount', () => {
-    const { unmount } = renderHook(() => useUnmount(mockCallback));
-    expect(mockCallback).not.toHaveBeenCalled();
+    const { unmount } = renderHook(() => useUnmount(mockUnmount));
+    expect(mockUnmount).not.toHaveBeenCalled();
 
     unmount();
 
-    expect(mockCallback).toHaveBeenCalledTimes(1);
+    expect(mockUnmount).toHaveBeenCalledTimes(1);
   });
 
   it('should not call provided callback on rerender', () => {
-    const { rerender } = renderHook(() => useUnmount(mockCallback));
-    expect(mockCallback).not.toHaveBeenCalled();
+    const { rerender } = renderHook(() => useUnmount(mockRerender));
+    expect(mockRerender).not.toHaveBeenCalled();
 
     rerender();
 
-    expect(mockCallback).not.toHaveBeenCalled();
+    expect(mockRerender).not.toHaveBeenCalled();
   });
 });
