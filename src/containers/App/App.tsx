@@ -10,8 +10,6 @@ import CounterPage from '../CounterPage/Loadable';
 import AdvicePage from '../AdvicePage/Loadable';
 import NotFoundPage from '../NotFoundPage';
 
-import NetworkNotifier from '../../components/NetworkNotifier';
-
 const App = (): ReactElement => {
   const { i18n } = useTranslation();
 
@@ -37,8 +35,6 @@ const App = (): ReactElement => {
 
         <Route component={NotFoundPage} />
       </Switch>
-
-      <NetworkNotifier />
     </>
   );
 };

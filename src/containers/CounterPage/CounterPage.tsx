@@ -1,33 +1,24 @@
 import React, { ReactElement } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { createStructuredSelector } from 'reselect';
 import { useTranslation } from 'react-i18next';
+import { useKey, Tooltip } from 'react-essential-tools';
 
-import useKey from '../../hooks/useKey';
-
-import { makeSelectCount } from './selectors';
+import { CounterIncrement, CounterDecrement } from './types';
 
 import { counterIncrement, counterDecrement } from './actions';
 
 import Button from '../../components/Button';
-import Tooltip from '../../components/Tooltip';
 
 import styles from './CounterPage.module.scss';
 
-interface StateToProps {
-  count: number;
-}
-
-interface DispatchToProps {
-  increment: () => import('./types').CounterIncrement;
-  decrement: () => import('./types').CounterDecrement;
-}
-
-type Props = StateToProps & DispatchToProps & {};
-
-const CounterPage = ({ count, increment, decrement }: Props): ReactElement => {
+const CounterPage = (): ReactElement => {
   const { t } = useTranslation();
+  const counterCount = useSelector(({ counter }: AppState) => counter.count);
+  const dispatch = useDispatch();
+
+  const increment = (): CounterIncrement => dispatch(counterIncrement());
+  const decrement = (): CounterDecrement => dispatch(counterDecrement());
 
   useKey('ArrowUp', increment);
   useKey('ArrowDown', decrement);
@@ -44,7 +35,7 @@ const CounterPage = ({ count, increment, decrement }: Props): ReactElement => {
             <Button onClick={decrement}>-</Button>
           </Tooltip>
 
-          <span className={styles.count}>{count}</span>
+          <span className={styles.count}>{counterCount}</span>
 
           <Tooltip title="Increment" placement="top">
             <Button onClick={increment}>+</Button>
@@ -57,16 +48,4 @@ const CounterPage = ({ count, increment, decrement }: Props): ReactElement => {
   );
 };
 
-const mapStateToProps = createStructuredSelector<AppState, StateToProps>({
-  count: makeSelectCount(),
-});
-
-const mapDispatchToProps: DispatchToProps = {
-  increment: counterIncrement,
-  decrement: counterDecrement,
-};
-
-export default connect<StateToProps, DispatchToProps, {}, AppState>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(CounterPage);
+export default CounterPage;

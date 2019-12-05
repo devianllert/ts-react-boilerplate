@@ -1,8 +1,7 @@
 import React, { useCallback, ReactElement } from 'react';
+import { useLocalStorage } from 'react-essential-tools';
 
 import ThemeContext from './ThemeContext';
-
-import useLocalStorage from '../../hooks/useLocalStorage';
 
 import checkPrefersDarkMode from '../../utils/checkPrefersDarkMode';
 

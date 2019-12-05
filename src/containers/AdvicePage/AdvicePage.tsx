@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { useAsync } from 'react-essential-tools';
 
 import { fetchAdvice, Advice } from '../../services/advice.service';
-
-import useAsync from '../../hooks/useAsync';
 
 import Button from '../../components/Button';
 
