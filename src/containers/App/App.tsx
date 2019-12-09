@@ -16,11 +16,10 @@ const App = (): ReactElement => {
   return (
     <>
       <Helmet
+        htmlAttributes={{ lang: i18n.language }}
         titleTemplate="%s - React TypeScript Boilerplate"
         defaultTitle="React TypeScript Boilerplate"
       >
-        <html lang={i18n.language} />
-
         <meta name="description" content="A React TypeScript Boilerplate application" />
       </Helmet>
 

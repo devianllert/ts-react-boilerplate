@@ -16,9 +16,6 @@
 ### Folder Structure
 
 ```
-├── internals
-│   ├── config                // webpack config
-│   └── scripts               // npm scripts
 ├── public                    // static files
 │   ├── locales               // translations
 │   └── index.html            // template, needed for webpack

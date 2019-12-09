@@ -13,9 +13,9 @@ import App from './containers/App';
 
 import Loader from './components/Loader';
 
-import * as serviceWorker from './serviceWorker';
-
 import i18n from './i18n';
+
+import * as serviceWorker from './serviceWorker';
 
 import './design/global.scss';
 
@@ -38,4 +38,8 @@ ReactDOM.render(
   MOUNT_NODE,
 );
 
-serviceWorker.unregister();
+if (process.env.NODE_ENV === 'production') {
+  serviceWorker.register();
+} else {
+  serviceWorker.unregister();
+}
