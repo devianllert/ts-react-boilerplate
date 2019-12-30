@@ -7,14 +7,22 @@ import { useKey, Tooltip } from 'react-essential-tools';
 import { CounterIncrement, CounterDecrement } from './types';
 
 import { counterIncrement, counterDecrement } from './actions';
+import { makeSelectCount } from './selectors';
+
+import useInjectReducer from '../../hooks/useInjectReducer';
+
+import reducer from './reducer';
 
 import Button from '../../components/Button';
 
 import styles from './CounterPage.module.scss';
 
 const CounterPage = (): ReactElement => {
+  useInjectReducer({ key: 'counter', reducer });
+
   const { t } = useTranslation();
-  const counterCount = useSelector(({ counter }: AppState) => counter.count);
+
+  const counterCount = useSelector(makeSelectCount());
   const dispatch = useDispatch();
 
   const increment = (): CounterIncrement => dispatch(counterIncrement());

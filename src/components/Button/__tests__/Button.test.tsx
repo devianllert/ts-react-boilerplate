@@ -1,7 +1,7 @@
 import React, { ReactChild } from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 
-import { renderWithRouter } from '../../../utils/testUtils';
+import { renderWithProviders } from '../../../utils/testUtils';
 
 import '@testing-library/jest-dom/extend-expect';
 
@@ -56,7 +56,7 @@ describe('<Button />', (): void => {
   });
 
   it('should render Link if to prop is true', (): void => {
-    const { getByRole } = renderWithRouter(<Button to="/">{children}</Button>);
+    const { getByRole } = renderWithProviders(<Button to="/">{children}</Button>);
 
     expect(getByRole('link')).toHaveTextContent(children);
   });
@@ -90,7 +90,7 @@ describe('<Button />', (): void => {
     const flatButton = render(<Button flat>{children}</Button>);
     const outlinedButton = render(<Button outlined>{children}</Button>);
     const disabledButton = render(<Button disabled>{children}</Button>);
-    const LinkButton = renderWithRouter(<Button to="/">{children}</Button>);
+    const LinkButton = renderWithProviders(<Button to="/">{children}</Button>);
 
     expect(defaultButton.container.firstChild).toMatchSnapshot();
     expect(flatButton.container.firstChild).toMatchSnapshot();

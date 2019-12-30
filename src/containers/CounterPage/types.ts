@@ -3,15 +3,15 @@ export interface CounterState {
 }
 
 export interface CounterIncrement {
-  type: 'COUNTER_INCREMENT';
+  type: 'boilerplate/Counter/COUNTER_INCREMENT';
 }
 
 export interface CounterDecrement {
-  type: 'COUNTER_DECREMENT';
+  type: 'boilerplate/Counter/COUNTER_DECREMENT';
 }
 
 export interface CounterClear {
-  type: 'COUNTER_CLEAR';
+  type: 'boilerplate/Counter/COUNTER_CLEAR';
 }
 
 export type CounterActions = CounterIncrement | CounterDecrement | CounterClear;

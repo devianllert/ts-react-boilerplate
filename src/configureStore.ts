@@ -3,13 +3,30 @@ import {
   compose,
   applyMiddleware,
   Store,
+  Reducer,
 } from 'redux';
+import createSagaMiddleware, { Saga, SagaMiddleware, Task } from 'redux-saga';
 import { routerMiddleware } from 'connected-react-router';
 
 import createReducer from './reducers';
 
-const configureStore = (initialState = {}, history: import('history').History): Store => {
+export interface EnhancedStore extends Store {
+  runSaga: SagaMiddleware['run'];
+  injectedReducers: {
+    [key: string]: Reducer;
+  };
+  injectedSagas: {
+    [key: string]: {
+      saga?: Saga;
+      task: Task;
+      mode?: string;
+    } | string;
+  };
+}
+
+const configureStore = (initialState = {}, history: import('history').History): EnhancedStore => {
   let composeEnhancers = compose;
+  const reduxSagaMonitorOptions = {};
 
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
   if (process.env.NODE_ENV !== 'production' && typeof window === 'object') {
@@ -22,17 +39,25 @@ const configureStore = (initialState = {}, history: import('history').History): 
     /* eslint-enable */
   }
 
+  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
+
   const middlwares = [
+    sagaMiddleware,
     routerMiddleware(history),
   ];
 
   const enhancers = [applyMiddleware(...middlwares)];
 
-  const store = createStore(
+  const store: EnhancedStore = createStore(
     createReducer(),
     initialState,
     composeEnhancers(...enhancers),
   );
+
+  // Extensions
+  store.runSaga = sagaMiddleware.run;
+  store.injectedReducers = {}; // Reducer registry
+  store.injectedSagas = {}; // Saga registry
 
   return store;
 };

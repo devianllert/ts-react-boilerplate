@@ -7,6 +7,7 @@ import MainLayout from '../../layout/MainLayout';
 
 import HomePage from '../HomePage/Loadable';
 import CounterPage from '../CounterPage/Loadable';
+import ReposPage from '../ReposPage/Loadable';
 import AdvicePage from '../AdvicePage/Loadable';
 import NotFoundPage from '../NotFoundPage';
 
@@ -24,10 +25,11 @@ const App = (): ReactElement => {
       </Helmet>
 
       <Switch>
-        <Route exact path={['/', '/counter', '/advice']}>
+        <Route exact path={['/', '/counter', '/repos', '/advice']}>
           <MainLayout>
             <Route exact path="/" component={HomePage} />
             <Route path="/counter" component={CounterPage} />
+            <Route path="/repos" component={ReposPage} />
             <Route path="/advice" component={AdvicePage} />
           </MainLayout>
         </Route>

@@ -24,6 +24,9 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    react: {
+      useSuspense: process.env.NODE_ENV !== 'test',
+    },
   });
 
 export default i18n;

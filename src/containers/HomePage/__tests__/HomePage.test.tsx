@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 
-import { renderWithRouter } from '../../../utils/testUtils';
+import { renderWithProviders } from '../../../utils/testUtils';
 
 import HomePage from '../HomePage';
 
@@ -11,13 +11,13 @@ describe('<HomePage />', (): void => {
   afterEach(cleanup);
 
   it('should render and match the snapshot', (): void => {
-    const { container } = renderWithRouter(<HomePage />);
+    const { container } = renderWithProviders(<HomePage />);
 
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render with initial state', (): void => {
-    const { getByText } = renderWithRouter(<HomePage />);
+    const { getByText } = renderWithProviders(<HomePage />);
 
     expect(getByText(/home.title/)).toBeDefined();
   });

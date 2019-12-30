@@ -1,77 +1,47 @@
+/* eslint-disable import/prefer-default-export */
 import React, { ReactElement } from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import { Provider } from 'react-redux';
-import { Store } from 'redux';
 import { render, RenderResult } from '@testing-library/react'; // eslint-disable-line
+import { i18n as i18Next } from 'i18next';
+import { I18nextProvider } from 'react-i18next';
 
-import configureStore from '../configureStore';
+import configureStore, { EnhancedStore } from '../configureStore';
 import history from './history';
+import i18nInstance from '../i18n';
 
-export interface ReduxRenderOptions {
+export interface RenderProvidersOptions {
   initialState?: {};
-  store?: Store;
-}
-
-export interface ReduxRenderResult extends RenderResult {
-  store: Store;
-}
-
-export type ReduxRender = (ui: ReactElement, options?: ReduxRenderOptions) => ReduxRenderResult;
-
-export interface RouterRenderOptions {
   route?: string;
   routerHistory?: MemoryHistory;
+  store?: EnhancedStore;
+  i18n?: i18Next;
 }
 
-export interface RouterRenderResult extends RenderResult {
+export interface RenderProvidersResult extends RenderResult {
   routerHistory: MemoryHistory;
+  store: EnhancedStore;
+  i18n: i18Next;
 }
 
-export type RouterRender = (ui: ReactElement, options?: RouterRenderOptions) => RouterRenderResult;
+export type RenderProviders = (ui: ReactElement, options?: RenderProvidersOptions) => RenderProvidersResult;
 
-export type RouterReduxRenderOptions = RouterRenderOptions & ReduxRenderOptions;
-
-export type RouterReduxRenderResult = RouterRenderResult & ReduxRenderResult;
-
-export type RouterReduxRender = (ui: ReactElement, options?: RouterReduxRenderOptions) => RouterReduxRenderResult;
-
-const renderWithRedux: ReduxRender = (
-  ui,
-  { initialState = {}, store = configureStore(initialState, history) }: ReduxRenderOptions = {},
-): ReduxRenderResult => ({
-  ...render(<Provider store={store}>{ui}</Provider>),
-  /*
-  ** adding `store` to the returned utilities to allow us
-  ** to reference it in our tests (just try to avoid using
-  ** this to test implementation details).
-  */
-  store,
-});
-
-const renderWithRouter: RouterRender = (
-  ui,
-  { route = '/', routerHistory = createMemoryHistory({ initialEntries: [route] }) }: RouterRenderOptions = {},
-): RouterRenderResult => ({
-  ...render(<Router history={routerHistory}>{ui}</Router>),
-  // adding `history` to the returned utilities to allow us
-  // to reference it in our tests (just try to avoid using
-  // this to test implementation details).
-  routerHistory,
-});
-
-const renderWithRouterAndRedux: RouterReduxRender = (
+const renderWithProviders: RenderProviders = (
   ui,
   {
     initialState = {},
     route = '/',
     routerHistory = createMemoryHistory({ initialEntries: [route] }),
     store = configureStore(initialState, history),
-  }: RouterReduxRenderOptions = {},
-): RouterReduxRenderResult => ({
+    i18n = i18nInstance,
+  }: RenderProvidersOptions = {},
+): RenderProvidersResult => ({
   ...render(
     <Provider store={store}>
-      <Router history={routerHistory}>{ui}</Router>
+      <I18nextProvider i18n={i18n}>
+        <Router history={routerHistory}>{ui}</Router>
+      </I18nextProvider>
     </Provider>,
   ),
   // adding `history` to the returned utilities to allow us
@@ -79,10 +49,9 @@ const renderWithRouterAndRedux: RouterReduxRender = (
   // this to test implementation details).
   store,
   routerHistory,
+  i18n,
 });
 
 export {
-  renderWithRedux,
-  renderWithRouter,
-  renderWithRouterAndRedux,
+  renderWithProviders,
 };
