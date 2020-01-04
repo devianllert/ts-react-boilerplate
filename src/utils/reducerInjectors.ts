@@ -1,4 +1,3 @@
-
 import { Reducer } from 'redux';
 
 import createReducer from '../reducers';

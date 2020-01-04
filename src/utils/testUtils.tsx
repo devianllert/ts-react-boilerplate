@@ -3,9 +3,9 @@ import React, { ReactElement } from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import { Provider } from 'react-redux';
-import { render, RenderResult } from '@testing-library/react'; // eslint-disable-line
 import { i18n as i18Next } from 'i18next';
 import { I18nextProvider } from 'react-i18next';
+import { render, RenderResult } from '@testing-library/react'; // eslint-disable-line
 
 import configureStore, { EnhancedStore } from '../configureStore';
 import history from './history';
