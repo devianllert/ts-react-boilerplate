@@ -5,6 +5,12 @@ exports[`<Repos /> should render and match the snapshot 1`] = `
   <div
     class="content"
   >
+    <input
+      name="repository"
+      placeholder="Enter repository name"
+      type="text"
+      value=""
+    />
     <button
       class="button primary medium"
       title="Fetch repositories"

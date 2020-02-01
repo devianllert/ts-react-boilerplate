@@ -14,8 +14,9 @@ import {
 } from './constants';
 import { Repo } from '../../services/repos.service';
 
-const reposTrigger = (): ReposTrigger => ({
+const reposTrigger = (repoName: string): ReposTrigger => ({
   type: REPOS_TRIGGER,
+  payload: repoName,
 });
 
 const reposRequest = (): ReposRequest => ({

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,10 @@ const ReposPage = (): ReactElement => {
   const repos = useSelector(makeSelectReposData());
   const dispatch = useDispatch();
 
-  const requestRepos = (): ReposTrigger => dispatch(reposTrigger());
+  const [name, setName] = useState('');
+
+  const requestRepos = (): ReposTrigger => dispatch(reposTrigger(name));
+
 
   return (
     <>
@@ -36,7 +39,15 @@ const ReposPage = (): ReactElement => {
       </Helmet>
 
       <div className={styles.content}>
-        <Tooltip title="Fetch repositories" placement="top">
+        <input
+          type="text"
+          placeholder="Enter repository name"
+          name="repository"
+          value={name}
+          onChange={(event): void => setName(event.target.value)}
+        />
+
+        <Tooltip title="Fetch repositories">
           <Button onClick={requestRepos}>Fetch</Button>
         </Tooltip>
 

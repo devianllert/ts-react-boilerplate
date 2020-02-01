@@ -7,14 +7,15 @@ import {
   reposFulfill,
 } from './actions';
 import { REPOS_TRIGGER } from './constants';
+import { ReposTrigger } from './types';
 
 import { fetchRepos } from '../../services/repos.service';
 
-export function* getRepos() {
+export function* getRepos(action: ReposTrigger) {
   try {
     yield put(reposRequest());
 
-    const data = yield call(fetchRepos);
+    const data = yield call(fetchRepos, action.payload);
 
     yield put(reposSuccess(data));
   } catch (err) {

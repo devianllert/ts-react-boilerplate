@@ -30,6 +30,9 @@ const MainLayout = ({ children }: Props): ReactElement => {
             <NavLink activeClassName={styles.active} to="/advice">{t('layout.main.menu.advice')}</NavLink>
           </li>
           <li className={styles.menuItem}>
+            <NavLink activeClassName={styles.active} to="/repos">{t('layout.main.menu.repos')}</NavLink>
+          </li>
+          <li className={styles.menuItem}>
             <NavLink activeClassName={styles.active} to="/about">{t('layout.main.menu.about')}</NavLink>
           </li>
           <li className={styles.menuItem}>

@@ -8,6 +8,7 @@ export interface ReposState {
 
 export interface ReposTrigger {
   type: 'boilerplate/Repos/REPOS_TRIGGER';
+  payload: string;
 }
 
 export interface ReposRequest {

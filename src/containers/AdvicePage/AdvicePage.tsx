@@ -12,7 +12,7 @@ import styles from './AdvicePage.module.scss';
 const AdvicePage = (): ReactElement => {
   const { t } = useTranslation();
 
-  const [advice, fetch] = useAsync(async (): Promise<Advice> => {
+  const [advice, { start }] = useAsync(async (): Promise<Advice> => {
     const newAdvice = await fetchAdvice();
 
     return newAdvice;
@@ -36,7 +36,7 @@ const AdvicePage = (): ReactElement => {
 
         {(advice.result && !advice.pending) && <div>{advice.result.slip.advice}</div>}
 
-        <Button onClick={fetch}>{t('advice.button')}</Button>
+        <Button onClick={start}>{t('advice.button')}</Button>
       </div>
     </>
   );

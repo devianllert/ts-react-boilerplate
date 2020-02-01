@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getRepos Saga should call the repoLoadingError action if the response errors 1`] = `
+exports[`getRepos Saga should match the snapshot 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "combinator": false,
@@ -14,39 +14,14 @@ Object {
 }
 `;
 
-exports[`getRepos Saga should call the repoLoadingError action if the response errors 2`] = `
+exports[`getRepos Saga should match the snapshot 2`] = `
 Object {
   "@@redux-saga/IO": true,
   "combinator": false,
   "payload": Object {
-    "args": Array [],
-    "context": null,
-    "fn": [Function],
-  },
-  "type": "CALL",
-}
-`;
-
-exports[`getRepos Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "combinator": false,
-  "payload": Object {
-    "action": Object {
-      "type": "boilerplate/Repos/REPOS_REQUEST",
-    },
-    "channel": undefined,
-  },
-  "type": "PUT",
-}
-`;
-
-exports[`getRepos Saga should dispatch the reposLoaded action if it requests the data successfully 2`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "combinator": false,
-  "payload": Object {
-    "args": Array [],
+    "args": Array [
+      "name",
+    ],
     "context": null,
     "fn": [Function],
   },

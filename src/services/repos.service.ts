@@ -5,8 +5,8 @@ export interface Repo {
   name: string;
 }
 
-const fetchRepos = async (): Promise<Repo[]> => {
-  const { data } = await api.get<Repo[]>('https://api.github.com/users/facebook/repos');
+const fetchRepos = async (username: string): Promise<Repo[]> => {
+  const { data } = await api.get<Repo[]>(`https://api.github.com/users/${username}/repos`);
 
   return data;
 };
