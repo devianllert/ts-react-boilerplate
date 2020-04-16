@@ -13,10 +13,7 @@ interface UseInjectReducerOptions {
 }
 
 /**
- * Hook that dynamically injects a reducer
- *
- * @param {string} key A key of the reducer
- * @param {Reducer} reducer A root reducer that will be injected
+ * Hook that dynamically injects a reducer when the hook is run
  */
 
 const useInjectReducer = ({ key, reducer }: UseInjectReducerOptions): void => {

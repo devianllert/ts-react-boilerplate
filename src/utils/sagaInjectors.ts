@@ -1,11 +1,16 @@
 import { Saga, Task } from 'redux-saga';
-import { DAEMON, ONCE_TILL_UNMOUNT } from './constants';
 import { EnhancedStore } from '../configureStore';
+
+export enum SagaInjectionModes {
+  RESTART_ON_REMOUNT = '@@saga-injector/restart-on-remount',
+  DAEMON = '@@saga-injector/daemon',
+  ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount',
+}
 
 interface Descriptor {
   saga?: Saga;
   task?: Task;
-  mode?: string;
+  mode?: SagaInjectionModes;
 }
 
 export function injectSagaFactory(store: EnhancedStore) {
@@ -14,7 +19,7 @@ export function injectSagaFactory(store: EnhancedStore) {
 
     const newDescriptor = {
       ...descriptor,
-      mode: descriptor.mode || DAEMON,
+      mode: descriptor.mode || SagaInjectionModes.DAEMON,
     };
     const { saga, mode } = newDescriptor;
 
@@ -27,7 +32,7 @@ export function injectSagaFactory(store: EnhancedStore) {
       }
     }
 
-    if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
+    if (!hasSaga || (hasSaga && mode !== SagaInjectionModes.DAEMON && mode !== SagaInjectionModes.ONCE_TILL_UNMOUNT)) {
       /* eslint-disable no-param-reassign */
       store.injectedSagas[key] = {
         ...newDescriptor,
@@ -43,7 +48,7 @@ export function ejectSagaFactory(store: EnhancedStore) {
     if (Reflect.has(store.injectedSagas, key)) {
       const descriptor = store.injectedSagas[key];
 
-      if (typeof descriptor === 'object' && descriptor.mode && descriptor.mode !== DAEMON) {
+      if (typeof descriptor === 'object' && descriptor.mode && descriptor.mode !== SagaInjectionModes.DAEMON) {
         descriptor.task.cancel();
         // Clean up in production; in development we need `descriptor.saga` for hot reloading
         if (process.env.NODE_ENV === 'production') {
