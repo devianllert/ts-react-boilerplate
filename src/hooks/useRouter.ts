@@ -21,7 +21,7 @@ interface UseRouterState<P, M, L, H> {
   replace(location: LocationDescriptorObject<H>): void;
   pathname: string;
   query: {
-    [p in keyof P]: string;
+    [p in keyof P]: string | undefined;
   };
   match: match<M>;
   location: Location<L>;

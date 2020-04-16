@@ -1,7 +1,7 @@
 {
   "singleQuote": true,
   "bracketSpacing": true,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "trailingComma": "all",
   "tabWidth": 2,
   "printWidth": 120,

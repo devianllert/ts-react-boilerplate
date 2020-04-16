@@ -1,43 +1,5 @@
 {
-  "common": {
-    "networkNotifier": {
-      "disconnected": "Connection lost",
-      "connected": "Reconnected",
-      "close": "Close"
-    }
-  },
-  "layout": {
-    "main": {
-      "menu": {
-        "home": "Home",
-        "counter": "Counter",
-        "advice": "Advice",
-        "repos": "Repositories",
-        "about": "About"
-      }
-    }
-  }, 
-  "home": {
-    "headTitle": "Home",
-
-    "title": "React Typescript Boilerplate",
-    "subtitle": "A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices."
-  },
-  "notFound": {
-    "headTitle": "Page Not Found",
-
-    "title": "Page Not Found!",
-    "subtitle": "Oops, looks like that page doesn`t exists",
-    "button": "Go Home"
-  },
-  "counter": {
-    "headTitle": "Counter",
-
-    "info": "You can use Up and Down keyboard arrows for change value."
-  },
-  "advice": {
-    "headTitle": "Advice",
-
-    "button": "New Advice"
-  }
+  "BACK": "Back",
+  "NOT_FOUND_TITLE": "Page not found",
+  "HOME_TITLE": "Home"
 }

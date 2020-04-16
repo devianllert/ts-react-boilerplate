@@ -21,6 +21,7 @@
     "linebreak-style": "off",
     "max-len": ["error", 120],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/jsx-one-expression-per-line": "off",
     "import/extensions": ["off"],
     "@typescript-eslint/indent": ["error", 2],
     "react-hooks/rules-of-hooks": "error",
