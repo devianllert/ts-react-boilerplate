@@ -1,14 +1,16 @@
+/* eslint-disable import/prefer-default-export */
+
 import styled from 'styled-components';
 
 interface BaseIconProps {
   size: number;
 }
 
-const BaseIcon = styled.span<BaseIconProps>`
+export const BaseIcon = styled.span<BaseIconProps>`
   display: inline-block;
 
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
+  width: ${({ size }): number => size}px;
+  height: ${({ size }): number => size}px;
 
   color: inherit;
 
@@ -29,5 +31,3 @@ const BaseIcon = styled.span<BaseIconProps>`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 `;
-
-export default BaseIcon;

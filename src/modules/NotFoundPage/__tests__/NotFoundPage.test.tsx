@@ -5,8 +5,6 @@ import { renderWithProviders } from '../../../utils/testUtils';
 
 import NotFoundPage from '../NotFoundPage';
 
-import '@testing-library/jest-dom/extend-expect';
-
 describe('<NotFoundPage />', (): void => {
   afterEach(cleanup);
 

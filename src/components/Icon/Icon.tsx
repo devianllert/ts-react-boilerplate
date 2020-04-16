@@ -1,6 +1,6 @@
 import React, { cloneElement, ReactElement } from 'react';
 
-import BaseIcon from './BaseIcon';
+import * as S from './styled';
 
 interface Props {
   children: ReactElement;
@@ -8,6 +8,7 @@ interface Props {
   fill?: string;
   className?: string;
 }
+
 
 const Icon = (props: Props): ReactElement => {
   const {
@@ -26,9 +27,9 @@ const Icon = (props: Props): ReactElement => {
   };
 
   return (
-    <BaseIcon size={size} className={className}>
+    <S.BaseIcon size={size} className={className}>
       {cloneElement(children, svgProps)}
-    </BaseIcon>
+    </S.BaseIcon>
   );
 };
 
