@@ -21,7 +21,7 @@ const NotFoundPage = (): ReactElement => {
         <S.Image src="/img/not_found.svg" alt="not found" />
 
         <Typography variant="h1" align="center" gutterBottom>404</Typography>
-        <Typography variant="h4" align="center" gutterBottom>{t('NOT_FOUND_TITLE')}</Typography>
+        <Typography variant="h4" align="center" paragraph>{t('NOT_FOUND_TITLE')}</Typography>
 
         <Button to="/" startIcon={<MdArrowBack size={16} />}>{t('BACK')}</Button>
       </S.CenteredContainer>

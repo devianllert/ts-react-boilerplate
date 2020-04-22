@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import theme, { ThemeSet } from 'styled-theming';
+import { ThemeSet } from 'styled-theming';
 
 import {
   PRIMARY,
   SUCCESS,
   WARNING,
   DANGER,
+  createColor,
+  dark,
+  light,
 } from '../../design/colors';
 import { createTransition, duration } from '../../design/transitions';
 import { shape } from '../../design/shape';
@@ -29,15 +32,8 @@ const BUTTON_BACKGROUNDS: Record<string, ThemeSet> = {
   danger: DANGER,
 };
 
-const DISABLED_COLOR = theme('mode', {
-  light: 'rgba(0, 0, 0, 0.3)',
-  dark: 'rgba(255, 255, 255, 0.3)',
-});
-
-const DISABLED_BACKGROUND_COLOR = theme('mode', {
-  light: 'rgba(0, 0, 0, 0.12)',
-  dark: 'rgba(255, 255, 255, 0.12)',
-});
+const DISABLED_COLOR = createColor(light.text.disabled, dark.text.disabled);
+const DISABLED_BACKGROUND_COLOR = createColor(light.action.disabledBackground, dark.action.disabledBackground);
 
 export const BaseButton = styled.button<BaseButtonProps>`
   position: relative;
@@ -64,7 +60,7 @@ export const BaseButton = styled.button<BaseButtonProps>`
   border: 0;
   border-radius: ${shape.borderRadius}px;
 
-  color: #fff;
+  color: ${dark.text.primary};
   background-color: ${({ appearence = 'primary' }): ThemeSet => BUTTON_BACKGROUNDS[appearence]};
 
   box-shadow: ${shadows[1]};

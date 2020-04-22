@@ -24,14 +24,14 @@
     ├── components            // shared components
     │   ├── Button
     │   │   ├── __tests__     // tests for button component
-    ├── containers            // An encapsulated pieces of domain logic in your application
+    ├── modules               // An encapsulated pieces of domain logic in your application
     │   ├── ...               // new modules will be added on this directory level
     ├── design                // design system
     ├── hooks                 // react hooks
     ├── layout                // layout components
     ├── services              // services 
     ├── utils                 // shared code, utility functions
-    ├── app.tsx               // entry point for application
+    ├── index.tsx             // entry point for application
     ├── configureStore.ts     // configuration for store
     ├── reducers.ts           // global reducers
     └── serviceWorker.ts      // service worker
@@ -70,6 +70,12 @@ npm run start
 ```
 
 Starts the development server running on ```http://localhost:3000```
+
+```bash
+npm run storybook
+```
+
+Starts the storybook server running on ```http://localhost:3009```
 
 #### Building
 

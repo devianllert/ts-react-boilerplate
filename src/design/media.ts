@@ -1,6 +1,11 @@
 export type Breakpoints = 'desktop' | 'laptop' | 'tablet' | 'mobile';
 
-const customMediaQuery = (maxWidth: number) => ({
+interface MediaQueryType {
+  up: string;
+  down: string;
+}
+
+const customMediaQuery = (maxWidth: number): MediaQueryType => ({
   up: `@media (min-width: ${maxWidth}px)`,
   down: `@media (max-width: ${maxWidth}px)`,
 });
