@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -18,7 +18,7 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('root');
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
         <ConnectedRouter history={history}>
@@ -28,7 +28,7 @@ ReactDOM.render(
         </ConnectedRouter>
       </I18nextProvider>
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   MOUNT_NODE,
 );
 

@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Typography from '../../components/Typography';
+import Container from '../../components/Container';
 
 const HomePage = (): ReactElement => {
   const { t } = useTranslation();
@@ -13,9 +14,10 @@ const HomePage = (): ReactElement => {
         <title>{t('HOME_TITLE')}</title>
       </Helmet>
 
-      <div>
-        <Typography variant="h1">Home</Typography>
-      </div>
+      <Container>
+        <Typography variant="h1" align="center" gutterBottom>Home</Typography>
+        <Typography variant="h2" align="center" paragraph>React typescript boilerplate</Typography>
+      </Container>
     </>
   );
 };

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { MdArrowBack } from 'react-icons/md';
 
+import Container from '../../components/Container';
 import Button from '../../components/Button';
 import Typography from '../../components/Typography';
 
@@ -17,14 +18,16 @@ const NotFoundPage = (): ReactElement => {
         <title>{t('NOT_FOUND_TITLE')}</title>
       </Helmet>
 
-      <S.CenteredContainer>
-        <S.Image src="/img/not_found.svg" alt="not found" />
+      <Container>
+        <S.CenteredBox>
+          <S.Image src="/img/not_found.svg" alt="not found" />
 
-        <Typography variant="h1" align="center" gutterBottom>404</Typography>
-        <Typography variant="h4" align="center" paragraph>{t('NOT_FOUND_TITLE')}</Typography>
+          <Typography variant="h1" align="center" gutterBottom>404</Typography>
+          <Typography variant="h4" align="center" paragraph>{t('NOT_FOUND_TITLE')}</Typography>
 
-        <Button to="/" startIcon={<MdArrowBack size={16} />}>{t('BACK')}</Button>
-      </S.CenteredContainer>
+          <Button to="/" startIcon={<MdArrowBack size={16} />}>{t('BACK')}</Button>
+        </S.CenteredBox>
+      </Container>
     </>
   );
 };

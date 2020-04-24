@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-import Container from '../../components/Container';
-
 export const Image = styled.img`
   width: 100%;
   max-height: 400px;
   margin-bottom: 16px;
 `;
 
-export const CenteredContainer = styled(Container)`
+export const CenteredBox = styled.div`
   min-height: 100vh;
 
   display: flex;

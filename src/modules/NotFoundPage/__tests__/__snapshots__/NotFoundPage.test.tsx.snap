@@ -30,7 +30,7 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
   letter-spacing: 1px;
   border: 0;
   border-radius: 4px;
-  color: #fff;
+  color: rgba(255,255,255,0.87);
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -118,7 +118,7 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
 .c3 {
   margin: 0;
   text-align: center;
-  margin-bottom: 0.35em;
+  margin-bottom: 16px;
   font-size: 2rem;
   font-weight: 400;
   -webkit-letter-spacing: normal;
@@ -180,11 +180,11 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
   >
     404
   </h1>
-  <h4
+  <p
     class="c3"
   >
     NOT_FOUND_TITLE
-  </h4>
+  </p>
   <a
     appearence="primary"
     class="c4"

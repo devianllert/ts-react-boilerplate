@@ -36,7 +36,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-essential-tools": "^0.37.3",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0",
     "react-i18next": "^11.3.4",
     "react-icons": "^3.9.0",
     "react-query": "^1.2.1",
