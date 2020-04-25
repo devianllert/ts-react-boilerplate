@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import { spacings } from '../../design/spacings';
-import media, { breakpoints, Breakpoints } from '../../design/media';
+import media, { breakpoints, Breakpoint } from '../../design/media';
 
 interface ContainerProps {
   /**
@@ -14,7 +14,7 @@ interface ContainerProps {
    * The container width grows with the size of the screen.
    * Set to `false` to disable `maxWidth`.
    */
-  maxWidth?: Breakpoints | false;
+  maxWidth?: Breakpoint | false;
 }
 
 export const StyledContainer = styled.div<ContainerProps>`
