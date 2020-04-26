@@ -4,9 +4,8 @@ import React, {
   ElementType,
   HTMLAttributes,
 } from 'react';
-import styled from 'styled-components';
 
-import * as typo from '../../design/typo';
+import * as S from './styled';
 
 type TypoVariant =
   | 'h1'
@@ -61,6 +60,14 @@ interface Props extends HTMLAttributes<ElementType> {
    * The mapped variants.
    */
   variantMapping?: Partial<Record<TypoVariant, string>>;
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color?: 'initial' | 'inherit' | 'primary' | 'textPrimary' | 'textSecondary' | 'error';
+  /**
+   * Controls the display type
+   */
+  display?: 'initial' | 'block' | 'inline';
 }
 
 const defaultVariantMapping: Record<TypoVariant, string> = {
@@ -78,32 +85,12 @@ const defaultVariantMapping: Record<TypoVariant, string> = {
   body2: 'p',
 };
 
-const Typo = styled.span<Props>`
-  margin: 0;
-
-  text-align: ${({ align = 'inherit' }): TypoAlign => align};
-
-  ${({ noWrap }): string | undefined | false => noWrap && `
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  `}
-
-  ${({ gutterBottom }): string | undefined | false => gutterBottom && `
-    margin-bottom: 0.35em;
-  `}
-
-  ${({ paragraph }): string | undefined | false => paragraph && `
-    margin-bottom: 16px;
-  `}
-
-  ${({ variant = 'body1' }): string => typo[variant]}
-`;
-
 const Typography = (props: Props): ReactElement => {
   const {
     children,
     align = 'inherit',
+    color = 'initial',
+    display = 'initial',
     className,
     component,
     gutterBottom = false,
@@ -119,10 +106,12 @@ const Typography = (props: Props): ReactElement => {
   || 'span';
 
   return (
-    <Typo
-      as={Component as ElementType<any>}
+    <S.Typo
+      as={Component as ElementType}
       className={className}
       align={align}
+      color={color}
+      display={display}
       gutterBottom={gutterBottom}
       noWrap={noWrap}
       paragraph={paragraph}
@@ -131,7 +120,7 @@ const Typography = (props: Props): ReactElement => {
       {...other}
     >
       {children}
-    </Typo>
+    </S.Typo>
   );
 };
 
