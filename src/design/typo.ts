@@ -66,7 +66,7 @@ export const body1 = `
   font-size: 1.6rem;
   font-weight: 400;
 
-  letter-spacing: 0.15;
+  letter-spacing: 0.15px;
   line-height: 1.5;
 `;
 
@@ -74,7 +74,7 @@ export const body2 = `
   font-size: 1.4rem;
   font-weight: 400;
 
-  letter-spacing: 0.15;
+  letter-spacing: 0.15px;
   line-height: 1.43;
 `;
 
@@ -94,7 +94,7 @@ export const button = `
 
   text-transform: uppercase;
 
-  letter-spacing: 0.4;
+  letter-spacing: 0.4px;
   line-height: 1.75;
 `;
 

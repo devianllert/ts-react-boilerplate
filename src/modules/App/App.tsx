@@ -4,9 +4,11 @@ import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
 import MainLayout from '../../layouts/MainLayout';
+import AuthLayout from '../../layouts/AuthLayout';
 
 import NotFoundPage from '../NotFoundPage';
 import HomePage from '../HomePage';
+import LoginPage from '../LoginPage';
 
 import Loader from '../../components/Loader';
 
@@ -35,6 +37,13 @@ const App = (): ReactElement => {
             <MainLayout>
               <Route exact path="/" component={HomePage} />
             </MainLayout>
+          </Route>
+
+          <Route exact path={['/login', '/signup']}>
+            <AuthLayout>
+              <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/signup" component={LoginPage} />
+            </AuthLayout>
           </Route>
 
           <Route component={NotFoundPage} />

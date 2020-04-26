@@ -1,5 +1,6 @@
 {
   "BACK": "Back",
   "NOT_FOUND_TITLE": "Page not found",
-  "HOME_TITLE": "Home"
+  "HOME_TITLE": "Home",
+  "AUTH_HOME_LINK": "Home"
 }

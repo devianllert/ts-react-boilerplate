@@ -24,7 +24,7 @@ type TypoVariant =
 
 type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
-interface Props extends HTMLAttributes<any> {
+interface Props extends HTMLAttributes<ElementType> {
   /**
    * The content of the button.
    */
