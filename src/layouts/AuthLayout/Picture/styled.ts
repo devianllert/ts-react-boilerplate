@@ -54,11 +54,6 @@ export const Author = styled.a`
   }
 `;
 
-export const AuthorAvatar = styled.img`
-  width: 50px;
-  height: 50px;
-
-  margin-right: ${spacings[2]};
-
-  border-radius: 50%;
+export const AuthorCredentials = styled.div`
+  margin-left: ${spacings[2]};
 `;

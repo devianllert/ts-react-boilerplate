@@ -12,7 +12,7 @@ const Header = (): ReactElement => {
 
   return (
     <S.HeaderBox>
-      <Typography variant="h2">
+      <Typography variant="h4">
         <MdBubbleChart />
         <span>Reactive</span>
       </Typography>

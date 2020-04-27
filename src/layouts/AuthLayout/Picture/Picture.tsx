@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
-import { useQuery } from 'react-query';
 import { Skeleton } from 'react-essential-tools';
+import { useQuery } from 'react-query';
+
+import Avatar from '../../../components/Avatar';
+import Typography from '../../../components/Typography';
 
 import { getRandomPhoto } from '../../../services/unsplash.service';
-import Typography from '../../../components/Typography';
 
 import * as S from './styled';
 
@@ -20,12 +22,12 @@ const Picture = (): ReactElement => {
 
         <S.Overlay>
           <S.Author as="div">
-            <Skeleton variant="circle" width="50px" height="50px" style={{ marginRight: 16 }} />
+            <Skeleton variant="circle" width="50px" height="50px" />
 
-            <span>
+            <S.AuthorCredentials>
               <Skeleton variant="text" width="120px" />
               <Skeleton variant="text" width="80px" />
-            </span>
+            </S.AuthorCredentials>
           </S.Author>
         </S.Overlay>
       </S.Wrapper>
@@ -34,16 +36,30 @@ const Picture = (): ReactElement => {
 
   return (
     <S.Wrapper>
-      <S.Image src={data.urls.regular} alt={data.alt_description || data.description} />
+      <S.Image src={data.urls.regular} alt={data.alt_description || data.description || data.user.username} />
 
       <S.Overlay>
         <S.Author href={`${data.user.links.html}?utm_source=react&utm_medium=referral`} target="_blank">
-          <S.AuthorAvatar src={data.user.profile_image.medium} alt={data.user.username} />
+          <Avatar src={data.user.profile_image.medium} alt={data.user.username} />
 
-          <span>
-            <Typography component="span" variant="subtitle1" gutterBottom>{data.user.name}</Typography>
-            <Typography component="p" variant="subtitle2">@{data.user.username}</Typography>
-          </span>
+          <S.AuthorCredentials>
+            <Typography
+              display="block"
+              color="inherit"
+              component="span"
+              variant="subtitle1"
+            >
+              {data.user.name}
+            </Typography>
+            <Typography
+              display="block"
+              color="inherit"
+              component="p"
+              variant="subtitle2"
+            >
+              @{data.user.username}
+            </Typography>
+          </S.AuthorCredentials>
         </S.Author>
       </S.Overlay>
     </S.Wrapper>
