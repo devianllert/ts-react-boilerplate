@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const Image = styled.img`
+import { ReactComponent as NotFoundLogo } from './not_found.svg';
+
+
+export const NotFoundSVG = styled(NotFoundLogo)`
   width: 100%;
   max-height: 400px;
   margin-bottom: 16px;
