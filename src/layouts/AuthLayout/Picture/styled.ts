@@ -30,15 +30,15 @@ export const Overlay = styled.div`
   position: relative;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
-  height: 100px;
+  height: 120px;
 
-  padding: 0 ${spacings[4]};
+  padding: 0 ${spacings[3]};
 
   color: ${dark.text.primary};
 
-  box-shadow: inset 0px -100px 32px -20px rgb(0,0,0,0.32);
+  box-shadow: inset 0px -100px 32px -32px rgb(0,0,0,0.5);
 
   z-index: 2;
 `;
@@ -48,6 +48,8 @@ export const Author = styled.a`
   align-items: center;
 
   color: inherit;
+
+  margin-bottom: ${spacings[3]};
 
   &:hover {
     text-decoration: underline;

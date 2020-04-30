@@ -12,12 +12,12 @@ const Header = (): ReactElement => {
 
   return (
     <S.HeaderBox>
-      <Typography variant="h4">
+      <Typography variant="h5">
         <MdBubbleChart />
-        <span>Reactive</span>
+        Reactive
       </Typography>
 
-      <Link to="/">{t('AUTH_HOME_LINK')}</Link>
+      <Typography component={Link} to="/" variant="subtitle2" color="textSecondary">{t('AUTH_HOME_LINK')}</Typography>
     </S.HeaderBox>
   );
 };
