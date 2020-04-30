@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, {
-  ReactElement,
   ReactNode,
   ElementType,
   HTMLAttributes,
 } from 'react';
+
+import { OverridableComponent } from '../OverridableComponent.d';
 
 import * as S from './styled';
 
@@ -23,16 +25,11 @@ type TypoVariant =
 
 type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
-interface Props extends HTMLAttributes<ElementType> {
+interface Props<C extends ElementType = 'span'> extends HTMLAttributes<ElementType> {
   /**
    * The content of the button.
    */
   children?: ReactNode;
-  /**
-   * The component used for the root node.
-   * Either a string to use a DOM element or a component.
-   */
-  component?: ElementType;
   /**
    * Set the text-align on the component.
    */
@@ -70,7 +67,7 @@ interface Props extends HTMLAttributes<ElementType> {
   display?: 'initial' | 'block' | 'inline';
 }
 
-const defaultVariantMapping: Record<TypoVariant, string> = {
+const defaultVariantMapping: Record<TypoVariant, ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -85,7 +82,7 @@ const defaultVariantMapping: Record<TypoVariant, string> = {
   body2: 'p',
 };
 
-const Typography = (props: Props): ReactElement => {
+const Typography: OverridableComponent<Props> = (props) => {
   const {
     children,
     align = 'inherit',

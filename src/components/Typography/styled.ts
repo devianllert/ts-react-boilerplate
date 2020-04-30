@@ -35,7 +35,7 @@ interface TypoProps {
   variant?: TypoVariant;
   variantMapping?: Partial<Record<TypoVariant, string>>;
   color?: TypoColors;
-  display?: 'initial' | 'block' | 'inline';
+  display: 'initial' | 'block' | 'inline';
 }
 
 export const Typo = styled.span<TypoProps>`
@@ -49,7 +49,9 @@ export const Typo = styled.span<TypoProps>`
     || color
   )};
 
-  display: ${({ display = 'initial' }): string => display};
+  ${({ display }): string | false => display !== 'initial' && `
+    display: ${display};
+  `};
 
   text-align: ${({ align }): TypoAlign => align};
 
