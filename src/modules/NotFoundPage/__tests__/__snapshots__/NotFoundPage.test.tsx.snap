@@ -178,20 +178,22 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
   <div
     class="c1"
   >
-    <img
-      alt="not found"
+    <svg
       class="c2"
-      src="/img/not_found.svg"
-    />
+    >
+      not_found.svg
+    </svg>
     <h1
       class="c3"
       color="initial"
+      display="initial"
     >
       404
     </h1>
     <p
       class="c4"
       color="initial"
+      display="initial"
     >
       NOT_FOUND_TITLE
     </p>

@@ -31,6 +31,7 @@ export const Overlay = styled.div`
 
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
 
   height: 120px;
 

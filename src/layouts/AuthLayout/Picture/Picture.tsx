@@ -10,12 +10,12 @@ import { getRandomPhoto } from '../../../services/unsplash.service';
 import * as S from './styled';
 
 const Picture = (): ReactElement => {
-  const { data, isFetching } = useQuery('login/photo', getRandomPhoto, {
+  const { data, isFetching, error } = useQuery('login/photo', getRandomPhoto, {
     retry: false,
     refetchOnWindowFocus: false,
   });
 
-  if (isFetching || !data) {
+  if (isFetching) {
     return (
       <S.Wrapper>
         <Skeleton variant="rect" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }} />
@@ -30,6 +30,14 @@ const Picture = (): ReactElement => {
             </S.AuthorCredentials>
           </S.Author>
         </S.Overlay>
+      </S.Wrapper>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <S.Wrapper>
+        <S.Image src="/img/auth_picture.jpg" alt="photo" />
       </S.Wrapper>
     );
   }

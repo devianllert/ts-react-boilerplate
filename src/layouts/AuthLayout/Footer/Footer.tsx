@@ -22,7 +22,9 @@ const Footer = (): ReactElement => {
   return (
     <S.FooterBox>
       <S.PolicyBox>
-        <Typography component={Link} to="/impress" variant="subtitle2" color="textSecondary">Impress</Typography>
+        <Link to="/impress">
+          <Typography component="span" variant="subtitle2" color="textSecondary">Impress</Typography>
+        </Link>
 
         <Typography
           component="span"
@@ -33,7 +35,9 @@ const Footer = (): ReactElement => {
           &#xB7;
         </Typography>
 
-        <Typography component={Link} to="/privacy" variant="subtitle2" color="textSecondary">Privacy</Typography>
+        <Link to="/privacy">
+          <Typography component="span" variant="subtitle2" color="textSecondary">Privacy</Typography>
+        </Link>
       </S.PolicyBox>
 
       <Button startIcon={<MdTranslate size={16} />} onClick={changeLanguage}>

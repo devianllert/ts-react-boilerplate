@@ -17,7 +17,9 @@ const Header = (): ReactElement => {
         Reactive
       </Typography>
 
-      <Typography component={Link} to="/" variant="subtitle2" color="textSecondary">{t('AUTH_HOME_LINK')}</Typography>
+      <Link to="/">
+        <Typography component="span" variant="subtitle2" color="textSecondary">{t('AUTH_HOME_LINK')}</Typography>
+      </Link>
     </S.HeaderBox>
   );
 };
