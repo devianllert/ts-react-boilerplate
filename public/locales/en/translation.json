@@ -2,5 +2,10 @@
   "BACK": "Back",
   "NOT_FOUND_TITLE": "Page not found",
   "HOME_TITLE": "Home",
-  "AUTH_HOME_LINK": "Home"
+  "AUTH_HOME_LINK": "Home",
+  "LOGIN_TITLE": "Login your account",
+  "EMAIL_PLACEHOLDER": "Enter e-mail",
+  "PASSWORD_PLACEHOLDER": "Enter password",
+  "USERNAME_PLACEHOLDER": "Enter username",
+  "LOGIN_ACTION_FORGOT_PASSWORD": "Forgot password?"
 }

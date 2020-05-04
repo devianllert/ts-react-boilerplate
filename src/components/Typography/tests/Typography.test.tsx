@@ -66,7 +66,7 @@ describe('<Typography />', () => {
   it('should set display initial', () => {
     const { getByText } = render(<Typography display="initial">{children}</Typography>);
 
-    expect(getByText(children)).toHaveStyleRule('display', 'initial');
+    expect(getByText(children)).not.toHaveStyleRule('display');
   });
 
   it('should set display inline', () => {
