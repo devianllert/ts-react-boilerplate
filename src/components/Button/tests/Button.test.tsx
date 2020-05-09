@@ -1,61 +1,61 @@
 import React, { ReactChild } from 'react';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { renderWithProviders } from '../../../utils/testUtils';
 
 import Button from '../Button';
 
 describe('<Button />', () => {
-  afterEach(cleanup);
-
   const children: ReactChild = 'Button';
 
   it('should render a children', () => {
-    const { getByRole } = render(<Button>{children}</Button>);
+    render(<Button>{children}</Button>);
 
-    expect(getByRole('button')).toHaveTextContent(children);
+    expect(screen.getByRole('button')).toHaveTextContent(children);
   });
 
   it('should render a disabled button if disabled prop is true', () => {
-    const { getByRole } = render(<Button disabled>{children}</Button>);
+    render(<Button disabled>{children}</Button>);
 
-    expect(getByRole('button')).toHaveAttribute('disabled');
+    expect(screen.getByRole('button')).toBeDisabled();
   });
 
   it('should call onClick event', () => {
     const onClick = jest.fn();
-    const { getByRole } = render(<Button onClick={onClick}>{children}</Button>);
 
-    fireEvent.click(getByRole('button'));
+    render(<Button onClick={onClick}>{children}</Button>);
 
-    expect(onClick).toHaveBeenCalled();
+    userEvent.click(screen.getByRole('button'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not call events if disabled prop is true', () => {
     const onClick = jest.fn();
-    const { getByRole } = render(<Button onClick={onClick} disabled>{children}</Button>);
+    render(<Button onClick={onClick} disabled>{children}</Button>);
 
-    fireEvent.click(getByRole('button'));
+    userEvent.click(screen.getByRole('button'));
 
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
   it('should rerender correctly', () => {
     const loading = 'Loading...';
-    const { rerender, getByRole } = render(<Button>{children}</Button>);
+    const { rerender } = render(<Button>{children}</Button>);
 
-    expect(getByRole('button')).toHaveTextContent(children);
+    expect(screen.getByRole('button')).toHaveTextContent(children);
 
     rerender(<Button disabled>{loading}</Button>);
 
-    expect(getByRole('button')).toHaveTextContent(loading);
-    expect(getByRole('button')).toHaveAttribute('disabled');
+    expect(screen.getByRole('button')).toHaveTextContent(loading);
+    expect(screen.getByRole('button')).toBeDisabled();
   });
 
   it('should render Link if to prop is true', () => {
-    const { getByRole } = renderWithProviders(<Button to="/">{children}</Button>);
+    renderWithProviders(<Button to="/">{children}</Button>);
 
-    expect(getByRole('link')).toHaveTextContent(children);
+    expect(screen.getByRole('link')).toHaveTextContent(children);
   });
 
   it('should render and match the snapshot', (): void => {
