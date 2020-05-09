@@ -98,8 +98,8 @@ export const button = `
   line-height: 1.75;
 `;
 
-export const tooltip = `
-  font-size: 1.2em;
+export const caption = `
+  font-size: 1.2rem;
   font-weight: 400;
 
   letter-spacing: 0.4px;
