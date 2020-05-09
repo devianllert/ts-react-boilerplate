@@ -6,8 +6,6 @@ import ResetStyles from '../src/design/ResetStyles';
 import BaseStyles from '../src/design/BaseStyles';
 
 const Center = styled.div`
-  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
-
   display: flex;
   flex-direction: column;
   align-items: center;
