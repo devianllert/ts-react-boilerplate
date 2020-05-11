@@ -1,11 +1,22 @@
 {
   "BACK": "Назад",
-  "NOT_FOUND_TITLE": "Страница не найдена",
-  "HOME_TITLE": "Главная",
+
+  "FIELD_ERROR_EMAIL_INVALID": "Введите корректную почту",
+  "FIELD_ERROR_REQUIRED": "Это поле обязательно",
+  
   "AUTH_HOME_LINK": "Главная",
+  
+  "NOT_FOUND_TITLE": "Страница не найдена",
+  
+  "HOME_TITLE": "Главная",
+  
   "LOGIN_TITLE": "Войти в аккаунт",
+  
   "EMAIL_PLACEHOLDER": "Введите e-mail",
   "PASSWORD_PLACEHOLDER": "Введите пароль",
   "USERNAME_PLACEHOLDER": "Введите имя пользователя",
-  "LOGIN_ACTION_FORGOT_PASSWORD": "Забыли пароль?"
+  
+  "LOGIN_ACTION_FORGOT_PASSWORD": "Забыли пароль?",
+  "LOGIN_PAGE_ACTION_LOGIN": "Войти",
+  "LOGIN_PAGE_ACTION_REGISTER": "Нет аккаунта?"
 }

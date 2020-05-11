@@ -5,8 +5,8 @@ import { ReactComponent as NotFoundLogo } from './not_found.svg';
 
 export const NotFoundSVG = styled(NotFoundLogo)`
   width: 100%;
-  max-height: 400px;
-  margin-bottom: 16px;
+  max-height: 320px;
+  margin-bottom: 24px;
 `;
 
 export const CenteredBox = styled.div`

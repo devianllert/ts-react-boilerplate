@@ -1,11 +1,22 @@
 {
   "BACK": "Back",
-  "NOT_FOUND_TITLE": "Page not found",
-  "HOME_TITLE": "Home",
+
+  "FIELD_ERROR_EMAIL_INVALID": "Enter a valid email",
+  "FIELD_ERROR_REQUIRED": "This field is required",
+
   "AUTH_HOME_LINK": "Home",
+
+  "NOT_FOUND_TITLE": "Page not found",
+  
+  "HOME_TITLE": "Home",
+  
   "LOGIN_TITLE": "Login your account",
+  
   "EMAIL_PLACEHOLDER": "Enter e-mail",
   "PASSWORD_PLACEHOLDER": "Enter password",
   "USERNAME_PLACEHOLDER": "Enter username",
-  "LOGIN_ACTION_FORGOT_PASSWORD": "Forgot password?"
+  
+  "LOGIN_ACTION_FORGOT_PASSWORD": "Forgot password?",
+  "LOGIN_PAGE_ACTION_LOGIN": "Login",
+  "LOGIN_PAGE_ACTION_REGISTER": "Don't have an account?"
 }
