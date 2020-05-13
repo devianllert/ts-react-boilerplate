@@ -1,6 +1,7 @@
 import React, { ReactNode, ReactElement } from 'react';
 
 import Container from '../../components/Container';
+import Hidden from '../../components/Hidden';
 
 import Picture from './Picture';
 import Header from './Header';
@@ -30,9 +31,11 @@ const AuthLayout = (props: Props): ReactElement => {
         </Container>
       </S.HalfBox>
 
-      <S.HalfBox>
-        <Picture />
-      </S.HalfBox>
+      <Hidden breakpoint="tablet">
+        <S.HalfBox>
+          <Picture />
+        </S.HalfBox>
+      </Hidden>
     </S.Layout>
   );
 };

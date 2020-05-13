@@ -25,7 +25,9 @@ const media = {
   desktop: customMediaQuery(breakpoints.desktop),
 };
 
-// By default, returns true if screen width is the same or greater than the given breakpoint.
+/**
+ * By default, returns true if screen width is the same or greater than the given breakpoint.
+ */
 export const isWidthUp = (breakpoint: Breakpoint, width: Breakpoint, inclusive = true): boolean => {
   const keys = Object.keys(breakpoints);
 
@@ -36,7 +38,9 @@ export const isWidthUp = (breakpoint: Breakpoint, width: Breakpoint, inclusive =
   return keys.indexOf(breakpoint) < keys.indexOf(width);
 };
 
-// By default, returns true if screen width is the same or less than the given breakpoint.
+/**
+ * By default, returns true if screen width is the same or less than the given breakpoint.
+ */
 export const isWidthDown = (breakpoint: Breakpoint, width: Breakpoint, inclusive = true): boolean => {
   const keys = Object.keys(breakpoints);
 
