@@ -8,6 +8,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 import * as S from './styled';
+import Grid from '../../components/Grid';
 
 interface Props {
   children: ReactNode;
@@ -17,9 +18,8 @@ const AuthLayout = (props: Props): ReactElement => {
   const { children } = props;
 
   return (
-    <S.Layout>
-      <S.HalfBox>
-        {/* !TODO: Rewrite Container wrapper */}
+    <Grid container>
+      <Grid item mobile={12} laptop={6}>
         <Container style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Header />
 
@@ -29,14 +29,15 @@ const AuthLayout = (props: Props): ReactElement => {
 
           <Footer />
         </Container>
-      </S.HalfBox>
+      </Grid>
 
-      <Hidden breakpoint="tablet">
-        <S.HalfBox>
+      <Hidden breakpoint="laptop">
+        <Grid item laptop={6}>
           <Picture />
-        </S.HalfBox>
+
+        </Grid>
       </Hidden>
-    </S.Layout>
+    </Grid>
   );
 };
 

@@ -20,7 +20,7 @@ interface Props {
 
 const HiddenComponent = styled.div<Props>`
   ${({ constraint = 'down', breakpoint }): string | undefined => breakpoint && `
-    ${media[breakpoint][constraint]} {
+    @media ${media[breakpoint][constraint]} {
       display: none;
     }
   `}

@@ -6,8 +6,8 @@ interface MediaQueryType {
 }
 
 const customMediaQuery = (maxWidth: number): MediaQueryType => ({
-  up: `@media (min-width: ${maxWidth}px)`,
-  down: `@media (max-width: ${maxWidth}px)`,
+  up: `(min-width: ${maxWidth}px)`,
+  down: `(max-width: ${maxWidth - 1}px)`,
 });
 
 export const breakpoints: Record<Breakpoint, number> = {

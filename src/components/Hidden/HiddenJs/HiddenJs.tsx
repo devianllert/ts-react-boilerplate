@@ -1,12 +1,7 @@
 import { ReactElement } from 'react';
 import { useMedia } from 'react-essential-tools';
 
-import {
-  breakpoints,
-  isWidthDown,
-  isWidthUp,
-  Breakpoint,
-} from '../../../design/media';
+import media, { isWidthDown, isWidthUp, Breakpoint } from '../../../design/media';
 
 interface Props {
   /**
@@ -45,11 +40,9 @@ const HiddenJs = (props: Props): ReactElement | null => {
     breakpoint,
     initialWidth,
   } = props;
-  const kind = constraint === 'down' ? 'max' : 'min';
-
   const isWidthEqual = constraint === 'down' ? isWidthDown : isWidthUp;
 
-  const visible = useMedia(`(${kind}-width: ${breakpoints[breakpoint]}px)`);
+  const visible = useMedia(media[breakpoint][constraint]);
 
   if (!children) return null;
 

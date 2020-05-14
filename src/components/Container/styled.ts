@@ -30,7 +30,7 @@ export const StyledContainer = styled.div<ContainerProps>`
   padding-left: ${spacings[2]};
   padding-right: ${spacings[2]};
 
-  ${media.tablet.up} {
+  @media ${media.tablet.up} {
     padding-left: ${spacings[3]};
     padding-right: ${spacings[3]};
   }
@@ -41,7 +41,7 @@ export const StyledContainer = styled.div<ContainerProps>`
   `}
 
   ${({ maxWidth }): string | undefined | false => maxWidth && `
-    ${media[maxWidth].up} {
+    @media ${media[maxWidth].up} {
       max-width: ${breakpoints[maxWidth]}px;
     }
   `};

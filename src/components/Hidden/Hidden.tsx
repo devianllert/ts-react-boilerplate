@@ -13,7 +13,7 @@ interface Props {
   /**
    * Max or min constraints
    */
-  lift?: 'up' | 'down';
+  constraint?: 'up' | 'down';
   /**
    * Screens this size and (up/down based on constraint prop) will be hidden.
    */
@@ -43,7 +43,7 @@ interface Props {
 const Hidden = (props: Props): ReactElement => {
   const {
     children,
-    lift = 'down',
+    constraint = 'down',
     breakpoint,
     initialWidth,
     implementation = 'js',
@@ -52,7 +52,7 @@ const Hidden = (props: Props): ReactElement => {
   if (implementation === 'js') {
     return (
       <HiddenJs
-        lift={lift}
+        constraint={constraint}
         breakpoint={breakpoint}
         initialWidth={initialWidth}
       >
@@ -63,7 +63,7 @@ const Hidden = (props: Props): ReactElement => {
 
   return (
     <HiddenCss
-      lift={lift}
+      constraint={constraint}
       breakpoint={breakpoint}
     >
       {children}
