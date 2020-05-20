@@ -39,7 +39,7 @@ export const Overlay = styled.div`
 
   color: ${dark.text.primary};
 
-  box-shadow: inset 0px -100px 32px -32px rgb(0,0,0,0.5);
+  box-shadow: inset 0px -100px 32px -32px rgb(0, 0, 0, 0.6);
 
   z-index: 2;
 `;

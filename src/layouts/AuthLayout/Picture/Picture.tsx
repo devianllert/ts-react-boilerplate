@@ -47,7 +47,11 @@ const Picture = (): ReactElement => {
       <S.Image src={data.urls.regular} alt={data.alt_description || data.description || data.user.username} />
 
       <S.Overlay>
-        <S.Author href={`${data.user.links.html}?utm_source=react&utm_medium=referral`} target="_blank">
+        <S.Author
+          href={`${data.user.links.html}?utm_source=react&utm_medium=referral`}
+          target="_blank"
+          rel="noopener"
+        >
           <Avatar src={data.user.profile_image.medium} alt={data.user.username} />
 
           <S.AuthorCredentials>
