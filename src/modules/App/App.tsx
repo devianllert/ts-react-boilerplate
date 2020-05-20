@@ -9,6 +9,7 @@ import AuthLayout from '../../layouts/AuthLayout';
 import NotFoundPage from '../NotFoundPage';
 import HomePage from '../HomePage';
 import LoginPage from '../LoginPage';
+import SignUpPage from '../SignUpPage';
 
 import Loader from '../../components/Loader';
 
@@ -42,7 +43,7 @@ const App = (): ReactElement => {
           <Route exact path={['/login', '/signup']}>
             <AuthLayout>
               <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/signup" component={LoginPage} />
+              <Route exact path="/signup" component={SignUpPage} />
             </AuthLayout>
           </Route>
 

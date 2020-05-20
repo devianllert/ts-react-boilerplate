@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
-import { MdLock, MdEmail } from 'react-icons/md';
+import { MdLock, MdEmail, MdPerson } from 'react-icons/md';
 import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
-import { login, UserLoginDTO } from '../../services/auth.service';
+import { signUp, UserSignUpDTO } from '../../services/auth.service';
 
 import useRouter from '../../hooks/useRouter';
 
@@ -16,26 +16,28 @@ import TextField from '../../components/Input/TextField';
 import TextFieldPassword from '../../components/Input/TextFieldPassword';
 import InputAdornment from '../../components/Input/InputAdornment';
 
+
 import * as S from './styled';
 
-const LoginValidationSchema = Yup.object().shape({
-  emailOrUsername: Yup.string()
+const SignupValidationSchema = Yup.object().shape({
+  email: Yup.string()
     .email('FIELD_ERROR_EMAIL_INVALID')
+    .required('FIELD_ERROR_REQUIRED'),
+  username: Yup.string()
     .required('FIELD_ERROR_REQUIRED'),
   password: Yup.string()
     .required('FIELD_ERROR_REQUIRED'),
 });
 
-const LoginPage = (): ReactElement => {
+const SignUpPage = (): ReactElement => {
   const { t } = useTranslation();
-  const { replace, location } = useRouter();
-  const from = location.state?.from ?? '/';
+  const { push } = useRouter();
 
-  const handleLogin = async (data: UserLoginDTO, actions: FormikHelpers<UserLoginDTO>): Promise<void> => {
+  const handleSignup = async (data: UserSignUpDTO, actions: FormikHelpers<UserSignUpDTO>): Promise<void> => {
     try {
-      await login(data);
+      await signUp(data);
 
-      replace(from);
+      push('/login');
     } catch (error) {
       actions.setStatus(error.response.data.code);
       actions.setSubmitting(false);
@@ -46,29 +48,29 @@ const LoginPage = (): ReactElement => {
     values,
     errors,
     touched,
-    status,
     handleChange,
     handleBlur,
     handleSubmit,
     isSubmitting,
-  } = useFormik<UserLoginDTO>({
-    validationSchema: LoginValidationSchema,
+  } = useFormik<UserSignUpDTO>({
+    validationSchema: SignupValidationSchema,
     initialValues: {
-      emailOrUsername: '',
+      email: '',
+      username: '',
       password: '',
     },
-    onSubmit: handleLogin,
+    onSubmit: handleSignup,
   });
 
   return (
     <>
       <Helmet>
-        <title>{t('LOGIN_TITLE')}</title>
+        <title>{t('SIGNUP_TITLE')}</title>
       </Helmet>
 
       <S.Form onSubmit={handleSubmit}>
         <Typography component="h1" variant="h5" gutterBottom>
-          {t('LOGIN_TITLE')}
+          {t('SIGNUP_TITLE')}
         </Typography>
 
         <TextField
@@ -76,17 +78,37 @@ const LoginPage = (): ReactElement => {
           required
           onChange={handleChange}
           onBlur={handleBlur}
-          value={values.emailOrUsername}
-          error={touched.emailOrUsername && !!errors.emailOrUsername}
+          value={values.email}
+          error={touched.email && !!errors.email}
           margin="dense"
           label="Email"
           type="email"
-          name="emailOrUsername"
-          helperText={(touched.emailOrUsername && errors.emailOrUsername && t(errors.emailOrUsername)) ?? ' '}
+          name="email"
+          helperText={(touched.email && errors.email && t(errors.email)) ?? ' '}
           placeholder={t('EMAIL_PLACEHOLDER')}
           startAdornment={(
             <InputAdornment position="start">
               <MdEmail size={24} />
+            </InputAdornment>
+          )}
+        />
+
+        <TextField
+          fullWidth
+          required
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.username}
+          error={touched.username && !!errors.username}
+          margin="dense"
+          label="Username"
+          type="text"
+          name="username"
+          helperText={(touched.username && errors.username && t(errors.username)) ?? ' '}
+          placeholder={t('USERNAME_PLACEHOLDER')}
+          startAdornment={(
+            <InputAdornment position="start">
+              <MdPerson size={24} />
             </InputAdornment>
           )}
         />
@@ -110,22 +132,14 @@ const LoginPage = (): ReactElement => {
           )}
         />
 
-        <Typography color="error">{t(status)}</Typography>
-
         <S.FormActions>
-          <Button type="submit" disabled={isSubmitting} fullWidth>{t('LOGIN_PAGE_ACTION_LOGIN')}</Button>
+          <Button type="submit" disabled={isSubmitting} fullWidth>{t('SIGNUP_PAGE_ACTION_SIGNUP')}</Button>
         </S.FormActions>
 
         <S.FormActions>
-          <Link to="/forgot">
+          <Link to="/login">
             <Typography variant="subtitle2" color="textSecondary">
-              {t('LOGIN_ACTION_FORGOT_PASSWORD')}
-            </Typography>
-          </Link>
-
-          <Link to="/signup">
-            <Typography variant="subtitle2" color="textSecondary">
-              {t('LOGIN_PAGE_ACTION_REGISTER')}
+              {t('SIGNUP_PAGE_ACTION_LOGIN')}
             </Typography>
           </Link>
         </S.FormActions>
@@ -134,4 +148,4 @@ const LoginPage = (): ReactElement => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
