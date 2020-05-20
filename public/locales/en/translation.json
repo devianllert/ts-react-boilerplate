@@ -10,13 +10,16 @@
   
   "HOME_TITLE": "Home",
   
-  "LOGIN_TITLE": "Login your account",
-  
   "EMAIL_PLACEHOLDER": "Enter e-mail",
   "PASSWORD_PLACEHOLDER": "Enter password",
   "USERNAME_PLACEHOLDER": "Enter username",
   
+  "LOGIN_TITLE": "Login your account",
   "LOGIN_ACTION_FORGOT_PASSWORD": "Forgot password?",
   "LOGIN_PAGE_ACTION_LOGIN": "Login",
-  "LOGIN_PAGE_ACTION_REGISTER": "Don't have an account?"
+  "LOGIN_PAGE_ACTION_REGISTER": "Don't have an account?",
+
+  "SIGNUP_TITLE": "Sign up your account",
+  "SIGNUP_PAGE_ACTION_SIGNUP": "Sign up",
+  "SIGNUP_PAGE_ACTION_LOGIN": "Already have an account?"
 }

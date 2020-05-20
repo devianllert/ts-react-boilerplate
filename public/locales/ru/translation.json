@@ -10,13 +10,16 @@
   
   "HOME_TITLE": "Главная",
   
-  "LOGIN_TITLE": "Войти в аккаунт",
-  
   "EMAIL_PLACEHOLDER": "Введите e-mail",
   "PASSWORD_PLACEHOLDER": "Введите пароль",
   "USERNAME_PLACEHOLDER": "Введите имя пользователя",
   
+  "LOGIN_TITLE": "Войти в аккаунт",
   "LOGIN_ACTION_FORGOT_PASSWORD": "Забыли пароль?",
   "LOGIN_PAGE_ACTION_LOGIN": "Войти",
-  "LOGIN_PAGE_ACTION_REGISTER": "Нет аккаунта?"
+  "LOGIN_PAGE_ACTION_REGISTER": "Нет аккаунта?",
+
+  "SIGNUP_TITLE": "Зарегистрируйте аккаунт",
+  "SIGNUP_PAGE_ACTION_SIGNUP": "Зарегистрироваться",
+  "SIGNUP_PAGE_ACTION_LOGIN": "Уже есть аккаунт?"
 }
