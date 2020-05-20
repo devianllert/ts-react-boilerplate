@@ -41,7 +41,7 @@ interface TypoProps {
 export const Typo = styled.span<TypoProps>`
   margin: 0;
 
-  color: ${({ color = 'initial' }): ThemeSet | TypoColors => (
+  color: ${({ color = 'inherit' }): ThemeSet | TypoColors => (
     (color === 'primary' && PRIMARY)
     || (color === 'error' && DANGER)
     || (color === 'textPrimary' && TEXT_PRIMARY)

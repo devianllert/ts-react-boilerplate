@@ -86,7 +86,7 @@ const Typography: OverridableComponent<Props> = (props) => {
   const {
     children,
     align = 'inherit',
-    color = 'initial',
+    color = 'inherit',
     display = 'initial',
     className,
     component,
