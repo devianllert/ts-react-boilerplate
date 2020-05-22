@@ -1,17 +1,17 @@
-import React, { ComponentType, ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
 interface Props extends RouteProps {
   enabled: boolean;
   redirect: string;
-  component: ComponentType<any>;
+  children: ReactNode;
 }
 
 const PrivateRoute = (props: Props): ReactElement => {
   const {
     enabled,
     redirect,
-    component: Component,
+    children,
     ...otherProps
   } = props;
 
@@ -21,9 +21,9 @@ const PrivateRoute = (props: Props): ReactElement => {
     <Route
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
-      render={({ location }): ReactElement => (
+      render={({ location }): ReactNode => (
         enabled ? (
-          <Component />
+          children
         ) : (
           <Redirect to={{ pathname: redirect, state: { from: location } }} />
         ))}

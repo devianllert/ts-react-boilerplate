@@ -1,7 +1,8 @@
 import React, { ReactElement, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MdTranslate } from 'react-icons/md';
+import { MdTranslate, MdWbSunny, MdWbCloudy } from 'react-icons/md';
+import useTheme from '../../../hooks/useTheme';
 
 import Typography from '../../../components/Typography';
 import Button from '../../../components/Button';
@@ -10,6 +11,7 @@ import * as S from './styled';
 
 const Footer = (): ReactElement => {
   const { i18n } = useTranslation();
+  const [mode, toggle] = useTheme();
 
   // TODO: rewrite
   const changeLanguage = useCallback(() => {
@@ -40,9 +42,19 @@ const Footer = (): ReactElement => {
         </Link>
       </S.PolicyBox>
 
-      <Button startIcon={<MdTranslate size={16} />} onClick={changeLanguage}>
-        {i18n.language.toUpperCase()}
-      </Button>
+      <div>
+        <Button onClick={toggle}>
+          {mode === 'light' ? (
+            <MdWbSunny size={16} />
+          ) : (
+            <MdWbCloudy size={16} />
+          )}
+        </Button>
+
+        <Button startIcon={<MdTranslate size={16} />} onClick={changeLanguage}>
+          {i18n.language.toUpperCase()}
+        </Button>
+      </div>
     </S.FooterBox>
   );
 };
