@@ -37,7 +37,7 @@ const LoginPage = (): ReactElement => {
 
       replace(from);
     } catch (error) {
-      actions.setStatus(error.response.data.code);
+      actions.setStatus(error.response.data.message);
       actions.setSubmitting(false);
     }
   };

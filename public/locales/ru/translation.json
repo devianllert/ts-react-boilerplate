@@ -18,8 +18,11 @@
   "LOGIN_ACTION_FORGOT_PASSWORD": "Забыли пароль?",
   "LOGIN_PAGE_ACTION_LOGIN": "Войти",
   "LOGIN_PAGE_ACTION_REGISTER": "Нет аккаунта?",
+  "LOGIN_ERROR": "Неверное имя или пароль",
+
 
   "SIGNUP_TITLE": "Зарегистрируйте аккаунт",
   "SIGNUP_PAGE_ACTION_SIGNUP": "Зарегистрироваться",
-  "SIGNUP_PAGE_ACTION_LOGIN": "Уже есть аккаунт?"
+  "SIGNUP_PAGE_ACTION_LOGIN": "Уже есть аккаунт?",
+  "REGISTER_ERROR": "Такой пользователь уже есть"
 }

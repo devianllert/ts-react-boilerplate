@@ -39,7 +39,7 @@ const SignUpPage = (): ReactElement => {
 
       push('/login');
     } catch (error) {
-      actions.setStatus(error.response.data.code);
+      actions.setStatus(error.response.data.message);
       actions.setSubmitting(false);
     }
   };

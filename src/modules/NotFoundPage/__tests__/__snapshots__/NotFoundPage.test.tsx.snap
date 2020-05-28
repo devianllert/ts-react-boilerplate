@@ -114,7 +114,7 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
 
 .c3 {
   margin: 0;
-  color: initial;
+  color: inherit;
   text-align: center;
   margin-bottom: 0.35em;
   font-size: 6rem;
@@ -128,7 +128,7 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
 
 .c4 {
   margin: 0;
-  color: initial;
+  color: inherit;
   text-align: center;
   margin-bottom: 16px;
   font-size: 3.4rem;
@@ -189,14 +189,14 @@ exports[`<NotFoundPage /> should render and match the snapshot 1`] = `
     </div>
     <h1
       class="c3"
-      color="initial"
+      color="inherit"
       display="initial"
     >
       404
     </h1>
     <p
       class="c4"
-      color="initial"
+      color="inherit"
       display="initial"
     >
       NOT_FOUND_TITLE

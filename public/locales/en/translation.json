@@ -18,8 +18,10 @@
   "LOGIN_ACTION_FORGOT_PASSWORD": "Forgot password?",
   "LOGIN_PAGE_ACTION_LOGIN": "Login",
   "LOGIN_PAGE_ACTION_REGISTER": "Don't have an account?",
+  "LOGIN_ERROR": "Incorrect username or password",
 
   "SIGNUP_TITLE": "Sign up your account",
   "SIGNUP_PAGE_ACTION_SIGNUP": "Sign up",
-  "SIGNUP_PAGE_ACTION_LOGIN": "Already have an account?"
+  "SIGNUP_PAGE_ACTION_LOGIN": "Already have an account?",
+  "REGISTER_ERROR": "User already exists"
 }
