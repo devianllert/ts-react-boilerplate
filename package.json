@@ -51,6 +51,7 @@
     "redux-saga": "^1.1.3",
     "reselect": "^4.0.0",
     "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5",
     "styled-theming": "^2.2.0",
     "yup": "^0.29.0"
   },
@@ -77,6 +78,7 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/redux": "^3.6.0",
     "@types/styled-components": "^5.1.0",
+    "@types/styled-system": "^5.1.9",
     "@types/styled-theming": "^2.2.3",
     "@types/yup": "^0.29.0",
     "babel-plugin-styled-components": "^1.10.7",
