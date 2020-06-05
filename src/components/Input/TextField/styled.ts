@@ -4,13 +4,9 @@ import styled, { css } from 'styled-components';
 import InputBase from '../InputBase';
 
 import { spacings } from '../../../design/spacings';
-import { createTransition } from '../../../design/transitions';
-import {
-  DANGER,
-  PRIMARY,
-  TEXT_SECONDARY,
-  TEXT_DISABLED,
-} from '../../../design/colors';
+import { createTransition, duration } from '../../../design/transitions';
+import { DANGER, PRIMARY, TEXT_DISABLED } from '../../../design/colors';
+import grey from '../../../design/palette/grey';
 
 interface TextFieldWrapperProps {
   fullWidth?: boolean;
@@ -45,16 +41,22 @@ export const TextFieldWrapper = styled.div<TextFieldWrapperProps>`
 export const StyledInput = styled(InputBase)<{ focused?: boolean }>`
   padding: 0 ${spacings[1]};
 
-  border: 2px solid ${TEXT_SECONDARY};
+  border: 2px solid ${grey[500]};
   border-radius: 4px;
 
-  ${({ focused }) => focused && css`
-    border: 2px solid ${PRIMARY};
+  ${({ error, focused, disabled }) => !(error || focused || disabled) && `
+    &:hover {
+      border-color: ${grey[600]}
+    }
   `}
 
-  ${({ error }) => error && css`border: 2px solid ${DANGER}`};
+  ${({ focused }) => focused && css`
+    border-color: ${PRIMARY};
+  `}
 
-  ${({ disabled }) => disabled && css`border: 2px solid ${TEXT_DISABLED}`};
+  ${({ error }) => error && css`border-color: ${DANGER}`};
 
-  transition: ${createTransition('border-color')};
+  ${({ disabled }) => disabled && css`border-color: ${TEXT_DISABLED}`};
+
+  transition: ${createTransition('border-color', { duration: duration.short })};
 `;
