@@ -1,7 +1,0 @@
-@include add-theme-variable(
-  button-color,
-  (
-    'light': var(--brand-text-color-inverse),
-    'dark': var(--brand-text-color),
-  )
-);

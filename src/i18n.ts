@@ -15,6 +15,10 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    backend: {
+      // for all available options read the backend's repository readme file
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
     fallbackLng: 'en',
     whitelist: [
       'en',

@@ -1,16 +1,16 @@
 import React, { ReactElement } from 'react';
-import classnames from 'classnames';
+import { CircularProgress } from 'react-essential-tools';
 
-import styles from './Loader.module.scss';
+import { Overlay } from './styled';
 
 interface Props {
   fullscreen?: boolean;
 }
 
 const Loader = ({ fullscreen }: Props): ReactElement => (
-  <div className={classnames(styles.overlay, fullscreen && styles.overlayFullHeight)}>
-    <progress className={styles.loader} />
-  </div>
+  <Overlay fullscreen={fullscreen}>
+    <CircularProgress />
+  </Overlay>
 );
 
 export default Loader;

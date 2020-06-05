@@ -9,6 +9,7 @@ declare namespace NodeJS {
     readonly PUBLIC_URL: string;
     readonly REACT_APP_VERSION: string;
     readonly REACT_APP_API_SERVER: string;
+    readonly UNSPLASH_API_KEY: string;
   }
 }
 

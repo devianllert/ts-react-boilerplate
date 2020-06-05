@@ -1,35 +1,33 @@
-import React, { useCallback, ReactElement } from 'react';
+import React, { useEffect, ReactNode, ReactElement } from 'react';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { useLocalStorage } from 'react-essential-tools';
-
-import ThemeContext from './ThemeContext';
 
 import checkPrefersDarkMode from '../../utils/checkPrefersDarkMode';
 
+import ThemeContext from './ThemeContext';
+
 interface Props {
-  children: ReactElement;
+  children: ReactNode;
 }
 
-const ThemeProvider = (props: Props): ReactElement => {
-  const { children } = props;
+const ThemeProvider = ({ children }: Props): ReactElement => {
+  const preferMode = checkPrefersDarkMode() ? 'dark' : 'light';
 
-  const initialMode = checkPrefersDarkMode() ? 'dark' : 'light';
+  const [mode, setMode] = useLocalStorage('mode', preferMode);
 
-  const [enabledState, setEnabledState] = useLocalStorage<string>('app-theme', initialMode);
+  const toggle = (): void => {
+    const newMode = mode === 'light' ? 'dark' : 'light';
 
-  const toggleTheme = useCallback(() => {
-    setEnabledState(enabledState === 'dark' ? 'light' : 'dark');
-  }, [enabledState, setEnabledState]);
-
-  const context = {
-    theme: enabledState,
-    toggleTheme,
+    setMode(newMode);
   };
 
+  useEffect(() => {
+    if (!['dark', 'light'].includes(mode)) setMode(preferMode);
+  }, [mode, preferMode, setMode]);
+
   return (
-    <ThemeContext.Provider value={context}>
-      <div className={`theme theme--${enabledState}`}>
-        {children}
-      </div>
+    <ThemeContext.Provider value={{ toggle }}>
+      <StyledThemeProvider theme={{ mode }}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };

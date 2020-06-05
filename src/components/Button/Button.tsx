@@ -1,84 +1,104 @@
-import React, {
-  ReactChild,
-  ReactElement,
-  MouseEvent,
-  HTMLAttributes,
-  forwardRef,
-  Ref,
-} from 'react';
-import classnames from 'classnames';
-
+import React, { ReactNode, ReactElement, HTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
+import { CircularProgress } from 'react-essential-tools';
 
-import styles from './Button.module.scss';
+import * as S from './styled';
 
 interface Props extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-  children: ReactChild | ReactChild[] | any; // eslint-disable-line
-  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  /**
+   * The content of the button.
+   */
+  children: ReactNode;
+  /**
+   * The URL to link to when the button is clicked.
+   * If defined, an `a` element will be used as the root node.
+   */
   to?: string;
+  /**
+   * If `true`, the base button will be disabled.
+   */
   disabled?: boolean;
-  outlined?: boolean;
-  flat?: boolean;
+  /**
+   * If `true`, the base button will have loading indicator.
+   */
+  loading?: boolean;
+  /**
+   * If `true`, the button will take up the full width of its container.
+   */
+  fullWidth?: boolean;
+  /**
+   * Element placed before the children.
+   */
+  startIcon?: ReactNode;
+  /**
+   * Element placed after the children.
+   */
+  endIcon?: ReactNode;
   type?: 'submit' | 'button' | 'reset';
-  appearence?: 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+  /**
+   * The variant to use.
+   */
+  variant?: 'text' | 'outlined' | 'contained';
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  appearence?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+  /**
+   * The size of the button.
+   * `small` is equivalent to the dense button styling.
+   */
   size?: 'small' | 'medium' | 'large';
 }
 
-const Button = (props: Props, ref: Ref<any>): ReactElement => {
+const Button = (props: Props): ReactElement => {
   const {
     children,
-    onClick,
     to,
     disabled,
-    outlined,
-    flat,
+    loading,
+    startIcon: startIconProp,
+    endIcon: endIconProp,
     type = 'button',
     appearence = 'primary',
-    size = 'medium',
     ...otherProps
   } = props;
 
-  const classes = classnames(
-    styles.button,
-    styles[appearence],
-    styles[size],
-    disabled && styles.disabled,
-    outlined && styles.outlined,
-    flat && styles.flat,
+  const startIcon = startIconProp && <S.StartIcon>{startIconProp}</S.StartIcon>;
+  const endIcon = endIconProp && <S.EndIcon>{endIconProp}</S.EndIcon>;
+
+  const content = loading ? (
+    <CircularProgress size={24} />
+  ) : (
+    <S.Label>
+      {startIcon}
+      {children}
+      {endIcon}
+    </S.Label>
   );
-
-  const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
-    if (!onClick) return;
-
-    onClick(event);
-  };
 
   if (to && !disabled) {
     return (
-      <Link
+      <S.BaseButton
+        as={Link}
+        appearence={appearence}
         to={to}
-        onClick={handleClick}
-        className={classes}
-        ref={ref}
         {...otherProps} // eslint-disable-line
       >
-        {children}
-      </Link>
+        {content}
+      </S.BaseButton>
     );
   }
 
   return (
-    <button // eslint-disable-line react/button-has-type
-      onClick={handleClick}
-      className={classes}
+    <S.BaseButton
+      appearence={appearence}
       type={type}
       disabled={disabled}
-      ref={ref}
       {...otherProps} // eslint-disable-line
     >
-      {children}
-    </button>
+      {content}
+    </S.BaseButton>
   );
 };
 
-export default forwardRef(Button);
+export default Button;

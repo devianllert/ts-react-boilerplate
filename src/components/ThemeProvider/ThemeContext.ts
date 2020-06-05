@@ -1,13 +1,6 @@
 import { createContext } from 'react';
 
-export interface ThemeValues {
-  theme: string;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeValues>({
-  theme: 'light',
-  toggleTheme: () => ({}),
-});
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const ThemeContext = createContext({ toggle: () => {} });
 
 export default ThemeContext;

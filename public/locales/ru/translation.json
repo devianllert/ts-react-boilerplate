@@ -1,43 +1,28 @@
 {
-  "common": {
-    "networkNotifier": {
-      "disconnected": "Соединение потеряно",
-      "connected": "Восстановлено",
-      "close": "Закрыть"
-    }
-  },
-  "layout": {
-    "main": {
-      "menu": {
-        "home": "Главная",
-        "counter": "Счетчик",
-        "advice": "Совет",
-        "repos": "Репозитории",
-        "about": "О нас"
-      }
-    }
-  }, 
-  "home": {
-    "headTitle": "Главная",
+  "BACK": "Назад",
 
-    "title": "React Typescript Boilerplate",
-    "subtitle": "Масштабируемый бойлерплейт с упором на производительность и лучшие практики."
-  },
-  "notFound": {
-    "headTitle": "Страница не найдена",
+  "FIELD_ERROR_EMAIL_INVALID": "Введите корректную почту",
+  "FIELD_ERROR_REQUIRED": "Это поле обязательно",
+  
+  "AUTH_HOME_LINK": "Главная",
+  
+  "NOT_FOUND_TITLE": "Страница не найдена",
+  
+  "HOME_TITLE": "Главная",
+  
+  "EMAIL_PLACEHOLDER": "Введите e-mail",
+  "PASSWORD_PLACEHOLDER": "Введите пароль",
+  "USERNAME_PLACEHOLDER": "Введите имя пользователя",
+  
+  "LOGIN_TITLE": "Войти в аккаунт",
+  "LOGIN_ACTION_FORGOT_PASSWORD": "Забыли пароль?",
+  "LOGIN_PAGE_ACTION_LOGIN": "Войти",
+  "LOGIN_PAGE_ACTION_REGISTER": "Нет аккаунта?",
+  "LOGIN_ERROR": "Неверное имя или пароль",
 
-    "title": "Страница не найдена!",
-    "subtitle": "Ой, выглядит, будто этой страницы не существует",
-    "button": "На главную"
-  },
-  "counter": {
-    "headTitle": "Счётчик",
 
-    "info": "Вы можете использовать стрелки Вверх и Вниз, чтобы изменять значение"
-  },
-  "advice": {
-    "headTitle": "Совет",
-
-    "button": "Новый Совет"
-  }
+  "SIGNUP_TITLE": "Зарегистрируйте аккаунт",
+  "SIGNUP_PAGE_ACTION_SIGNUP": "Зарегистрироваться",
+  "SIGNUP_PAGE_ACTION_LOGIN": "Уже есть аккаунт?",
+  "REGISTER_ERROR": "Такой пользователь уже есть"
 }
