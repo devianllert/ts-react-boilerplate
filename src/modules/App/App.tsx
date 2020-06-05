@@ -12,12 +12,16 @@ import LoginPage from '../LoginPage';
 import SignUpPage from '../SignUpPage';
 
 import Loader from '../../components/Loader';
+import useAuth from '../../hooks/useAuth';
 
 import BaseStyles from '../../design/BaseStyles';
 import ResetStyles from '../../design/ResetStyles';
+import ProfilePage from '../ProfilePage';
+import PrivateRoute from '../../components/PrivateRoute';
 
 const App = (): ReactElement => {
   const { i18n } = useTranslation(undefined, { useSuspense: false });
+  const { isAuthenticated } = useAuth();
 
   return (
     <>
@@ -34,9 +38,12 @@ const App = (): ReactElement => {
 
       <Suspense fallback={<Loader fullscreen />}>
         <Switch>
-          <Route exact path={['/']}>
+          <Route exact path={['/', '/users/me']}>
             <MainLayout>
               <Route exact path="/" component={HomePage} />
+              <PrivateRoute enabled={isAuthenticated} exact path="/users/me">
+                <ProfilePage />
+              </PrivateRoute>
             </MainLayout>
           </Route>
 

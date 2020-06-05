@@ -6,8 +6,9 @@ import { MdLock, MdEmail } from 'react-icons/md';
 import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
-import { login, UserLoginDTO } from '../../services/auth.service';
+import { UserLoginDTO } from '../../services/auth.service';
 
+import useAuth from '../../hooks/useAuth';
 import useRouter from '../../hooks/useRouter';
 
 import Typography from '../../components/Typography';
@@ -28,6 +29,7 @@ const LoginValidationSchema = Yup.object().shape({
 
 const LoginPage = (): ReactElement => {
   const { t } = useTranslation();
+  const { login } = useAuth();
   const { replace, location } = useRouter();
   const from = location.state?.from ?? '/';
 

@@ -1,22 +1,18 @@
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from 'react-query';
 import { Helmet } from 'react-helmet';
-
-import { getMe } from '../../services/users.service';
+import { MdBubbleChart } from 'react-icons/md';
 
 import useAuth from '../../hooks/useAuth';
 
 import Typography from '../../components/Typography';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
+import Box from '../../components/Box';
 
 const HomePage = (): ReactElement => {
   const { t } = useTranslation();
   const { isAuthenticated, logout } = useAuth();
-  const { data } = useQuery(isAuthenticated && 'users/me', getMe, {
-    retry: false,
-  });
 
   return (
     <>
@@ -24,17 +20,31 @@ const HomePage = (): ReactElement => {
         <title>{t('HOME_TITLE')}</title>
       </Helmet>
 
-      <Container>
-        <Typography variant="h1" align="center" gutterBottom>Home</Typography>
-        <Typography variant="h2" align="center" paragraph>React typescript boilerplate</Typography>
+      <Box
+        as={Container}
+        minHeight="100vh"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Typography component="h1" variant="h4" gutterBottom>
+          <MdBubbleChart />
+          Reactive
+        </Typography>
 
-        {isAuthenticated && (
-          <>
-            <Typography>{data?.username}</Typography>
+        {isAuthenticated ? (
+          <div>
+            <Button to="/users/me">Profile</Button>
             <Button onClick={logout}>Logout</Button>
-          </>
+          </div>
+        ) : (
+          <div>
+            <Button to="/login">Login</Button>
+            <Button to="/signup">Sign up</Button>
+          </div>
         )}
-      </Container>
+      </Box>
     </>
   );
 };

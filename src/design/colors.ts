@@ -1,5 +1,7 @@
 import theme, { ThemeSet } from 'styled-theming';
 
+import common from './palette/common';
+
 export const CONTRAST_THRESHOLD = 3;
 
 export const light = {
@@ -14,7 +16,7 @@ export const light = {
   background: {
     primary: '#FAFBFC',
     secondary: '#FAFBFC',
-    paper: '#ffffff',
+    paper: common.white,
   },
   // The colors used to style the action elements.
   action: {
@@ -78,8 +80,6 @@ export const SUCCESS = createColor('#28BBA6');
 
 export const INFO = createColor('#28BBD9');
 
-export const GREY = createColor('#fafafa', '#9e9e9e');
-
 export const BACKGROUND = createColor(light.background.primary, dark.background.primary);
 
 export const BACKGROUND_SECONDARY = createColor(light.background.secondary, dark.background.secondary);
@@ -92,4 +92,4 @@ export const TEXT_DISABLED = createColor(light.text.disabled, dark.text.disabled
 
 export const DIVIDER_COLOR = createColor('rgba(0, 0, 0, 0.12)', 'rgba(255, 255, 255, 0.12)');
 
-export const PAPER_COLOR = createColor('#ffffff', '#9e9e9e');
+export const PAPER_COLOR = createColor(light.background.paper, dark.background.paper);

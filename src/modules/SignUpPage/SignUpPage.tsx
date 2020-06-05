@@ -6,9 +6,10 @@ import { MdLock, MdEmail, MdPerson } from 'react-icons/md';
 import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
-import { signUp, UserSignUpDTO } from '../../services/auth.service';
+import { UserSignUpDTO } from '../../services/auth.service';
 
 import useRouter from '../../hooks/useRouter';
+import useAuth from '../../hooks/useAuth';
 
 import Typography from '../../components/Typography';
 import Button from '../../components/Button';
@@ -31,6 +32,7 @@ const SignupValidationSchema = Yup.object().shape({
 
 const SignUpPage = (): ReactElement => {
   const { t } = useTranslation();
+  const { signUp } = useAuth();
   const { push } = useRouter();
 
   const handleSignup = async (data: UserSignUpDTO, actions: FormikHelpers<UserSignUpDTO>): Promise<void> => {

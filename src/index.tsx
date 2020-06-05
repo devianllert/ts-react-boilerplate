@@ -6,6 +6,7 @@ import { I18nextProvider } from 'react-i18next';
 
 import App from './modules/App';
 import ThemeProvider from './components/ThemeProvider';
+import AuthProvider from './components/AuthProvider';
 
 import configureStore from './configureStore';
 import history from './utils/history';
@@ -23,7 +24,9 @@ ReactDOM.render(
       <I18nextProvider i18n={i18n}>
         <ConnectedRouter history={history}>
           <ThemeProvider>
-            <App />
+            <AuthProvider>
+              <App />
+            </AuthProvider>
           </ThemeProvider>
         </ConnectedRouter>
       </I18nextProvider>
