@@ -1,10 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { put } from 'redux-saga/effects';
-import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 
-import configureStore, { EnhancedStore } from '../../configureStore';
+import configureStore, { EnhancedStore } from '../../core/configureStore';
 import useInjectSaga from '../useInjectSaga';
 import * as sagaInjectors from '../../utils/sagaInjectors';
 
@@ -22,7 +21,7 @@ describe('useInjectSaga hook', () => {
   });
 
   beforeEach(() => {
-    store = configureStore({}, createMemoryHistory());
+    store = configureStore({});
     injectors = {
       injectSaga: jest.fn(),
       ejectSaga: jest.fn(),

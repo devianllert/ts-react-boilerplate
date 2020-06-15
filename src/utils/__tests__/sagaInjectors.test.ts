@@ -3,9 +3,8 @@
  */
 
 import { put } from 'redux-saga/effects';
-import { createMemoryHistory } from 'history';
 
-import configureStore, { EnhancedStore } from '../../configureStore';
+import configureStore, { EnhancedStore } from '../../core/configureStore';
 import getInjectors, { injectSagaFactory, ejectSagaFactory } from '../sagaInjectors';
 import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from '../constants';
 
@@ -21,7 +20,7 @@ describe('injectors', () => {
 
   describe('getInjectors', () => {
     beforeEach(() => {
-      store = configureStore({}, createMemoryHistory());
+      store = configureStore({});
     });
 
     it('should return injectors', () => {
@@ -36,7 +35,7 @@ describe('injectors', () => {
 
   describe('ejectSaga helper', () => {
     beforeEach(() => {
-      store = configureStore({}, createMemoryHistory());
+      store = configureStore({});
       injectSaga = injectSagaFactory(store);
       ejectSaga = ejectSagaFactory(store);
     });
@@ -93,7 +92,7 @@ describe('injectors', () => {
 
   describe('injectSaga helper', () => {
     beforeEach(() => {
-      store = configureStore({}, createMemoryHistory());
+      store = configureStore({});
       injectSaga = injectSagaFactory(store);
       ejectSaga = ejectSagaFactory(store);
     });

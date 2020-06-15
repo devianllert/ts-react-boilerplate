@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useContext } from 'react';
 import { ReactReduxContext } from 'react-redux';
 import { Reducer } from 'redux';
 
+import { EnhancedStore } from '../core/configureStore';
+
 import getInjectors from '../utils/reducerInjectors';
-import { EnhancedStore } from '../configureStore';
 
 interface UseInjectReducerOptions {
   key: string;
@@ -15,7 +15,6 @@ interface UseInjectReducerOptions {
 /**
  * Hook that dynamically injects a reducer when the hook is run
  */
-
 const useInjectReducer = ({ key, reducer }: UseInjectReducerOptions): void => {
   const context = useContext(ReactReduxContext);
 

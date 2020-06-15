@@ -6,7 +6,6 @@ import {
   Reducer,
 } from 'redux';
 import createSagaMiddleware, { Saga, SagaMiddleware, Task } from 'redux-saga';
-import { routerMiddleware } from 'connected-react-router';
 
 import createReducer from './reducers';
 
@@ -24,7 +23,7 @@ export interface EnhancedStore extends Store {
   };
 }
 
-const configureStore = (initialState = {}, history: import('history').History): EnhancedStore => {
+const configureStore = (initialState = {}): EnhancedStore => {
   let composeEnhancers = compose;
   const reduxSagaMonitorOptions = {};
 
@@ -43,7 +42,6 @@ const configureStore = (initialState = {}, history: import('history').History): 
 
   const middlwares = [
     sagaMiddleware,
-    routerMiddleware(history),
   ];
 
   const enhancers = [applyMiddleware(...middlwares)];

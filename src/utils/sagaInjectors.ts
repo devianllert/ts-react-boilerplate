@@ -1,5 +1,6 @@
 import { Saga, Task } from 'redux-saga';
-import { EnhancedStore } from '../configureStore';
+
+import { EnhancedStore } from '../core/configureStore';
 
 export enum SagaInjectionModes {
   RESTART_ON_REMOUNT = '@@saga-injector/restart-on-remount',

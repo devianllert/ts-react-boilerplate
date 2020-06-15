@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 
-import createReducer from '../reducers';
-import { EnhancedStore } from '../configureStore';
+import createReducer from '../core/reducers';
+import { EnhancedStore } from '../core/configureStore';
 
 export function injectReducerFactory(store: EnhancedStore) {
   return function injectReducer(key: string, reducer: Reducer): void {

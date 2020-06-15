@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useContext } from 'react';
 import { ReactReduxContext } from 'react-redux';
 import { Saga } from 'redux-saga';
 
+import { EnhancedStore } from '../core/configureStore';
+
 import getInjectors, { SagaInjectionModes } from '../utils/sagaInjectors';
-import { EnhancedStore } from '../configureStore';
 
 interface UseInjectSagaOptions {
   key: string;

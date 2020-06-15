@@ -1,10 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Reducer, AnyAction } from 'redux';
-import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 
-import configureStore, { EnhancedStore } from '../../configureStore';
+import configureStore, { EnhancedStore } from '../../core/configureStore';
 import useInjectReducer from '../useInjectReducer';
 import * as reducerInjectors from '../../utils/reducerInjectors';
 
@@ -20,7 +19,7 @@ describe('useInjectReducer hook', () => {
       injectReducer: jest.fn(),
     };
     reducerInjectors.default = jest.fn().mockImplementation(() => injectors);
-    store = configureStore({}, createMemoryHistory());
+    store = configureStore({});
     ComponentWithReducer = (): null => {
       useInjectReducer({ key: 'test', reducer });
       return null;

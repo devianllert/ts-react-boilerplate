@@ -1,11 +1,6 @@
-/**
- * Test injectors
- */
-
 import { Reducer, AnyAction } from 'redux';
-import { createMemoryHistory } from 'history';
 
-import configureStore, { EnhancedStore } from '../../configureStore';
+import configureStore, { EnhancedStore } from '../../core/configureStore';
 
 import getInjectors, { injectReducerFactory } from '../reducerInjectors';
 
@@ -31,7 +26,7 @@ describe('reducer injectors', () => {
 
   describe('getInjectors', () => {
     beforeEach(() => {
-      store = configureStore({}, createMemoryHistory());
+      store = configureStore({});
     });
 
     it('should return injectors', () => {
@@ -45,7 +40,7 @@ describe('reducer injectors', () => {
 
   describe('injectReducer helper', () => {
     beforeEach(() => {
-      store = configureStore({}, createMemoryHistory());
+      store = configureStore({});
       injectReducer = injectReducerFactory(store);
     });
 

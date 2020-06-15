@@ -7,9 +7,8 @@ import { i18n as i18Next } from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 import { render, RenderResult } from '@testing-library/react'; // eslint-disable-line
 
-import configureStore, { EnhancedStore } from '../configureStore';
-import history from './history';
-import i18nInstance from '../i18n';
+import configureStore, { EnhancedStore } from '../core/configureStore';
+import i18nInstance from '../core/i18n';
 
 export interface RenderProvidersOptions {
   initialState?: {};
@@ -33,7 +32,7 @@ const renderWithProviders: RenderProviders = (
     initialState = {},
     route = '/',
     routerHistory = createMemoryHistory({ initialEntries: [route] }),
-    store = configureStore(initialState, history),
+    store = configureStore(initialState),
     i18n = i18nInstance,
   }: RenderProvidersOptions = {},
 ): RenderProvidersResult => ({

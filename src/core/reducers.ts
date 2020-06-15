@@ -1,15 +1,10 @@
 import { combineReducers, Reducer } from 'redux';
-import { connectRouter } from 'connected-react-router';
-
-import history from './utils/history';
 
 interface InjectedReducers {
   [key: string]: Reducer;
 }
 
-const staticReducers = {
-  router: connectRouter(history),
-};
+const staticReducers = {};
 
 const createReducer = (injectedReducers: InjectedReducers = {}): Reducer => {
   const rootReducer = combineReducers({

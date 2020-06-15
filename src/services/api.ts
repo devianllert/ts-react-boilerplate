@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import history from '../utils/history';
+import history from '../core/history';
 
 import createAuthRefreshInterceptor from './interceptors';
 
