@@ -20,7 +20,7 @@ interface Props {
   children: ReactNode;
 }
 
-const ThemeProvider = ({ children }: Props): ReactElement => {
+const AuthProvider = ({ children }: Props): ReactElement => {
   const [hasAuth, setHasAuth] = useState(isAuthenticated);
 
   const handleLogin = async (payload: UserLoginDTO): Promise<void> => {
@@ -53,4 +53,4 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
   );
 };
 
-export default ThemeProvider;
+export default AuthProvider;
