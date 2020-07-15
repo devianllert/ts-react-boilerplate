@@ -24,6 +24,9 @@
     "jest-dom"
   ],
   "rules": {
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
     "linebreak-style": "off",
     "max-len": [
       "error",

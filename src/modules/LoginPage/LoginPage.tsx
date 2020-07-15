@@ -30,7 +30,7 @@ const LoginValidationSchema = Yup.object().shape({
 const LoginPage = (): ReactElement => {
   const { t } = useTranslation();
   const { login } = useAuth();
-  const { replace, location } = useRouter();
+  const { replace, location } = useRouter<{}, {}, { from?: string }>();
   const from = location.state?.from ?? '/';
 
   const handleLogin = async (data: UserLoginDTO, actions: FormikHelpers<UserLoginDTO>): Promise<void> => {
