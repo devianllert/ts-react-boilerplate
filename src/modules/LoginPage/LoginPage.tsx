@@ -102,7 +102,7 @@ const LoginPage = (): ReactElement => {
           error={touched.password && !!errors.password}
           margin="dense"
           label="Password"
-          name="password"
+          name="current-password"
           helperText={(touched.password && errors.password && t(errors.password)) ?? ' '}
           placeholder={t('PASSWORD_PLACEHOLDER')}
           startAdornment={(

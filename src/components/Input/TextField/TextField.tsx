@@ -60,7 +60,6 @@ const TextField = (props: Props): ReactElement => {
     setFocused(false);
   };
 
-
   const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
   const inputLabelId = label && id ? `${id}-label` : undefined;
 

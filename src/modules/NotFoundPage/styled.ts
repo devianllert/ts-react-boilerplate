@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { ReactComponent as NotFoundLogo } from './not_found.svg';
 
-
 export const NotFoundSVG = styled(NotFoundLogo)`
   width: 100%;
   max-height: 320px;

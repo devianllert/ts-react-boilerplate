@@ -157,7 +157,6 @@ export const getLuminance = (color: string): number => {
   return Number((0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]).toFixed(3));
 };
 
-
 /**
  * Calculates the contrast ratio between two colors.
  *

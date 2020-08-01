@@ -10,6 +10,7 @@ export interface AuthContextValue {
   logout: () => Promise<void>;
 }
 
+// TODO: fix default value
 const AuthContext = createContext<AuthContextValue>({
   isAuthenticated: false,
   login: (payload: UserLoginDTO) => new Promise(() => {}),

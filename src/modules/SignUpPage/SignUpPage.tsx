@@ -17,7 +17,6 @@ import TextField from '../../components/Input/TextField';
 import TextFieldPassword from '../../components/Input/TextFieldPassword';
 import InputAdornment from '../../components/Input/InputAdornment';
 
-
 import * as S from './styled';
 
 const SignupValidationSchema = Yup.object().shape({
@@ -124,7 +123,7 @@ const SignUpPage = (): ReactElement => {
           error={touched.password && !!errors.password}
           margin="dense"
           label="Password"
-          name="password"
+          name="new-password"
           helperText={(touched.password && errors.password && t(errors.password)) ?? ' '}
           placeholder={t('PASSWORD_PLACEHOLDER')}
           startAdornment={(

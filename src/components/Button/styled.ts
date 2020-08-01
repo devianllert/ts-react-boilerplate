@@ -14,7 +14,6 @@ import { createTransition, duration } from '../../design/transitions';
 import { shape } from '../../design/shape';
 import { shadows } from '../../design/shadows';
 
-
 interface BaseButtonProps {
   disabled?: boolean;
   loading?: boolean;

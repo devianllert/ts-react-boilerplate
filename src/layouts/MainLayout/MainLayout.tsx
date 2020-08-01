@@ -1,5 +1,7 @@
 import React, { ReactNode, ReactElement } from 'react';
 
+import * as S from './styled';
+
 interface Props {
   children: ReactNode;
 }
@@ -7,7 +9,7 @@ interface Props {
 const MainLayout = (props: Props): ReactElement => {
   const { children } = props;
 
-  return <>{children}</>;
+  return <S.Main>{children}</S.Main>;
 };
 
 export default MainLayout;

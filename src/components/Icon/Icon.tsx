@@ -9,7 +9,6 @@ interface Props {
   className?: string;
 }
 
-
 const Icon = (props: Props): ReactElement => {
   const {
     children,
