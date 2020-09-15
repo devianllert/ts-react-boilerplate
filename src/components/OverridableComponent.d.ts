@@ -1,22 +1,17 @@
-export interface ComponentProp<C extends React.ElementType> {
-  /**
-   * The component used for the root node.
-   * Either a string to use a DOM element or a component.
-   */
-  component?: C;
-}
-
-/**
- * Props of the component if `component={Component}` is used.
- */
 export type OverrideProps<
-  C extends React.ElementType,
-  P = {},
+  C extends ElementType,
+  P = {}
 > = (
   & P
-  & React.ComponentPropsWithRef<C>
+  & Omit<ComponentPropsWithRef<C>, keyof P>
 );
 
 export interface OverridableComponent<P = {}> {
-  <C extends React.ElementType>(props: ComponentProp<C> & OverrideProps<C, P>): JSX.Element;
+  <C extends ElementType>(props: {
+    /**
+     * The component used for the root node.
+     * Either a string to use a HTML element or a component.
+     */
+    component?: C;
+  } & OverrideProps<C, P>): JSX.Element;
 }

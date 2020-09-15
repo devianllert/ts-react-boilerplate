@@ -25,7 +25,7 @@ type TypoVariant =
 
 type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
-interface Props extends HTMLAttributes<ElementType> {
+export interface TypographyProps extends HTMLAttributes<ElementType> {
   /**
    * The content of the button.
    */
@@ -82,7 +82,7 @@ const defaultVariantMapping: Record<TypoVariant, ElementType> = {
   body2: 'p',
 };
 
-const Typography: OverridableComponent<Props> = (props) => {
+const Typography: OverridableComponent<TypographyProps> = (props) => {
   const {
     children,
     align = 'inherit',
