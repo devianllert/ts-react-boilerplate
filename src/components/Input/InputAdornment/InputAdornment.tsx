@@ -8,7 +8,7 @@ import Typography from '../../Typography';
 
 import * as S from './styled';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface InputAdornmentProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The content of the component, normally an `IconButton` or string.
    */
@@ -32,7 +32,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   variant?: 'standard' | 'outlined' | 'filled';
 }
 
-const InputAdornment = (props: Props): ReactElement => {
+const InputAdornment = (props: InputAdornmentProps): ReactElement => {
   const {
     children,
     className,

@@ -6,7 +6,7 @@ import React, {
 
 import * as S from './styled';
 
-interface Props extends HTMLAttributes<HTMLParagraphElement> {
+interface InputHelperTextProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * The content of the component.
    */
@@ -33,7 +33,7 @@ interface Props extends HTMLAttributes<HTMLParagraphElement> {
   required?: boolean;
 }
 
-const InputHelperText = (props: Props): ReactElement => {
+const InputHelperText = (props: InputHelperTextProps): ReactElement => {
   const {
     children,
     className,

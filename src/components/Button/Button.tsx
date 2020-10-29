@@ -4,7 +4,7 @@ import { CircularProgress } from 'react-essential-tools';
 
 import * as S from './styled';
 
-interface Props extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   /**
    * The content of the button.
    */
@@ -50,7 +50,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const Button = (props: Props): ReactElement => {
+const Button = (props: ButtonProps): ReactElement => {
   const {
     children,
     to,

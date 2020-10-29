@@ -1,15 +1,33 @@
 import React, { ReactNode, ReactElement } from 'react';
 
+import Drawer from '../../components/Drawer';
+
 import * as S from './styled';
 
-interface Props {
+interface MainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout = (props: Props): ReactElement => {
+const MainLayout = (props: MainLayoutProps): ReactElement => {
   const { children } = props;
 
-  return <S.Main>{children}</S.Main>;
+  const [open, setOpened] = React.useState(true);
+
+  const handleClose = (): void => {
+    setOpened(false);
+  };
+
+  return (
+    <S.Main>
+      <Drawer
+        variant="persistent"
+        isOpen={open}
+        onClose={handleClose}
+      />
+
+      {children}
+    </S.Main>
+  );
 };
 
 export default MainLayout;

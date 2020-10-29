@@ -1,10 +1,23 @@
 import React, { ReactElement } from 'react';
+// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
+import { Story, Meta } from '@storybook/react/types-6-0.d';
 
-import Typography from '../Typography';
+import Typography, { TypographyProps } from '../Typography';
 
 export default {
   title: 'Components/Typography',
   component: Typography,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as Meta;
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: Story<TypographyProps> = (args) => <Typography {...args} />;
+
+export const Basic = Template.bind({});
+Basic.args = {
+  children: 'Typography',
 };
 
 export const Heading = (): ReactElement => (

@@ -2,14 +2,14 @@ import React, { cloneElement, ReactElement } from 'react';
 
 import * as S from './styled';
 
-interface Props {
+interface IconProps {
   children: ReactElement;
   size?: number;
   fill?: string;
   className?: string;
 }
 
-const Icon = (props: Props): ReactElement => {
+const Icon = (props: IconProps): ReactElement => {
   const {
     children,
     size = 16,

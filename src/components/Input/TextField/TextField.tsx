@@ -13,15 +13,13 @@ import InputHelperText from '../InputHelperText';
 
 import * as S from './styled';
 
-interface TextFieldProps {
+interface TextFieldProps extends ComponentProps<typeof InputBase> {
   label?: ReactNode;
   helperText?: ReactNode;
   margin?: 'none' | 'dense' | 'normal';
 }
 
-type Props = TextFieldProps & ComponentProps<typeof InputBase>;
-
-const TextField = (props: Props): ReactElement => {
+const TextField = (props: TextFieldProps): ReactElement => {
   const {
     label,
     helperText,

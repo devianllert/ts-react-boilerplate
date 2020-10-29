@@ -6,11 +6,11 @@ import checkPrefersDarkMode from '../../utils/checkPrefersDarkMode';
 
 import ThemeContext from './ThemeContext';
 
-interface Props {
+interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const ThemeProvider = ({ children }: Props): ReactElement => {
+const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement => {
   const preferMode = checkPrefersDarkMode() ? 'dark' : 'light';
 
   const [mode, setMode] = useLocalStorage('mode', preferMode);

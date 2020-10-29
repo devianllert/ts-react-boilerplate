@@ -16,7 +16,7 @@ import { MdPerson } from 'react-icons/md';
 
 import * as S from './styled';
 
-interface Props extends HTMLAttributes<ElementType> {
+interface AvatarProps extends HTMLAttributes<ElementType> {
   /**
    * Used in combination with `src` or `srcSet` to
    * provide an alt attribute for the rendered `img` element.
@@ -98,7 +98,7 @@ const useLoaded = (src?: string, srcSet?: string): boolean | string => {
   return loaded;
 };
 
-const Avatar = (props: Props): ReactElement => {
+const Avatar = (props: AvatarProps): ReactElement => {
   const {
     alt,
     children,

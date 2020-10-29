@@ -5,12 +5,14 @@ import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import TextField from '../TextField';
 import InputAdornment from '../InputAdornment';
 
+type TextFieldPasswordProps = ComponentProps<typeof TextField>;
+
 const StyledAdornment = styled.div`
   cursor: pointer;
   user-select: none;
 `;
 
-const TextFieldPassword = (props: ComponentProps<typeof TextField>): ReactElement => {
+const TextFieldPassword = (props: TextFieldPasswordProps): ReactElement => {
   const [type, setType] = useState('password');
 
   const IconComponent = type === 'password' ? MdVisibilityOff : MdVisibility;

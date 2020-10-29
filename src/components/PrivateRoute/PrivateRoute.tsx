@@ -1,13 +1,13 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
-interface Props extends RouteProps {
+interface PrivateRouteProps extends RouteProps {
   enabled?: boolean;
   redirect?: string;
   children: ReactNode;
 }
 
-const PrivateRoute = (props: Props): ReactElement => {
+const PrivateRoute = (props: PrivateRouteProps): ReactElement => {
   const {
     enabled = false,
     redirect = '/login',

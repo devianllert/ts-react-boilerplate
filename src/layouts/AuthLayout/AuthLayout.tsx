@@ -10,11 +10,11 @@ import Footer from './Footer';
 import * as S from './styled';
 import Grid from '../../components/Grid';
 
-interface Props {
+interface AuthLayoutProps {
   children: ReactNode;
 }
 
-const AuthLayout = (props: Props): ReactElement => {
+const AuthLayout = (props: AuthLayoutProps): ReactElement => {
   const { children } = props;
 
   return (

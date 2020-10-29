@@ -39,7 +39,12 @@ const LoginPage = (): ReactElement => {
 
       replace(from);
     } catch (error) {
-      actions.setStatus(error.response.data.message);
+      if (error.response) {
+        actions.setStatus(error.response.data.message);
+      } else {
+        actions.setStatus('Something went wrong');
+      }
+
       actions.setSubmitting(false);
     }
   };
@@ -102,7 +107,7 @@ const LoginPage = (): ReactElement => {
           error={touched.password && !!errors.password}
           margin="dense"
           label="Password"
-          name="current-password"
+          name="password"
           helperText={(touched.password && errors.password && t(errors.password)) ?? ' '}
           placeholder={t('PASSWORD_PLACEHOLDER')}
           startAdornment={(

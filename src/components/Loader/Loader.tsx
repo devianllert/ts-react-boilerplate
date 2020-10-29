@@ -3,11 +3,11 @@ import { CircularProgress } from 'react-essential-tools';
 
 import { Overlay } from './styled';
 
-interface Props {
+interface LoaderProps {
   fullscreen?: boolean;
 }
 
-const Loader = ({ fullscreen }: Props): ReactElement => (
+const Loader = ({ fullscreen }: LoaderProps): ReactElement => (
   <Overlay fullscreen={fullscreen}>
     <CircularProgress />
   </Overlay>

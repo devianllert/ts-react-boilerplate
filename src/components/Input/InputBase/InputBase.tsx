@@ -2,7 +2,7 @@ import React, { ReactElement, InputHTMLAttributes } from 'react';
 
 import * as S from './styled';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface InputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * This prop helps users to fill forms faster, especially on mobile devices.
    * The name can be confusing, as it's more like an autofill.
@@ -62,7 +62,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   startAdornment?: React.ReactNode;
 }
 
-const InputBase = (props: Props): ReactElement => {
+const InputBase = (props: InputBaseProps): ReactElement => {
   const {
     'aria-describedby': ariaDescribedby,
     autoComplete,

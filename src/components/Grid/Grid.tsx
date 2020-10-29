@@ -11,7 +11,7 @@ import {
 
 import * as S from './styled';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface GridProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The content
    */
@@ -83,7 +83,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   mobile?: boolean | 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 }
 
-const Grid = (props: Props): ReactElement => {
+const Grid = (props: GridProps): ReactElement => {
   const {
     children,
     alignContent = 'stretch',

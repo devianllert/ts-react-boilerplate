@@ -6,7 +6,7 @@ import React, {
 
 import * as S from './styled';
 
-interface Props extends LabelHTMLAttributes<HTMLLabelElement> {
+interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The content of the component.
    */
@@ -33,7 +33,7 @@ interface Props extends LabelHTMLAttributes<HTMLLabelElement> {
   required?: boolean;
 }
 
-const InputLabel = (props: Props): ReactElement => {
+const InputLabel = (props: InputLabelProps): ReactElement => {
   const {
     children,
     className,

@@ -16,11 +16,11 @@ import {
 
 import AuthContext, { AuthContextValue } from './AuthContext';
 
-interface Props {
+interface AuthProviderProps {
   children: ReactNode;
 }
 
-const AuthProvider = ({ children }: Props): ReactElement => {
+const AuthProvider = ({ children }: AuthProviderProps): ReactElement => {
   const [hasAuth, setHasAuth] = useState(isAuthenticated);
 
   const handleLogin = async (payload: UserLoginDTO): Promise<void> => {

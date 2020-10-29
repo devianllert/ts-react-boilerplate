@@ -5,7 +5,7 @@ import { Breakpoint } from '../../design/media';
 import HiddenJs from './HiddenJs';
 import HiddenCss from './HiddenCss';
 
-interface Props {
+interface HiddenProps {
   /**
    * The content.
    */
@@ -40,7 +40,7 @@ interface Props {
 /**
  * Responsively hides children based on the selected implementation.
  */
-const Hidden = (props: Props): ReactElement => {
+const Hidden = (props: HiddenProps): ReactElement => {
   const {
     children,
     constraint = 'down',
