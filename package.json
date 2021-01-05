@@ -27,7 +27,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "formik": "^2.1.5",
     "history": "^4.10.1",
     "i18next": "^19.7.0",
